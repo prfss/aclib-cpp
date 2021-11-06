@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "lib",
+    hdrs = glob(
+        ["**/*.hpp"],
+    ),
+    visibility = ["//test:__pkg__"],
+    # deps = ["@ac-library//:main"],
+)
