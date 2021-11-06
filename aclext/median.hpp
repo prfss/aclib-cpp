@@ -37,7 +37,7 @@ public:
         if (k == 0) {
             return op(0, 0, 0);
         } else if (k % 2 == 1) {
-            return op(k, *pre.begin(), 0);
+            return op(k, *pre.begin(), *pre.begin());
         } else {
             return op(k, *pre.begin(), *suf.begin());
         }

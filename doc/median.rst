@@ -13,7 +13,7 @@ Median
 
    x =
    \begin{cases}
-   不定値 & (k = 0) \\
+   0 & (k = 0) \\
    \frac{k+1}{2}番目の値 & (kが奇数) \\
    \frac{k}{2}番目の値 & (kが偶数)
    \end{cases}
@@ -22,7 +22,8 @@ Median
 
    y =
    \begin{cases}
-   不定値 & (k = 0もしくはkが奇数) \\
+   0 & (k = 0) \\
+   \frac{k+1}{2}番目の値 & (kが奇数) \\
    \frac{k}{2}+1番目の値 & (kが偶数)
    \end{cases}
 
