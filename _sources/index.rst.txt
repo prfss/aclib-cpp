@@ -1,0 +1,24 @@
+acl-ext
+########
+AtCoderの問題で要求される/されるかもしれないアルゴリズムを提供するライブラリです. `AtCoder Library <https://github.com/atcoder/ac-library>`_ を補完するべく書かれています.
+
+特徴
+*****
+- 基本的には ``namespace aclext {...}`` の部分をコピペ(+適宜改造)して使う感じです
+- STL,ACLのヘッダーのインクルードが必要です
+- ``using namespace std`` が必要です
+- ACLとは異なり ``<atcoder/modint>`` との併用を前提としています
+
+アルゴリズム
+*************
+.. toctree::
+   :maxdepth: 1
+
+   bwt
+   combination
+   lca
+   matrix
+   median
+   number_theory
+   rerooting
+   sieve
