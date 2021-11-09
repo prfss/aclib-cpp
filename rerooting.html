@@ -88,7 +88,7 @@
   <div class="section" id="rerooting">
 <h1>Rerooting<a class="headerlink" href="#rerooting" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>全方位木DPのためのクラスです</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Rerooting</span><span class="o">&lt;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">typename</span> <span class="n">S</span><span class="p">,</span>
     <span class="k">typename</span> <span class="n">M</span><span class="p">,</span>
     <span class="k">typename</span> <span class="n">R</span><span class="p">,</span>
@@ -98,6 +98,7 @@
     <span class="n">M</span> <span class="p">(</span><span class="o">*</span><span class="n">em</span><span class="p">)(),</span>
     <span class="n">R</span> <span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">)(</span><span class="n">M</span><span class="p">,</span><span class="kt">int</span><span class="p">),</span>
     <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">subtree</span><span class="p">)(</span><span class="n">M</span><span class="p">,</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span>
+   <span class="n">Rerooting</span>
 </pre></div>
 </div>
 <p><span class="math notranslate nohighlight">\(\text{S}\)</span> は部分木が親に返す値の型, <span class="math notranslate nohighlight">\(\text{M}\)</span> はマージを表現する型, <span class="math notranslate nohighlight">\(\text{R}\)</span> は解の型, <span class="math notranslate nohighlight">\(\text{C}\)</span> はコストの型です.</p>

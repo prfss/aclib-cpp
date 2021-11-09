@@ -4,7 +4,7 @@ Combination
 
 .. code-block:: cpp
 
- Comb<ll m>
+ template <ll m> Comb
 
 計算にあたって :math:`\bmod m` を取ります.
 

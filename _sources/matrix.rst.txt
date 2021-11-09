@@ -6,7 +6,7 @@ Matrix
 
 .. code-block:: cpp
 
- Matrix<typename T>
+ template <typename T> Matrix
 
 :math:`T` は要素の型です.
 
