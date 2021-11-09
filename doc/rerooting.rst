@@ -5,7 +5,7 @@ Rerooting
 
 .. code-block:: cpp
 
- Rerooting<
+ template <
      typename S,
      typename M,
      typename R,
@@ -15,6 +15,7 @@ Rerooting
      M (*em)(),
      R (*result)(M,int),
      S (*subtree)(M,int)>
+    Rerooting
 
 :math:`\text{S}` は部分木が親に返す値の型, :math:`\text{M}` はマージを表現する型, :math:`\text{R}` は解の型, :math:`\text{C}` はコストの型です.
 

@@ -5,7 +5,7 @@ Median
 
 .. code-block:: cpp
 
- Median<typename A, typename B, (*op)(int, A, A)>
+ template <typename A, typename B, B (*op)(int, A, A)> Median
 
 中央値は要素数を :math:`k` とするとき, :math:`\text{op}(k,x,y)` で定義します. ただし
 
