@@ -15,5 +15,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: test
-        run: bazelisk test //test:test_all
+        run: bazelisk test --test_output=all //test:test_all
       
