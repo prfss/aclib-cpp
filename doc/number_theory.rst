@@ -7,7 +7,7 @@ divisor
 *******
 .. code-block:: cpp
 
-  vector<int> divisor(int n)
+  vector<ll> divisor(ll n)
 
 :math:`n` の約数を返します.
 
@@ -15,7 +15,7 @@ is_prime
 ********
 .. code-block:: cpp
 
-  bool is_prime(int n)
+  bool is_prime(ll n)
 
 :math:`n` が素数であるかどうか判定します.
 
@@ -23,7 +23,7 @@ prime_factor
 ************
 .. code-block:: cpp
 
-  map<int,int> prime_factor(int n)
+  map<ll,int> prime_factor(ll n)
 
 :math:`n` の素因数分解を返します.
 

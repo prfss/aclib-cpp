@@ -6,8 +6,8 @@
 using namespace std;
 
 namespace aclext {
-vector<int> divisor(int n) {
-    vector<int> ret;
+vector<long long> divisor(long long n) {
+    vector<long long> ret;
     for (long long i = 1; i * i <= n; i++) {
         if (n % i == 0) {
             ret.push_back(int(i));
@@ -17,8 +17,8 @@ vector<int> divisor(int n) {
     return ret;
 }
 
-map<int, int> prime_factor(int n) {
-    map<int, int> res;
+map<long long, int> prime_factor(long long n) {
+    map<long long, int> res;
     for (long long i = 2; i * i <= n; i++) {
         if (n % i == 0) {
             res[i]++;
@@ -30,7 +30,7 @@ map<int, int> prime_factor(int n) {
     return res;
 }
 
-bool is_prime(int n) {
+bool is_prime(long long n) {
     if (n == 1) return false;
     for (long long i = 2; i * i <= n; i++) {
         if (n % i == 0) {
