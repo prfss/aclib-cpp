@@ -2,18 +2,20 @@
 
 #include "atcoder/segtree"
 #include <cassert>
+#include <functional>
 #include <vector>
 
 using namespace std;
 
 namespace aclext {
-namespace lca_inner {
+using P = pair<int, int>;
+namespace lca {
     const int MAX_N = 100'000'000;
-    pair<int, int> min(pair<int, int> x, pair<int, int> y) {
+    P min(P x, P y) {
         return std::min(x, y);
     }
 
-    pair<int, int> empty() {
+    P empty() {
         return { MAX_N, 0 };
     }
 }
@@ -25,7 +27,7 @@ class Lca {
     bool ok = true;
     vector<vector<int>> g;
 
-    atcoder::segtree<pair<int, int>, lca_inner::min, lca_inner::empty> st;
+    atcoder::segtree<P, lca::min, lca::empty> st;
 
     void dfs(int u, int p, int d) {
         vis.push_back(u);
@@ -59,7 +61,7 @@ class Lca {
             }
         }
 
-        vector<pair<int, int>> l;
+        vector<P> l;
         for (size_t i = 0; i < vis.size(); i++) {
             l.emplace_back(depth[i], vis[i]);
         }
@@ -72,7 +74,7 @@ class Lca {
 public:
     Lca(int n)
         : n(n), id(n), is_root(n, true), g(n) {
-        assert(1 <= n and n <= lca_inner::MAX_N);
+        assert(1 <= n and n <= lca::MAX_N);
     }
 
     int operator()(int u, int v) {
