@@ -3,6 +3,8 @@ Rerooting
 
 全方位木DPのためのクラスです
 
+:doc:`rerooting_verification`
+
 .. code-block:: cpp
 
  template <
@@ -17,7 +19,7 @@ Rerooting
      S (*subtree)(M,int)>
     Rerooting
 
-:math:`\text{S}` は部分木が親に返す値の型, :math:`\text{M}` はマージを表現する型, :math:`\text{R}` は解の型, :math:`\text{C}` はコストの型です.
+``S`` は部分木が親に返す値の型, ``M`` はマージを表現する型, ``R`` は解の型, ``C`` はコストの型です.
 
 :math:`u` を根とした時の解は
 
@@ -75,11 +77,11 @@ add_edge
 
  void add_edge(int u, int v, C c = {})
 
-節点 :math:`u` と :math:`v` の間にコスト :math:`c` の枝を張ります.
+節点 ``u`` と ``v`` の間にコスト ``c`` の枝を張ります.
 
 制約
 -----
-- :math:`0 \le u,v < n`
+* :math:`0 \le u,v < n`
 
 calc
 ====

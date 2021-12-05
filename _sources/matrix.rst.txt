@@ -8,7 +8,7 @@ Matrix
 
  template <typename T> Matrix
 
-:math:`T` は要素の型です.
+:``T`` は要素の型です.
 
 メンバ
 ******

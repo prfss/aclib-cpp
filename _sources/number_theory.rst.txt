@@ -1,4 +1,4 @@
-Number_theory
+Number Theory
 #############
 
 初等整数論関連の関数を提供します
