@@ -17,7 +17,7 @@ Sieve
 
   sieve(int n)
 
-:math:`n` 以下の素数を計算し, 結果をプロパティ `is_prime`, `primes` に格納します.
+:math:`n` 以下の素数を計算し, 結果をプロパティ ``is_prime``, ``primes`` に格納します.
 
 制約
 -----

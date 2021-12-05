@@ -17,10 +17,10 @@ Combination
 
  comb(int n)
 
-:math:`x` の最大値を :math:`n` とます.
+:math:`x` の最大値を :math:`n` とします.
 
 operator()
-===========
+==========
 .. code-block:: cpp
 
  ll operator()(int x, int y)
@@ -28,5 +28,5 @@ operator()
 :math:`{}_x C_y` を :math:`m` で割った余りを返します.
 
 制約
------
+----
 * :math:`0 \le y \le x \le n`
