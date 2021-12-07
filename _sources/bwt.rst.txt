@@ -10,10 +10,10 @@ bwt
  string bwt(const string &s, const vector<int> &sa) // (1)
  string bwt(const string &s) // (2)
 
-1. 文字列 :math:`s` とその接尾辞配列 :math:`sa` からBurrows-Wheeler変換を計算して返します.
-2. 文字列 :math:`s` からBurrows-Wheeler変換を計算して返します.
+1. 文字列 ``s`` とその接尾辞配列 ``sa`` からBurrows-Wheeler変換を計算して返します.
+2. 文字列 ``s`` からBurrows-Wheeler変換を計算して返します.
 
 制約
 ====
-1. :math:`sa` は :math:`s` の接尾辞配列(AtCoder Libraryと同仕様)
+1. ``sa`` は ``s`` の接尾辞配列(AtCoder Libraryと同仕様)
 

@@ -8,7 +8,7 @@ AtCoderの問題で要求される/されるかもしれないアルゴリズム
 - STL,ACLのヘッダーのインクルードが必要です
 - ``using namespace std`` が必要です
 - ACLとは異なり ``<atcoder/modint>`` との併用を前提としています
-- `long long` はドキュメントでは便宜上 `ll` と書かれていますが, コード中では `long long` と書いています
+- ``long long`` はドキュメントでは便宜上 ``ll`` と書かれていますが, コード中では ``long long`` と書いています
 
 アルゴリズム
 *************
@@ -21,6 +21,7 @@ AtCoderの問題で要求される/されるかもしれないアルゴリズム
    li_chao_tree
    matrix
    median
+   monotonic_convex_hull_trick
    number_theory
    rerooting
    sieve   

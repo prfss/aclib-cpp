@@ -14,7 +14,7 @@ Li-Chao tree を実装したクラスです
 - 関数の追加
 - ある :math:`x` と全ての :math:`1 \le j \le n` に対し, :math:`\text{compare}(f_i(x),f_j(x)) \lor f_i(x) = f_j(x)` を満たす :math:`f_i(x)` の取得
 
-後者について特に ``compare`` が ``std::less`` の場合は最小値を, ``std::greater`` の場合は最大値を得ることになります.
+後者について特に ``compare`` が ``std::less`` の場合は最小値を, ``std::greater`` の場合は最大値を得ることができます.
 
 制約
 ****
