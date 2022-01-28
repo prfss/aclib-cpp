@@ -54,48 +54,48 @@ TEST(RerootingTest, LongestPath) {
     EXPECT_EQ(ans, g.calc());
 }
 
-namespace ABC223F {
-vector<long long> d;
+namespace subtree_max {
+using S = int;
+using M = pair<int, int>;
+using R = int;
+using C = int;
 
-using S = long long;
-using M = long long;
-using R = long long;
-using C = long long;
-M e() {
-    return 0;
+M merge(M a, M b, int u) {
+    return make_pair(a.first + b.first, max(a.second, b.second));
 }
 
-M merge(M a, M b, int i) {
-    return max(a, b);
+M introduce(M m, S s, C c, int u, int v) {
+    return make_pair(m.first + s, max(m.second, s));
 }
 
-M introduce(M a, S b, C c, int u, int v) {
-    return max(a, b + c);
+M em() {
+    return make_pair(0, 0);
 }
 
-S subtree(M r, int u) {
-    return max(r, d[u]);
+R result(M m, int u) {
+    return m.second;
 }
 
-R result(S r, int u) {
-    return r;
+S subtree(M m, int u) {
+    return m.first + 1;
 }
 
-using dp = aclext::Rerooting<S, M, R, C, merge, introduce, e, result, subtree>;
-
+using dp = aclext::Rerooting<S, M, R, C, merge, introduce, em, result, subtree>;
 }
 
-TEST(RerootingTest, ABC223F) {
-    ABC223F::d = { 9, 2, 6, 5, 3, 100 };
+TEST(RerootingTest, SubtreeMax) {
+    subtree_max::dp dp(10);
+    dp.add_edge(0, 1);
+    dp.add_edge(0, 2);
+    dp.add_edge(1, 3);
+    dp.add_edge(1, 4);
+    dp.add_edge(2, 7);
+    dp.add_edge(2, 8);
+    dp.add_edge(2, 9);
+    dp.add_edge(4, 5);
+    dp.add_edge(4, 6);
 
-    ABC223F::dp g(6);
-    g.add_edge(0, 1, 3);
-    g.add_edge(0, 2, 1);
-    g.add_edge(0, 3, 4);
-    g.add_edge(0, 4, 1);
-    g.add_edge(0, 5, 5);
+    auto ans = vector({ 5, 5, 6, 9, 7, 9, 9, 9, 9, 9 });
 
-    vector<long long> ans = { 105, 108, 106, 109, 106, 14 };
-
-    EXPECT_EQ(ans, g.calc());
+    EXPECT_EQ(ans, dp.calc());
 }
