@@ -5,7 +5,11 @@
 using namespace aclext;
 
 using mint = atcoder::modint1000000007;
-using Mat = Matrix<mint>;
+mint add(mint a, mint b) { return a + b; }
+mint mul(mint a, mint b) { return a * b; }
+mint zero() { return 0; }
+mint one() { return 1; }
+using Mat = Matrix<mint, add, mul, zero, one>;
 
 TEST(MatrixTest, Fibonacci) {
     function<int(int)> fib = [&](int n) {
