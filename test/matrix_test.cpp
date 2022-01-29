@@ -5,6 +5,7 @@
 using namespace aclext;
 
 using mint = atcoder::modint1000000007;
+
 mint add(mint a, mint b) { return a + b; }
 mint mul(mint a, mint b) { return a * b; }
 mint zero() { return 0; }
@@ -30,4 +31,18 @@ TEST(MatrixTest, Fibonacci) {
     EXPECT_EQ(fib(5), 5);
     EXPECT_EQ(fib(6), 8);
     EXPECT_EQ(fib(100), 687995182);
+}
+
+using MatSub = Matrix<mint, add, mul, zero, one, true>;
+TEST(MatrixTest, WithSubtraction) {
+    MatSub a({ { 1, 2, 3, 4 }, { 5, 6, 7, 8 } });
+
+    MatSub zero24 = MatSub(2, 4);
+
+    MatSub b({ { 1, 2 }, { 3, 4 } });
+
+    MatSub zero22 = MatSub(2, 2);
+
+    EXPECT_EQ(a - a, zero24);
+    EXPECT_EQ(b * b - b * b, zero22);
 }
