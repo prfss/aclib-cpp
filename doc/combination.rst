@@ -1,12 +1,16 @@
 Combination
 ###########
-組合せの数 :math:`{}_x C_y` を計算するためのクラスです
+組合せの総数 :math:`\binom{x}{y}` を計算するためのクラスです
 
 .. code-block:: cpp
 
- template <ll m> Comb
+ template <int m> Comb
 
 計算にあたって :math:`\bmod m` を取ります.
+
+制約
+****
+- :math:`m` は素数
 
 メンバ
 ******
@@ -25,7 +29,7 @@ operator()
 
  ll operator()(int x, int y)
 
-:math:`{}_x C_y` を :math:`m` で割った余りを返します.
+:math:`\binom{x}{y}` を :math:`m` で割った余りを返します.
 
 制約
 ----

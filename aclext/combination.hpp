@@ -7,7 +7,7 @@
 using namespace std;
 
 namespace aclext {
-template <long long mod>
+template <int mod>
 struct Comb {
     int n;
     vector<long long> fact, inv;
