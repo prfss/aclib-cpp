@@ -7,7 +7,7 @@ Li-Chao tree を実装したクラスです
 
 .. code-block:: cpp
 
- template <typename X, typename Y, typename F, typename compare = std::less<Y>> LiCharTree
+ template <typename X, typename Y, typename F, typename compare = std::less<Y>> LiChaoTree
 
 関数の集合 :math:`L = \{f_1,f_2,...,f_n\}` に対して, 次の2つの処理を行うことができます.
 
