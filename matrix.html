@@ -53,6 +53,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#row-vector">row_vector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#column-vector">column_vector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#map">map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transpose">transpose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operator">operator+</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id5">operator-</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id6">operator*</a></li>
@@ -96,6 +97,7 @@
   <div class="section" id="matrix">
 <h1>Matrix<a class="headerlink" href="#matrix" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>和・差・積・累乗などの演算を備えた行列クラスです</p>
+<p><a class="reference internal" href="matrix_verification.html"><span class="doc">Verification</span></a></p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">(</span><span class="o">*</span><span class="n">add</span><span class="p">)(</span><span class="n">T</span><span class="p">,</span><span class="n">T</span><span class="p">),</span> <span class="n">T</span><span class="p">(</span><span class="o">*</span><span class="n">mul</span><span class="p">)(</span><span class="n">T</span><span class="p">,</span><span class="n">T</span><span class="p">),</span> <span class="n">T</span><span class="p">(</span><span class="o">*</span><span class="n">zero</span><span class="p">)(),</span> <span class="n">T</span><span class="p">(</span><span class="o">*</span><span class="n">one</span><span class="p">)(),</span> <span class="kt">bool</span> <span class="n">has_subtraction</span> <span class="o">=</span> <span class="nb">false</span><span class="o">&gt;</span> <span class="n">Matrix</span>
 </pre></div>
 </div>
@@ -137,9 +139,9 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="n">Matrix</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">identity</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>次数 <span class="math notranslate nohighlight">\(n\)</span> の単位行列, すなわち</p>
+<p><span class="math notranslate nohighlight">\(n\)</span> 次の単位行列 <span class="math notranslate nohighlight">\(I_n\)</span> , すなわち</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}r[i][j] =
+\[\begin{split}(I_n)_{ij} =
 \begin{cases}
 \text{one}() &amp; (i = j) \\
 \text{zero}() &amp; (それ以外) \\
@@ -161,6 +163,12 @@
 <div class="section" id="map">
 <h3>map<a class="headerlink" href="#map" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span> <span class="n">map</span><span class="p">(</span><span class="n">function</span><span class="o">&lt;</span><span class="n">T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">)</span> <span class="k">const</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transpose">
+<h3>transpose<a class="headerlink" href="#transpose" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span> <span class="n">transpose</span><span class="p">()</span> <span class="k">const</span>
 </pre></div>
 </div>
 </div>
@@ -203,7 +211,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, sash0.</p>
+    <p></p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

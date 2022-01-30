@@ -4,6 +4,8 @@ Matrix
 
 和・差・積・累乗などの演算を備えた行列クラスです
 
+:doc:`matrix_verification`
+
 .. code-block:: cpp
 
  template <typename T, T(*add)(T,T), T(*mul)(T,T), T(*zero)(), T(*one)(), bool has_subtraction = false> Matrix
@@ -41,11 +43,11 @@ identity
 
  static Matrix<T> identity(int n)
 
-次数 :math:`n` の単位行列, すなわち
+:math:`n` 次の単位行列 :math:`I_n` , すなわち
 
 .. math::
 
-   r[i][j] =
+   (I_n)_{ij} =
    \begin{cases}
    \text{one}() & (i = j) \\
    \text{zero}() & (それ以外) \\
@@ -70,6 +72,13 @@ map
 .. code-block:: cpp
 
  Matrix map(function<T(T,int,int)> f) const
+
+transpose
+=========
+.. code-block:: cpp
+
+ Matrix transpose() const
+
 
 operator+
 =========
