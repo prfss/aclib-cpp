@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sieve &mdash; acl-ext  ドキュメント</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Dynamic Segment Tree &mdash; acl-ext  ドキュメント</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,7 +18,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="prev" title="Rerooting" href="rerooting.html" /> 
+    <link rel="next" title="ExtGCD" href="extgcd.html" />
+    <link rel="prev" title="Combination" href="combination.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +40,19 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="bwt.html">Bwt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="combination.html">Combination</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dynamic_segment_tree.html">Dynamic Segment Tree</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dynamic Segment Tree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">メンバ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">コンストラクタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set">set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get">get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prod">prod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#all-prod">all_prod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max-right">max_right</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#min-left">min_left</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="extgcd.html">ExtGCD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kitamasa.html">Kitamasa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lca.html">Lca</a></li>
@@ -50,18 +63,7 @@
 <li class="toctree-l1"><a class="reference internal" href="monotonic_convex_hull_trick.html">Monotonic Convex Hull Trick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="number_theory.html">Number Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rerooting.html">Rerooting</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sieve</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">メンバ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">コンストラクタ</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id3">制約</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#is-prime">is_prime</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#primes">primes</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="sieve.html">Sieve</a></li>
 </ul>
 
         </div>
@@ -78,7 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Sieve</li>
+      <li>Dynamic Segment Tree</li>
       <li class="wy-breadcrumbs-aside">
               <!-- User defined GitHub URL -->
               <a href="https://github.com/prfss/acl-ext" class="fa fa-github"> Edit on GitHub</a>
@@ -89,46 +91,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="sieve">
-<h1>Sieve<a class="headerlink" href="#sieve" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>エラトステネスの篩を実装したクラスです</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Sieve</span>
+  <div class="section" id="dynamic-segment-tree">
+<h1>Dynamic Segment Tree<a class="headerlink" href="#dynamic-segment-tree" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>動的セグメント木を実装したクラスです</p>
+<p><a class="reference internal" href="dynamic_segment_tree_verification.html"><span class="doc">Verification</span></a></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">S</span><span class="p">,</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">op</span><span class="p">)(</span><span class="n">S</span><span class="p">,</span> <span class="n">S</span><span class="p">),</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">e</span><span class="p">)(),</span> <span class="k">typename</span> <span class="n">X</span> <span class="o">=</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">DynamicSegmentTree</span>
 </pre></div>
 </div>
 <div class="section" id="id1">
 <h2>メンバ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id2">
 <h3>コンストラクタ<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sieve</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">DynamicSegmentTree</span><span class="p">(</span><span class="n">X</span> <span class="n">min_x</span><span class="p">,</span> <span class="n">X</span> <span class="n">max_x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><span class="math notranslate nohighlight">\(n\)</span> 以下の素数を計算し, 結果をプロパティ <code class="docutils literal notranslate"><span class="pre">is_prime</span></code>, <code class="docutils literal notranslate"><span class="pre">primes</span></code> に格納します.</p>
-<div class="section" id="id3">
-<h4>制約<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(n\)</span> は非負整数</p></li>
-</ul>
 </div>
+<div class="section" id="set">
+<h3>set<a class="headerlink" href="#set" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
-<div class="section" id="is-prime">
-<h3>is_prime<a class="headerlink" href="#is-prime" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">is_prime</span>
-</pre></div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
-<p>長さ <span class="math notranslate nohighlight">\(n+1\)</span> のブール配列です.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\text{is_prime}[i] =
-\begin{cases}
-    \text{true} &amp; (iが素数) \\
-    \text{false} &amp; (iが素数でない) \\
-\end{cases}\end{split}\]</div>
+<div class="section" id="prod">
+<h3>prod<a class="headerlink" href="#prod" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
-<div class="section" id="primes">
-<h3>primes<a class="headerlink" href="#primes" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">primes</span>
-</pre></div>
+<div class="section" id="all-prod">
+<h3>all_prod<a class="headerlink" href="#all-prod" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
-<p><span class="math notranslate nohighlight">\(n\)</span> 以下の素数のリストです.</p>
+<div class="section" id="max-right">
+<h3>max_right<a class="headerlink" href="#max-right" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="min-left">
+<h3>min_left<a class="headerlink" href="#min-left" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 </div>
 </div>
@@ -137,7 +131,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="rerooting.html" class="btn btn-neutral float-left" title="Rerooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="combination.html" class="btn btn-neutral float-left" title="Combination" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="extgcd.html" class="btn btn-neutral float-right" title="ExtGCD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

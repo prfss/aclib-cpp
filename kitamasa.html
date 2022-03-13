@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lca &mdash; acl-ext  ドキュメント</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>Kitamasa &mdash; acl-ext  ドキュメント</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -18,8 +18,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="Li-Chao Tree" href="li_chao_tree.html" />
-    <link rel="prev" title="Kitamasa" href="kitamasa.html" /> 
+    <link rel="next" title="Lca" href="lca.html" />
+    <link rel="prev" title="ExtGCD" href="extgcd.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,26 +42,19 @@
 <li class="toctree-l1"><a class="reference internal" href="combination.html">Combination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dynamic_segment_tree.html">Dynamic Segment Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extgcd.html">ExtGCD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kitamasa.html">Kitamasa</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lca</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kitamasa</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">制約</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">メンバ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">コンストラクタ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">コンストラクタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calc">calc</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id4">制約</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#add-edge">add_edge</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id5">制約</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#operator">operator()</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id6">制約</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="lca.html">Lca</a></li>
 <li class="toctree-l1"><a class="reference internal" href="li_chao_tree.html">Li-Chao Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="median.html">Median</a></li>
@@ -86,7 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Lca</li>
+      <li>Kitamasa</li>
       <li class="wy-breadcrumbs-aside">
               <!-- User defined GitHub URL -->
               <a href="https://github.com/prfss/acl-ext" class="fa fa-github"> Edit on GitHub</a>
@@ -97,57 +90,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="lca">
-<h1>Lca<a class="headerlink" href="#lca" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>最小共通祖先(Lowest Common Ancestor)を求めるためのクラスです</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Lca</span>
+  <div class="section" id="kitamasa">
+<h1>Kitamasa<a class="headerlink" href="#kitamasa" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>きたまさ法を実装したクラスです</p>
+<p><a class="reference internal" href="kitamasa_verification.html"><span class="doc">Verification</span></a></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">S</span><span class="p">,</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">add</span><span class="p">)(</span><span class="n">S</span><span class="p">,</span> <span class="n">S</span><span class="p">),</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">mul</span><span class="p">)(</span><span class="n">S</span><span class="p">,</span> <span class="n">S</span><span class="p">),</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">zero</span><span class="p">)(),</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">one</span><span class="p">)()</span><span class="o">&gt;</span> <span class="n">Kitamasa</span>
 </pre></div>
 </div>
 <div class="section" id="id1">
 <h2>制約<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>入力は根から葉へ向きづけられた森である</p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{add}(x, \text{zero()}) = \text{add}(\text{zero()}, x) = x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{mul}(x,\text{one}()) = \text{mul}(\text{one}(),x) = x\)</span></p></li>
 </ul>
 </div>
 <div class="section" id="id2">
 <h2>メンバ<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id3">
 <h3>コンストラクタ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">lca</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Kitamasa</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;&amp;</span> <span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>節点数を <span class="math notranslate nohighlight">\(n\)</span> としてグラフを初期化します.</p>
+<p><span class="math notranslate nohighlight">\(c\)</span> は漸化式の係数です.</p>
+</div>
+<div class="section" id="calc">
+<h3>calc<a class="headerlink" href="#calc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="n">calc</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>初期値 <span class="math notranslate nohighlight">\(\{a_0,a_1,...,a_{k-1}\}\)</span> から
+<span class="math notranslate nohighlight">\(k\)</span> 階線形漸化式 <span class="math notranslate nohighlight">\(a_n = a_{n-1}c_{k-1} + a_{n-2}c_{k-2} + ... + a_{n-k}c_0\)</span> の第 <span class="math notranslate nohighlight">\(n\)</span> 項を求めます.</p>
 <div class="section" id="id4">
 <h4>制約<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(1 \le n \le 10^8\)</span></p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="add-edge">
-<h3>add_edge<a class="headerlink" href="#add-edge" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">add_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>節点 <code class="docutils literal notranslate"><span class="pre">u</span></code> から <code class="docutils literal notranslate"><span class="pre">v</span></code> へ枝を張ります.</p>
-<div class="section" id="id5">
-<h4>制約<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(0 \le u,v \lt n\)</span></p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="operator">
-<h3>operator()<a class="headerlink" href="#operator" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>節点 <code class="docutils literal notranslate"><span class="pre">u</span></code> と <code class="docutils literal notranslate"><span class="pre">v</span></code> のLCAを返します.</p>
-<p><code class="docutils literal notranslate"><span class="pre">u</span></code> と <code class="docutils literal notranslate"><span class="pre">v</span></code> が互いに異なる木に所属する場合は <span class="math notranslate nohighlight">\(-1\)</span> を返します.</p>
-<div class="section" id="id6">
-<h4>制約<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(0 \le u,v \lt n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \le n\)</span></p></li>
 </ul>
 </div>
 </div>
@@ -158,8 +134,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="kitamasa.html" class="btn btn-neutral float-left" title="Kitamasa" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="li_chao_tree.html" class="btn btn-neutral float-right" title="Li-Chao Tree" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="extgcd.html" class="btn btn-neutral float-left" title="ExtGCD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lca.html" class="btn btn-neutral float-right" title="Lca" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
