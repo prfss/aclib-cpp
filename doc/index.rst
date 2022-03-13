@@ -17,10 +17,14 @@ AtCoderの問題で要求される/されるかもしれないアルゴリズム
 
    bwt
    combination
+   dynamic_segment_tree
+   extgcd
+   kitamasa
    lca
    li_chao_tree
    matrix
    median
+   mo
    monotonic_convex_hull_trick
    number_theory
    rerooting
