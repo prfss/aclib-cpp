@@ -12,6 +12,7 @@ TEST(CombinationTest, BasicProperties) {
 
     for (int i = 0; i <= n; i++) {
         EXPECT_EQ(comb(n, i), comb(n, n - i));
+        EXPECT_EQ(comb(i, 0), 1);
     }
 
     EXPECT_EQ(comb(n, n), 1);

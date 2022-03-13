@@ -23,6 +23,10 @@ Combination
 
 :math:`x` の最大値を :math:`n` とします.
 
+制約
+----
+- :math:`n < m`
+
 operator()
 ==========
 .. code-block:: cpp
