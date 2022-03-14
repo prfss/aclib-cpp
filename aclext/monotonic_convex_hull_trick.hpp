@@ -7,6 +7,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: Monotonic Convex Hull Trick
 template <typename T, typename compare = std::less<T>>
 class MonotonicConvexHullTrick {
     deque<pair<T, T>> q;
@@ -42,4 +44,5 @@ public:
         return a * x + b;
     }
 };
+// --->
 }

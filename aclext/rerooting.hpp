@@ -7,6 +7,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: Rerooting
 template <typename S, typename M, typename R, typename C,
     M (*merge)(M, M, int),
     M (*introduce)(M, S, C, int, int),
@@ -83,4 +85,5 @@ public:
         return ans;
     }
 };
+// --->
 }

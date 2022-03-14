@@ -10,6 +10,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: Mo's Algorithm
 template <typename T>
 vector<int> mo(const vector<pair<int, int>> query, function<void(int)> extend, function<void(int)> shrink, function<T()> val) {
     const size_t q = query.size();
@@ -41,4 +43,5 @@ vector<int> mo(const vector<pair<int, int>> query, function<void(int)> extend, f
 
     return ans;
 }
+// --->
 }

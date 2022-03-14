@@ -3,6 +3,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: extgcd
 template <typename T>
 tuple<T, T, T> extgcd(T a, T b) {
     if (b == 0) {
@@ -12,4 +14,5 @@ tuple<T, T, T> extgcd(T a, T b) {
         return make_tuple(g, y, x - a / b * y);
     }
 }
+// --->
 }

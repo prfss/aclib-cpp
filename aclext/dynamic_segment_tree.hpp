@@ -1,5 +1,7 @@
 #pragma once
 
+// <---
+// name:Dynamic Segment Tree
 namespace aclext {
 template <typename S>
 struct Node {
@@ -116,3 +118,4 @@ public:
     }
 };
 }
+// --->

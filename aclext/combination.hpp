@@ -7,6 +7,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: combination
 template <int mod>
 struct Comb {
     int n;
@@ -26,4 +28,5 @@ struct Comb {
         return fact[m] * inv[m - k] % mod * inv[k] % mod;
     }
 };
+// --->
 }

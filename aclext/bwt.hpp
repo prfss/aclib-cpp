@@ -6,6 +6,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: Burrows-Wheeler Transform
 string bwt(const string& s, const vector<int>& sa) {
     string res;
 
@@ -21,4 +23,5 @@ string bwt(const string& s, const vector<int>& sa) {
 string bwt(const string& s) {
     return bwt(s, atcoder::suffix_array(s));
 }
+// --->
 }

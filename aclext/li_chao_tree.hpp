@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// <---
+// name: Li-Chao Tree
 namespace aclext {
 template <typename T>
 struct Node {
@@ -132,4 +134,5 @@ public:
         return n;
     }
 };
+// --->
 }

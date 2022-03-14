@@ -6,6 +6,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: Median
 template <typename A, typename B, B (*op)(int, A, A)>
 class Median {
     multiset<A> suf;
@@ -69,4 +71,5 @@ public:
         balance();
     }
 };
+// --->
 }

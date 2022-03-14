@@ -5,6 +5,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: Sieve of Eratosthenes
 struct Sieve {
     vector<bool> is_prime;
     vector<int> primes;
@@ -22,4 +24,5 @@ struct Sieve {
         }
     }
 };
+// --->
 }

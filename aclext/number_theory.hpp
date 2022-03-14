@@ -6,6 +6,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: Divisor
 vector<long long> divisor(long long n) {
     vector<long long> ret;
     for (long long i = 1; i * i <= n; i++) {
@@ -16,7 +18,10 @@ vector<long long> divisor(long long n) {
     }
     return ret;
 }
+// --->
 
+// <---
+// name: Prime Factorization
 map<long long, int> prime_factor(long long n) {
     map<long long, int> res;
     for (long long i = 2; i * i <= n; i++) {
@@ -29,7 +34,9 @@ map<long long, int> prime_factor(long long n) {
     if (n != 1) res[n]++;
     return res;
 }
+// --->
 
+// name: Is Prime
 bool is_prime(long long n) {
     if (n == 1) return false;
     for (long long i = 2; i * i <= n; i++) {
@@ -39,7 +46,10 @@ bool is_prime(long long n) {
     }
     return true;
 }
+// --->
 
+// <---
+// name: Totient
 long long totient(long long x) {
     long long ans = 1;
     for (long long i = 2; i * i <= x; i++) {
@@ -59,4 +69,5 @@ long long totient(long long x) {
 
     return ans;
 }
+// --->
 }

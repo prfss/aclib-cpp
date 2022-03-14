@@ -7,6 +7,8 @@
 using namespace std;
 
 namespace aclext {
+// <---
+// name: Kitamasa
 template <typename S, S (*add)(S, S), S (*mul)(S, S), S (*zero)(), S (*one)()>
 class Kitamasa {
     size_t k;
@@ -67,4 +69,5 @@ public:
         return res;
     }
 };
+// --->
 }

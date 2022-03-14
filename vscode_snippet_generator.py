@@ -6,25 +6,47 @@ import json
 import os
 from pathlib import Path
 import re
-from typing import Optional
+from typing import Optional, Tuple
+
+CUT_BEGIN = r"^\s*//\s*<---"
+CUT_END = r"^\s*//\s*--->"
+NAME = r"^\s*//\s*name:(.+)"
 
 
-def extract(source_code: str) -> Optional[str]:
-    res = re.search(r"namespace\s+aclext\s+\{.+\}", source_code, re.DOTALL)
-    return res.group(0) if res else None
+def parse(code: [str]) -> Optional[Tuple[str, str, str]]:
+    name = None
+    prefix = None
+    main_part = []
+    for line in code:
+        m = re.match(NAME, line)
+        if m:
+            name = m.group(1).strip()
+            prefix = name.lower()
+        else:
+            main_part.append(line)
+
+    if name is None or prefix is None:
+        return None
+    else:
+        return name, prefix, main_part
 
 
-def capitalize(x: str) -> str:
-    return x.capitalize()
+def extract(source_code: str) -> [Tuple[str, str, str]]:
+    cut = False
+    codes = []
+    code = []
+    for s in source_code.splitlines():
+        if re.match(CUT_BEGIN, s):
+            code = []
+            cut = True
+        elif re.match(CUT_END, s):
+            if cut:
+                codes.append(code)
+                cut = False
+        elif cut:
+            code.append(s)
 
-
-def name(file_stem: str) -> str:
-    res = " ".join(map(capitalize, re.split(r"[-_]", file_stem)))
-    return res + " (aclext)"
-
-
-def prefix(file_stem: str) -> str:
-    return re.sub(r"[-_]", " ", file_stem)
+    return list(filter(None, map(parse, codes)))
 
 
 def usage():
@@ -50,18 +72,23 @@ def main():
                 with open(file, "r") as f:
                     source_code = f.read()
                     extracted = extract(source_code)
-                    if extracted is not None:
+                    for [name, prefix, code] in extracted:
                         print(
-                            f"Extracted {len(extracted)} character(s) from {file}", file=sys.stderr)
+                            f"Extracted {name} ({len(''.join(code))} character(s)) from {file}", file=sys.stderr)
                         stem = Path(file).stem
                         item = dict(
                             {
                                 "scope": "cpp",
-                                "prefix": [stem],
-                                "body": extracted.split("\n")
+                                "prefix": [prefix],
+                                "body": code
                             }
                         )
-                        snippet[name(stem)] = item
+                        name = f"{name} (aclext:{stem})"
+                        if name in snippet:
+                            print(
+                                f"Snippet '{name}' already exists. New one is skipped", file=sys.stderr)
+                        else:
+                            snippet[name] = item
 
         output = json.dumps(snippet, indent=4)
 
@@ -70,8 +97,8 @@ def main():
 
         print(f"Saved to {outfile}")
 
-    except Exception as e:
-        print(e, file=sys.stderr)
+    except Exception as ex:
+        print(ex, file=sys.stderr)
         sys.exit(1)
 
 
