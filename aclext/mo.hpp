@@ -13,7 +13,7 @@ namespace aclext {
 // <---
 // name: Mo's Algorithm
 template <typename T>
-vector<int> mo(const vector<pair<int, int>> query, function<void(int)> extend, function<void(int)> shrink, function<T()> val) {
+vector<int> mo(const vector<pair<int, int>> query, function<T(T, int)> extend, function<T(T, int)> shrink, T init) {
     const size_t q = query.size();
     assert(1 <= q);
     int n = 0;
@@ -30,15 +30,16 @@ vector<int> mo(const vector<pair<int, int>> query, function<void(int)> extend, f
         return make_pair(query[i].first / h, query[i].second) < make_pair(query[j].first / h, query[j].second);
     });
 
+    T cur = init;
     vector<T> ans(q);
     int pl = 0, pr = -1;
     for (auto i : idx) {
         auto [l, r] = query[i];
-        while (pl < l) shrink(pl), pl++;
-        while (l < pl) pl--, extend(pl);
-        while (pr < r) pr++, extend(pr);
-        while (r < pr) shrink(pr), pr--;
-        ans[i] = val();
+        while (pl < l) cur = shrink(cur, pl), pl++;
+        while (l < pl) pl--, cur = extend(cur, pl);
+        while (pr < r) pr++, cur = extend(cur, pr);
+        while (r < pr) cur = shrink(cur, pr), pr--;
+        ans[i] = cur;
     }
 
     return ans;
