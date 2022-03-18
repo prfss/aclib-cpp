@@ -41,7 +41,6 @@
 <li class="toctree-l1"><a class="reference internal" href="bwt.html">Bwt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="combination.html">Combination</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dynamic_segment_tree.html">Dynamic Segment Tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extgcd.html">ExtGCD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kitamasa.html">Kitamasa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lca.html">Lca</a></li>
 <li class="toctree-l1"><a class="reference internal" href="li_chao_tree.html">Li-Chao Tree</a></li>
@@ -89,22 +88,22 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">mo</span><span class="p">(</span>
   <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">query</span><span class="p">,</span>
-  <span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">extend</span><span class="p">,</span>
-  <span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">shrink</span><span class="p">,</span>
-  <span class="n">function</span><span class="o">&lt;</span><span class="n">T</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">val</span>
+  <span class="n">function</span><span class="o">&lt;</span><span class="n">T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">extend</span><span class="p">,</span>
+  <span class="n">function</span><span class="o">&lt;</span><span class="n">T</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">shrink</span><span class="p">,</span>
+  <span class="n">T</span> <span class="n">init</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>区間クエリのリスト <span class="math notranslate nohighlight">\(\text{query} = \{[l_1,r_1], [l_2,r_2], ... ,[l_q, r_q]\}\)</span> に対し, 答えのリスト <span class="math notranslate nohighlight">\(\{ans(l_1,r_1),ans(l_2,r_2),..,ans(l_q,r_q)\}\)</span>
-を返します.ただし</p>
+<p>区間クエリのリスト <span class="math notranslate nohighlight">\(\mathtt{query} = \{[l_1,r_1], [l_2,r_2], ... ,[l_q, r_q]\}\)</span> に対し, 答えのリスト <span class="math notranslate nohighlight">\(\{ans(l_1,r_1),ans(l_2,r_2),..,ans(l_q,r_q)\}\)</span>
+を返します. ただし <span class="math notranslate nohighlight">\(n = \max_{{i \in [1,q]}} r_i\)</span> とするとき</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(extend,shrink\)</span> を一度も呼び出していない状態で, <span class="math notranslate nohighlight">\(\text{extend}(0)\)</span> が呼ばれた直後に, <span class="math notranslate nohighlight">\(\text{val}() = ans(0,0)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(0 &lt; l\)</span> のとき, <span class="math notranslate nohighlight">\(\text{extend}(l-1)\)</span> が1回実行された直後 <span class="math notranslate nohighlight">\(\text{val}() = ans(l-1,r)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(l &lt; n-1 \land l &lt; r\)</span> のとき, <span class="math notranslate nohighlight">\(\text(shrink)(l)\)</span> が1回実行された直後 <span class="math notranslate nohighlight">\(\text{val}() = ans(l+1,r)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(r &lt; n-1\)</span> のとき, <span class="math notranslate nohighlight">\(\text{extend}(r+1)\)</span> が1回実行された直後 <span class="math notranslate nohighlight">\(\text{val}() = ans(l,r+1)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(0 &lt; r \land l &lt; r\)</span> のとき,  <span class="math notranslate nohighlight">\(\text{shrink}(r)\)</span> が1回実行された直後 <span class="math notranslate nohighlight">\(\text{val}() = ans(l,r-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathtt{extend}(\text{init},0) = ans(0,0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \lt l \le r \le n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathtt{extend}(ans(l,r),l-1) = ans(l-1,r)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \le l \lt r \le n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathtt{shrink}(ans(l,r),l) = ans(l+1,r)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \le l \le r \lt n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathtt{extend}(ans(l,r),r+1) = ans(l,r+1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \le l \lt r \le n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathtt{shrink}(ans(l,r),r) = ans(l,r-1)\)</span></p></li>
 </ul>
-<p>となる必要があります.</p>
+<p>を満たす必要があります.</p>
 <div class="section" id="id1">
 <h2>制約<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">

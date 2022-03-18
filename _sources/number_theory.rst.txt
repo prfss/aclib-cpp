@@ -33,8 +33,17 @@ totient
 
   ll totient(ll n)
 
-オイラーの `トーシェント関数 <https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E3%81%AE%CF%86%E9%96%A2%E6%95%B0>`_ です.
+`オイラーのトーシェント関数 <https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E3%81%AE%CF%86%E9%96%A2%E6%95%B0>`_ です.
 
 制約
 =====
 - :math:`1 \leq n \leq 10^9`
+
+
+extgcd
+******
+.. code-block:: cpp
+
+  template <typename T> tuple<T, T, T> extgcd(T a, T b)
+
+拡張ユークリッドの互除法です. :math:`ax + by = \gcd(a,b)` を満たす整数 :math:`x,y` を求め :math:`(\gcd(x,y),x,y)` の形で返します.
