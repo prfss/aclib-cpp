@@ -1,39 +1,28 @@
 Kitamasa
 ########
 
-きたまさ法を実装したクラスです
+きたまさ法により線形漸化式の項を求めます
 
 :doc:`kitamasa_verification`
 
 .. code-block:: cpp
 
- template <typename S, S (*add)(S, S), S (*mul)(S, S), S (*zero)(), S (*one)()> Kitamasa
+ template <typename S>
+ kitamasa(
+     const vector<S>& coefficients,
+     function<S(S,S)> add,
+     function<S()> zero,
+     function<S(S,S)> mul,
+     function<S()> one,
+     const vector<S>& init,
+     long long n 
+ )
 
-制約
-****
-- :math:`\text{add}(x, \text{zero()}) = \text{add}(\text{zero()}, x) = x`
-- :math:`\text{mul}(x,\text{one}()) = \text{mul}(\text{one}(),x) = x`
-
-メンバ
-******
-
-コンストラクタ
-==============
-.. code-block:: cpp
-
- Kitamasa(const vector<S>& c)
-
-:math:`c` は漸化式の係数です.
-
-calc
-====
-.. code-block:: cpp
-
- S calc(const vector<S>& a, long long n)
-
-初期値 :math:`\{a_0,a_1,...,a_{k-1}\}` から
+漸化式の係数 :math:`\mathtt{coefficients} = \{ c_0, c_1, ..., c_{k-1} \}` と初期値 :math:`\mathtt{init} = \{a_0,a_1,...,a_{k-1}\}` から
 :math:`k` 階線形漸化式 :math:`a_n = a_{n-1}c_{k-1} + a_{n-2}c_{k-2} + ... + a_{n-k}c_0` の第 :math:`n` 項を求めます.
 
 制約
-----
+****
+- :math:`\mathtt{add}(x, \mathtt{zero}()) = \mathtt{add}(\mathtt{zero}(), x) = x`
+- :math:`\mathtt{mul}(x,\mathtt{one}()) = \mathtt{mul}(\mathtt{one}(),x) = x`
 - :math:`0 \le n`
