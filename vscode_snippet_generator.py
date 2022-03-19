@@ -50,7 +50,7 @@ def extract(source_code: str) -> [Tuple[str, str, str]]:
 
 
 def usage():
-    print(f"Usage: python {sys.argv[0]} <directory> <outputfile>")
+    print(f"Usage: python {sys.argv[0]} <directory> <outputfile>", file=sys.stderr)
     sys.exit(1)
 
 
@@ -74,7 +74,7 @@ def main():
                     extracted = extract(source_code)
                     for [name, prefix, code] in extracted:
                         print(
-                            f"Extracted {name} ({len(''.join(code))} character(s)) from {file}", file=sys.stderr)
+                            f"Extracted {name} ({len(''.join(code))} character(s)) from {file}")
                         stem = Path(file).stem
                         item = dict(
                             {
@@ -86,7 +86,7 @@ def main():
                         name = f"{name} (aclext:{stem})"
                         if name in snippet:
                             print(
-                                f"Snippet '{name}' already exists. New one is skipped", file=sys.stderr)
+                                f"Snippet '{name}' already exists. New one is skipped")
                         else:
                             snippet[name] = item
 
