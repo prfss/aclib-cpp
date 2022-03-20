@@ -31,7 +31,7 @@ operator()
 ==========
 .. code-block:: cpp
 
- ll operator()(int x, int y)
+ atcoder::static_modint<m> operator()(int x, int y)
 
 :math:`\binom{x}{y}` を :math:`m` で割った余りを返します.
 
