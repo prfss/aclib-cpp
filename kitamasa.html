@@ -43,14 +43,6 @@
 <li class="toctree-l1"><a class="reference internal" href="dynamic_segment_tree.html">Dynamic Segment Tree</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Kitamasa</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">制約</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">メンバ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">コンストラクタ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#calc">calc</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id4">制約</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lca.html">Lca</a></li>
@@ -91,41 +83,29 @@
              
   <div class="section" id="kitamasa">
 <h1>Kitamasa<a class="headerlink" href="#kitamasa" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>きたまさ法を実装したクラスです</p>
+<p>きたまさ法により線形漸化式の項を求めます</p>
 <p><a class="reference internal" href="kitamasa_verification.html"><span class="doc">Verification</span></a></p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">S</span><span class="p">,</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">add</span><span class="p">)(</span><span class="n">S</span><span class="p">,</span> <span class="n">S</span><span class="p">),</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">mul</span><span class="p">)(</span><span class="n">S</span><span class="p">,</span> <span class="n">S</span><span class="p">),</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">zero</span><span class="p">)(),</span> <span class="n">S</span> <span class="p">(</span><span class="o">*</span><span class="n">one</span><span class="p">)()</span><span class="o">&gt;</span> <span class="n">Kitamasa</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span>
+<span class="n">kitamasa</span><span class="p">(</span>
+    <span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;&amp;</span> <span class="n">coefficients</span><span class="p">,</span>
+    <span class="n">function</span><span class="o">&lt;</span><span class="n">S</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">S</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">add</span><span class="p">,</span>
+    <span class="n">function</span><span class="o">&lt;</span><span class="n">S</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">zero</span><span class="p">,</span>
+    <span class="n">function</span><span class="o">&lt;</span><span class="n">S</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">S</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">mul</span><span class="p">,</span>
+    <span class="n">function</span><span class="o">&lt;</span><span class="n">S</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">one</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;&amp;</span> <span class="n">init</span><span class="p">,</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span>
+<span class="p">)</span>
 </pre></div>
 </div>
+<p>漸化式の係数 <span class="math notranslate nohighlight">\(\mathtt{coefficients} = \{ c_0, c_1, ..., c_{k-1} \}\)</span> と初期値 <span class="math notranslate nohighlight">\(\mathtt{init} = \{a_0,a_1,...,a_{k-1}\}\)</span> から
+<span class="math notranslate nohighlight">\(k\)</span> 階線形漸化式 <span class="math notranslate nohighlight">\(a_n = a_{n-1}c_{k-1} + a_{n-2}c_{k-2} + ... + a_{n-k}c_0\)</span> の第 <span class="math notranslate nohighlight">\(n\)</span> 項を求めます.</p>
 <div class="section" id="id1">
 <h2>制約<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\text{add}(x, \text{zero()}) = \text{add}(\text{zero()}, x) = x\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\text{mul}(x,\text{one}()) = \text{mul}(\text{one}(),x) = x\)</span></p></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h2>メンバ<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id3">
-<h3>コンストラクタ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Kitamasa</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;&amp;</span> <span class="n">c</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><span class="math notranslate nohighlight">\(c\)</span> は漸化式の係数です.</p>
-</div>
-<div class="section" id="calc">
-<h3>calc<a class="headerlink" href="#calc" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="n">calc</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>初期値 <span class="math notranslate nohighlight">\(\{a_0,a_1,...,a_{k-1}\}\)</span> から
-<span class="math notranslate nohighlight">\(k\)</span> 階線形漸化式 <span class="math notranslate nohighlight">\(a_n = a_{n-1}c_{k-1} + a_{n-2}c_{k-2} + ... + a_{n-k}c_0\)</span> の第 <span class="math notranslate nohighlight">\(n\)</span> 項を求めます.</p>
-<div class="section" id="id4">
-<h4>制約<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathtt{add}(x, \mathtt{zero}()) = \mathtt{add}(\mathtt{zero}(), x) = x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathtt{mul}(x,\mathtt{one}()) = \mathtt{mul}(\mathtt{one}(),x) = x\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(0 \le n\)</span></p></li>
 </ul>
-</div>
-</div>
 </div>
 </div>
 
