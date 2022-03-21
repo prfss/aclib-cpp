@@ -33,7 +33,7 @@ add_edge
 
  void add_edge(int u, int v)
 
-節点 ``u`` から ``v`` へ枝を張ります.
+節点 :math:`u` から :math:`v` へ枝を張ります.
 
 制約
 ----
@@ -45,9 +45,9 @@ operator()
 
  int operator()(int u, int v)
 
-節点 ``u`` と ``v`` のLCAを返します.
+節点 :math:`u` と :math:`v` のLCAを返します.
 
-``u`` と ``v`` が互いに異なる木に所属する場合は :math:`-1` を返します.
+:math:`u` と :math:`v` が互いに異なる木に所属する場合は :math:`-1` を返します.
 
 制約
 ----

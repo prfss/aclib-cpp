@@ -15,8 +15,8 @@ Matrix
 
 制約
 ****
-- :math:`\text{add}(x,\text{zero}()) = \text{add}(\text{zero}(),x) = x`
-- :math:`\text{mul}(x,\text{one}()) = \text{mul}(\text{one}(),x) = x`
+- :math:`\mathrm{add}(x,\text{zero}()) = \mathrm{add}(\text{zero}(),x) = x`
+- :math:`\mathrm{mul}(x,\text{one}()) = \mathrm{mul}(\text{one}(),x) = x`
 
 メンバ
 ******
@@ -28,13 +28,13 @@ Matrix
  matrix(int n, int m, T init = zero()) // (1)
  matrix(const vector<vector<T>> list) // (2)
 
-1. 要素を :math:`\text{init}` で初期化した :math:`n \times m` 行列を返します.
-2. :math:`(i,j)` 成分が :math:`\text{list}[i][j]` であるような行列を返します.
+1. 要素を :math:`\mathrm{init}` で初期化した :math:`n \times m` 行列を返します.
+2. :math:`(i,j)` 成分が :math:`\mathrm{list}[i][j]` であるような行列を返します.
 
 制約
 ----
-1. :math:`1 \le n,m`
-2. * :math:`\text{list}[i] (0 \le i \lt \text{list.size()})` の長さはすべて等しい 
+1. :math:`n,m \ge 1`
+2. * :math:`\mathrm{list}[i] (0 \le i \lt \mathrm{list.size}())` の長さはすべて等しい 
    * リストは空ではない
 
 identity
@@ -49,8 +49,8 @@ identity
 
    (I_n)_{ij} =
    \begin{cases}
-   \text{one}() & (i = j) \\
-   \text{zero}() & (それ以外) \\
+   \mathrm{one}() & (i = j) \\
+   \mathrm{zero}() & (\text{それ以外}) \\
    \end{cases}
 
 を返します.
