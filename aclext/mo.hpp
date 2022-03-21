@@ -13,7 +13,7 @@ namespace aclext {
 // <---
 // name: Mo's Algorithm
 template <typename T>
-vector<int> mo(const vector<pair<int, int>> query, function<T(T, int)> extend, function<T(T, int)> shrink, T init) {
+vector<T> mo(const vector<pair<int, int>> query, function<T(T, int)> extend, function<T(T, int)> shrink, T init) {
     const size_t q = query.size();
     assert(1 <= q);
     int n = 0;
