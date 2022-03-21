@@ -9,10 +9,10 @@ Li-Chao tree を実装したクラスです
 
  template <typename X, typename Y, typename F, typename compare = std::less<Y>> LiChaoTree
 
-関数の集合 :math:`L = \{f_1,f_2,...,f_n\}` に対して, 次の2つの処理を行うことができます.
+関数の集合 :math:`L = \{f_1,f_2, \dots ,f_n\}` に対して, 次の2つの処理を行うことができます.
 
 - 関数の追加
-- ある :math:`x` と全ての :math:`1 \le j \le n` に対し, :math:`\text{compare}(f_i(x),f_j(x)) \lor f_i(x) = f_j(x)` を満たす :math:`f_i(x)` の取得
+- ある :math:`x` と全ての :math:`1 \le j \le n` に対し, :math:`\mathrm{compare}(f_i(x),f_j(x)) \lor f_i(x) = f_j(x)` を満たす :math:`f_i(x)` の取得
 
 後者について特に ``compare`` が ``std::less`` の場合は最小値を, ``std::greater`` の場合は最大値を得ることができます.
 
@@ -33,7 +33,7 @@ Li-Chao tree を実装したクラスです
 
 制約
 ----
-- :math:`\text{min_x} \le \text{max_x} \lt Xの最大値`
+- :math:`\mathrm{min\_x} \le \mathrm{max\_x} \lt X\text{の最大値}`
 
 add
 ===
@@ -47,7 +47,7 @@ operator()
 
  Y operator()(X x)
 
-``add`` で追加した関数 :math:`f_1, f_2, ..., f_n` に対して, :math:`\text{compare}(f_i(x), f_j(x)) \lor f_i(x) = f_j(x)` を全ての :math:`1 \le j \le n` について満たす :math:`f_i(x)` を返します.
+``add`` で追加した関数 :math:`f_1, f_2, \dots, f_n` に対して, :math:`\mathrm{compare}(f_i(x), f_j(x)) \lor f_i(x) = f_j(x)` を全ての :math:`1 \le j \le n` について満たす :math:`f_i(x)` を返します.
 
 merge
 =====
@@ -57,7 +57,7 @@ merge
 
 制約
 ----
-- :math:`\text{min_y} = \text{other.min_y} \land \text{max_y} = \text{other.max_y}`
+- :math:`\mathrm{min\_y} = \mathrm{other.min\_y} \land \mathrm{max\_y} = \mathrm{other.max\_y}`
 
 size
 ====

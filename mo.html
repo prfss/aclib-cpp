@@ -94,14 +94,14 @@
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>区間クエリのリスト <span class="math notranslate nohighlight">\(\mathtt{query} = \{[l_1,r_1], [l_2,r_2], ... ,[l_q, r_q]\}\)</span> に対し, 答えのリスト <span class="math notranslate nohighlight">\(\{ans(l_1,r_1),ans(l_2,r_2),..,ans(l_q,r_q)\}\)</span>
+<p>区間クエリのリスト <span class="math notranslate nohighlight">\(\mathrm{query} = \{[l_1,r_1], [l_2,r_2], \dots ,[l_q, r_q]\}\)</span> に対し, 答えのリスト <span class="math notranslate nohighlight">\(\{\mathit{ans}(l_1,r_1),\mathit{ans}(l_2,r_2), \dots ,\mathit{ans}(l_q,r_q)\}\)</span>
 を返します. ただし <span class="math notranslate nohighlight">\(n = \max_{{i \in [1,q]}} r_i\)</span> とするとき</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathtt{extend}(\text{init},0) = ans(0,0)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(0 \lt l \le r \le n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathtt{extend}(ans(l,r),l-1) = ans(l-1,r)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(0 \le l \lt r \le n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathtt{shrink}(ans(l,r),l) = ans(l+1,r)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(0 \le l \le r \lt n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathtt{extend}(ans(l,r),r+1) = ans(l,r+1)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(0 \le l \lt r \le n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathtt{shrink}(ans(l,r),r) = ans(l,r-1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{extend}(\mathrm{init},0) = ans(0,0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \lt l \le r \le n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathrm{extend}(\mathit{ans}(l,r),l-1) = \mathit{ans}(l-1,r)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \le l \lt r \le n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathrm{shrink}(\mathit{ans}(l,r),l) = \mathit{ans}(l+1,r)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \le l \le r \lt n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathrm{extend}(\mathit{ans}(l,r),r+1) = \mathit{ans}(l,r+1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \le l \lt r \le n\)</span> のとき, <span class="math notranslate nohighlight">\(\mathrm{shrink}(\mathit{ans}(l,r),r) = \mathit{ans}(l,r-1)\)</span></p></li>
 </ul>
 <p>を満たす必要があります.</p>
 <div class="section" id="id1">

@@ -109,8 +109,8 @@
 <div class="section" id="id1">
 <h2>制約<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\text{add}(x,\text{zero}()) = \text{add}(\text{zero}(),x) = x\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\text{mul}(x,\text{one}()) = \text{mul}(\text{one}(),x) = x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{add}(x,\text{zero}()) = \mathrm{add}(\text{zero}(),x) = x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{mul}(x,\text{one}()) = \mathrm{mul}(\text{one}(),x) = x\)</span></p></li>
 </ul>
 </div>
 <div class="section" id="id2">
@@ -122,15 +122,15 @@
 </pre></div>
 </div>
 <ol class="arabic simple">
-<li><p>要素を <span class="math notranslate nohighlight">\(\text{init}\)</span> で初期化した <span class="math notranslate nohighlight">\(n \times m\)</span> 行列を返します.</p></li>
-<li><p><span class="math notranslate nohighlight">\((i,j)\)</span> 成分が <span class="math notranslate nohighlight">\(\text{list}[i][j]\)</span> であるような行列を返します.</p></li>
+<li><p>要素を <span class="math notranslate nohighlight">\(\mathrm{init}\)</span> で初期化した <span class="math notranslate nohighlight">\(n \times m\)</span> 行列を返します.</p></li>
+<li><p><span class="math notranslate nohighlight">\((i,j)\)</span> 成分が <span class="math notranslate nohighlight">\(\mathrm{list}[i][j]\)</span> であるような行列を返します.</p></li>
 </ol>
 <div class="section" id="id4">
 <h4>制約<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(1 \le n,m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n,m \ge 1\)</span></p></li>
 <li><ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\text{list}[i] (0 \le i \lt \text{list.size()})\)</span> の長さはすべて等しい</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{list}[i] (0 \le i \lt \mathrm{list.size}())\)</span> の長さはすべて等しい</p></li>
 <li><p>リストは空ではない</p></li>
 </ul>
 </li>
@@ -146,8 +146,8 @@
 <div class="math notranslate nohighlight">
 \[\begin{split}(I_n)_{ij} =
 \begin{cases}
-\text{one}() &amp; (i = j) \\
-\text{zero}() &amp; (それ以外) \\
+\mathrm{one}() &amp; (i = j) \\
+\mathrm{zero}() &amp; (\text{それ以外}) \\
 \end{cases}\end{split}\]</div>
 <p>を返します.</p>
 </div>

@@ -94,32 +94,32 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">compare</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">less</span><span class="o">&gt;</span> <span class="n">MonotonicConvexHullTrick</span>
 </pre></div>
 </div>
-<p>一次関数の集合 <span class="math notranslate nohighlight">\(L = \{f_1,f_2,...,f_n\}\)</span> に対して, 次の2つの処理を行うことができます.</p>
+<p>一次関数の集合 <span class="math notranslate nohighlight">\(L = \{f_1,f_2, \dots ,f_n\}\)</span> に対して, 次の2つの処理を行うことができます.</p>
 <ul class="simple">
 <li><p>関数 <span class="math notranslate nohighlight">\(a_i x + b_i\)</span> の追加</p></li>
-<li><p>与えられた <span class="math notranslate nohighlight">\(x\)</span> に対し, 全ての <span class="math notranslate nohighlight">\(1 \le j \le n\)</span> について, <span class="math notranslate nohighlight">\(\text{compare}(f_i(x),f_j(x)) \lor f_i(x) = f_j(x)\)</span> を満たす <span class="math notranslate nohighlight">\(f_i(x)\)</span> の取得</p></li>
+<li><p>与えられた <span class="math notranslate nohighlight">\(x\)</span> に対し, 全ての <span class="math notranslate nohighlight">\(1 \le j \le n\)</span> について, <span class="math notranslate nohighlight">\(\mathrm{compare}(f_i(x),f_j(x)) \lor f_i(x) = f_j(x)\)</span> を満たす <span class="math notranslate nohighlight">\(f_i(x)\)</span> の取得</p></li>
 </ul>
 <p>後者について特に <code class="docutils literal notranslate"><span class="pre">compare</span></code> が <code class="docutils literal notranslate"><span class="pre">std::less</span></code> の場合は最小値を, <code class="docutils literal notranslate"><span class="pre">std::greater</span></code> の場合は最大値を得ることができます.</p>
 <div class="section" id="id1">
 <h2>制約<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">operator()</span></code> で与えられるクエリ <span class="math notranslate nohighlight">\(x_1,x_2,...x_m\)</span> は単調</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">add</span></code> で追加される直線の傾きが順に <span class="math notranslate nohighlight">\(a_1,a_2,...,a_n\)</span> であるとき, 全ての <span class="math notranslate nohighlight">\(1 \le i \lt n\)</span> に対して</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">operator()</span></code> で与えられるクエリ <span class="math notranslate nohighlight">\(x_1,x_2, \dots ,x_m\)</span> は単調</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add</span></code> で追加される直線の傾きが順に <span class="math notranslate nohighlight">\(a_1,a_2, \dots ,a_n\)</span> であるとき, 全ての <span class="math notranslate nohighlight">\(1 \le i \lt n\)</span> に対して</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x_i\)</span> が狭義単調増加する場合</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
-  a_i \le a_{i+1} &amp; (\text{compare} = \text{std::greater}) \\
-  a_i \ge a_{i+1} &amp; (\text{compare} = \text{std::less})
+  a_i \le a_{i+1} &amp; (\mathrm{compare} = \mathrm{std::greater}) \\
+  a_i \ge a_{i+1} &amp; (\mathrm{compare} = \mathrm{std::less})
 \end{cases}\end{split}\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x_i\)</span> が狭義単調減少する場合</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
-  a_i \ge a_{i+1} &amp; (\text{compare} = \text{std::greater}) \\
-  a_i \le a_{i+1} &amp; (\text{compare} = \text{std::less})
+  a_i \ge a_{i+1} &amp; (\mathrm{compare} = \mathrm{std::greater}) \\
+  a_i \le a_{i+1} &amp; (\mathrm{compare} = \mathrm{std::less})
 \end{cases}\end{split}\]</div>
 </li>
 </ul>

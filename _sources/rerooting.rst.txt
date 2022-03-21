@@ -19,39 +19,39 @@ Rerooting
      S (*subtree)(M,int)>
     Rerooting
 
-``S`` は部分木が親に返す値の型, ``M`` はマージを表現する型, ``R`` は解の型, ``C`` はコストの型です.
+:math:`S` は部分木が親に返す値の型, :math:`M` はマージを表現する型, :math:`R` は解の型, :math:`C` はコストの型です.
 
 :math:`u` を根とした時の解は
 
 .. math::
-  \text{result}(reduce(f, \text{em}(), neighbor(u)), u)
+  \mathrm{result}(\mathit{reduce}(f, \mathrm{em}(), \mathit{neighbor}(u)), u)
 
 で定めます.
 
 また :math:`u` から親節点 :math:`p` に返す値は
 
 .. math::
- \text{subtree}(reduce(f, \text{em}(), neighbor(u) \setminus \{p\}), u)
+ \mathrm{subtree}(\mathit{reduce}(f, \mathrm{em}(), \mathit{neighbor}(u) \setminus \{p\}), u)
 
 で定めますが, これは
 
 .. math::
- \text{subtree}(\text{merge}(reduce(f,\text{em}(),L), reduce(f,\text{em}(),R), u))
+ \mathrm{subtree}(\mathrm{merge}(\mathit{reduce}(f,\mathrm{em}(),L), \mathit{reduce}(f,\mathrm{em}(),R), u))
 
 と一致する必要があります.
 
 
 ただし,
 
-* :math:`neighbor(u)` は :math:`u` の隣接節点の全体
+* :math:`\mathit{neighbor}(u)` は :math:`u` の隣接節点の全体
 
-* :math:`f(x,v) = \text{introduce}(x, dp[v], cost(u,v), u, v)`
+* :math:`f(x,v) = \mathrm{introduce}(x, \mathit{dp}[v], \mathit{cost}(u,v), u, v)`
 
   * :math:`dp[v]` は 子節点 :math:`v` から親節点 :math:`u` に返す値
 
-* :math:`reduce: (M \times int \to M) \times M \times (Set\:of\:int) \to M` は `重畳関数 <https://ja.wikipedia.org/wiki/%E9%AB%98%E9%9A%8E%E9%96%A2%E6%95%B0#fold>`_
+* :math:`reduce: (M \times \mathit{int} \to M) \times M \times (\mathit{Set\:of\:int}) \to M` は `重畳関数 <https://ja.wikipedia.org/wiki/%E9%AB%98%E9%9A%8E%E9%96%A2%E6%95%B0#fold>`_
 
-* :math:`(L \cap R = \emptyset) \land (L \cup R = neighbor(u) \setminus \{p\})`
+* :math:`(L \cap R = \emptyset) \land (L \cup R = \mathit{neighbor}(u) \setminus \{p\})`
 
 です.
 
@@ -77,7 +77,7 @@ add_edge
 
  void add_edge(int u, int v, C c = {})
 
-節点 ``u`` と ``v`` の間にコスト ``c`` の枝を張ります.
+節点 :math:`u` と :math:`v` の間にコスト :math:`c` の枝を張ります.
 
 制約
 -----

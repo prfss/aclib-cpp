@@ -7,15 +7,15 @@ Median
 
  template <typename A, typename B, B (*op)(int, A, A)> Median
 
-中央値は要素数を :math:`k` とするとき, :math:`\text{op}(k,x,y)` で定義します. ただし
+中央値は要素数を :math:`k` とするとき, :math:`\mathrm{op}(k,x,y)` で定義します. ただし
 
 .. math::
 
    x =
    \begin{cases}
    0 & (k = 0) \\
-   \frac{k+1}{2}番目の値 & (kが奇数) \\
-   \frac{k}{2}番目の値 & (kが偶数)
+   \frac{k+1}{2}\text{番目の値} & (k\text{が奇数}) \\
+   \frac{k}{2}\text{番目の値} & (k\text{が偶数})
    \end{cases}
 
 .. math::
@@ -23,8 +23,8 @@ Median
    y =
    \begin{cases}
    0 & (k = 0) \\
-   \frac{k+1}{2}番目の値 & (kが奇数) \\
-   \frac{k}{2}+1番目の値 & (kが偶数)
+   \frac{k+1}{2}\text{番目の値} & (k\text{が奇数}) \\
+   \frac{k}{2}+1\text{番目の値} & (k\text{が偶数})
    \end{cases}
 
 です.

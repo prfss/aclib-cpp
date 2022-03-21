@@ -21,7 +21,7 @@ Sieve
 
 制約
 -----
-- :math:`n` は非負整数
+- :math:`n \ge 0`
 
 is_prime
 ========
@@ -32,10 +32,10 @@ is_prime
 長さ :math:`n+1` のブール配列です.
 
 .. math::
-  \text{is_prime}[i] = 
+  \mathrm{is\_prime}[i] = 
   \begin{cases}
-      \text{true} & (iが素数) \\
-      \text{false} & (iが素数でない) \\
+      \mathrm{true} & \text{(iが素数)} \\
+      \mathrm{false} & \text{(iが素数でない)} \\
   \end{cases}
 
 primes

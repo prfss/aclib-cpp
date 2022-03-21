@@ -93,18 +93,18 @@
     <span class="n">function</span><span class="o">&lt;</span><span class="n">S</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">S</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">mul</span><span class="p">,</span>
     <span class="n">function</span><span class="o">&lt;</span><span class="n">S</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">one</span><span class="p">,</span>
     <span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">S</span><span class="o">&gt;&amp;</span> <span class="n">init</span><span class="p">,</span>
-    <span class="kt">long</span> <span class="kt">long</span> <span class="n">n</span>
+    <span class="n">ll</span> <span class="n">n</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>漸化式の係数 <span class="math notranslate nohighlight">\(\mathtt{coefficients} = \{ c_0, c_1, ..., c_{k-1} \}\)</span> と初期値 <span class="math notranslate nohighlight">\(\mathtt{init} = \{a_0,a_1,...,a_{k-1}\}\)</span> から
-<span class="math notranslate nohighlight">\(k\)</span> 階線形漸化式 <span class="math notranslate nohighlight">\(a_n = a_{n-1}c_{k-1} + a_{n-2}c_{k-2} + ... + a_{n-k}c_0\)</span> の第 <span class="math notranslate nohighlight">\(n\)</span> 項を求めます.</p>
+<p>漸化式の係数 <span class="math notranslate nohighlight">\(\mathrm{coefficients} = \{ c_0, c_1, ..., c_{k-1} \}\)</span> と初期値 <span class="math notranslate nohighlight">\(\mathrm{init} = \{a_0,a_1,...,a_{k-1}\}\)</span> から
+<span class="math notranslate nohighlight">\(k\)</span> 階線形漸化式 <span class="math notranslate nohighlight">\(a_n = a_{n-1} \cdot c_{k-1} + a_{n-2} \cdot c_{k-2} + \dots + a_{n-k} \cdot c_0\)</span> の第 <span class="math notranslate nohighlight">\(n\)</span> 項を求めます.</p>
 <div class="section" id="id1">
 <h2>制約<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathtt{add}(x, \mathtt{zero}()) = \mathtt{add}(\mathtt{zero}(), x) = x\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathtt{mul}(x,\mathtt{one}()) = \mathtt{mul}(\mathtt{one}(),x) = x\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(0 \le n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{add}(x, \mathrm{zero}()) = \mathrm{add}(\mathrm{zero}(), x) = x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{mul}(x, \mathrm{one}()) = \mathrm{mul}(\mathrm{one}(), x) = x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n \ge 0\)</span></p></li>
 </ul>
 </div>
 </div>

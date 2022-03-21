@@ -107,28 +107,28 @@
    <span class="n">Rerooting</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">S</span></code> は部分木が親に返す値の型, <code class="docutils literal notranslate"><span class="pre">M</span></code> はマージを表現する型, <code class="docutils literal notranslate"><span class="pre">R</span></code> は解の型, <code class="docutils literal notranslate"><span class="pre">C</span></code> はコストの型です.</p>
+<p><span class="math notranslate nohighlight">\(S\)</span> は部分木が親に返す値の型, <span class="math notranslate nohighlight">\(M\)</span> はマージを表現する型, <span class="math notranslate nohighlight">\(R\)</span> は解の型, <span class="math notranslate nohighlight">\(C\)</span> はコストの型です.</p>
 <p><span class="math notranslate nohighlight">\(u\)</span> を根とした時の解は</p>
 <div class="math notranslate nohighlight">
-\[\text{result}(reduce(f, \text{em}(), neighbor(u)), u)\]</div>
+\[\mathrm{result}(\mathit{reduce}(f, \mathrm{em}(), \mathit{neighbor}(u)), u)\]</div>
 <p>で定めます.</p>
 <p>また <span class="math notranslate nohighlight">\(u\)</span> から親節点 <span class="math notranslate nohighlight">\(p\)</span> に返す値は</p>
 <div class="math notranslate nohighlight">
-\[\text{subtree}(reduce(f, \text{em}(), neighbor(u) \setminus \{p\}), u)\]</div>
+\[\mathrm{subtree}(\mathit{reduce}(f, \mathrm{em}(), \mathit{neighbor}(u) \setminus \{p\}), u)\]</div>
 <p>で定めますが, これは</p>
 <div class="math notranslate nohighlight">
-\[\text{subtree}(\text{merge}(reduce(f,\text{em}(),L), reduce(f,\text{em}(),R), u))\]</div>
+\[\mathrm{subtree}(\mathrm{merge}(\mathit{reduce}(f,\mathrm{em}(),L), \mathit{reduce}(f,\mathrm{em}(),R), u))\]</div>
 <p>と一致する必要があります.</p>
 <p>ただし,</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(neighbor(u)\)</span> は <span class="math notranslate nohighlight">\(u\)</span> の隣接節点の全体</p></li>
-<li><p><span class="math notranslate nohighlight">\(f(x,v) = \text{introduce}(x, dp[v], cost(u,v), u, v)\)</span></p>
+<li><p><span class="math notranslate nohighlight">\(\mathit{neighbor}(u)\)</span> は <span class="math notranslate nohighlight">\(u\)</span> の隣接節点の全体</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x,v) = \mathrm{introduce}(x, \mathit{dp}[v], \mathit{cost}(u,v), u, v)\)</span></p>
 <ul>
 <li><p><span class="math notranslate nohighlight">\(dp[v]\)</span> は 子節点 <span class="math notranslate nohighlight">\(v\)</span> から親節点 <span class="math notranslate nohighlight">\(u\)</span> に返す値</p></li>
 </ul>
 </li>
-<li><p><span class="math notranslate nohighlight">\(reduce: (M \times int \to M) \times M \times (Set\:of\:int) \to M\)</span> は <a class="reference external" href="https://ja.wikipedia.org/wiki/%E9%AB%98%E9%9A%8E%E9%96%A2%E6%95%B0#fold">重畳関数</a></p></li>
-<li><p><span class="math notranslate nohighlight">\((L \cap R = \emptyset) \land (L \cup R = neighbor(u) \setminus \{p\})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(reduce: (M \times \mathit{int} \to M) \times M \times (\mathit{Set\:of\:int}) \to M\)</span> は <a class="reference external" href="https://ja.wikipedia.org/wiki/%E9%AB%98%E9%9A%8E%E9%96%A2%E6%95%B0#fold">重畳関数</a></p></li>
+<li><p><span class="math notranslate nohighlight">\((L \cap R = \emptyset) \land (L \cup R = \mathit{neighbor}(u) \setminus \{p\})\)</span></p></li>
 </ul>
 <p>です.</p>
 <div class="section" id="id2">
@@ -151,7 +151,7 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">add_edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">,</span> <span class="n">C</span> <span class="n">c</span> <span class="o">=</span> <span class="p">{})</span>
 </pre></div>
 </div>
-<p>節点 <code class="docutils literal notranslate"><span class="pre">u</span></code> と <code class="docutils literal notranslate"><span class="pre">v</span></code> の間にコスト <code class="docutils literal notranslate"><span class="pre">c</span></code> の枝を張ります.</p>
+<p>節点 <span class="math notranslate nohighlight">\(u\)</span> と <span class="math notranslate nohighlight">\(v\)</span> の間にコスト <span class="math notranslate nohighlight">\(c\)</span> の枝を張ります.</p>
 <div class="section" id="id5">
 <h4>制約<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">

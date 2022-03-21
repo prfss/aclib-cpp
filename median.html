@@ -95,20 +95,20 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">A</span><span class="p">,</span> <span class="k">typename</span> <span class="n">B</span><span class="p">,</span> <span class="n">B</span> <span class="p">(</span><span class="o">*</span><span class="n">op</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">Median</span>
 </pre></div>
 </div>
-<p>中央値は要素数を <span class="math notranslate nohighlight">\(k\)</span> とするとき, <span class="math notranslate nohighlight">\(\text{op}(k,x,y)\)</span> で定義します. ただし</p>
+<p>中央値は要素数を <span class="math notranslate nohighlight">\(k\)</span> とするとき, <span class="math notranslate nohighlight">\(\mathrm{op}(k,x,y)\)</span> で定義します. ただし</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}x =
 \begin{cases}
 0 &amp; (k = 0) \\
-\frac{k+1}{2}番目の値 &amp; (kが奇数) \\
-\frac{k}{2}番目の値 &amp; (kが偶数)
+\frac{k+1}{2}\text{番目の値} &amp; (k\text{が奇数}) \\
+\frac{k}{2}\text{番目の値} &amp; (k\text{が偶数})
 \end{cases}\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}y =
 \begin{cases}
 0 &amp; (k = 0) \\
-\frac{k+1}{2}番目の値 &amp; (kが奇数) \\
-\frac{k}{2}+1番目の値 &amp; (kが偶数)
+\frac{k+1}{2}\text{番目の値} &amp; (k\text{が奇数}) \\
+\frac{k}{2}+1\text{番目の値} &amp; (k\text{が偶数})
 \end{cases}\end{split}\]</div>
 <p>です.</p>
 <div class="section" id="id1">

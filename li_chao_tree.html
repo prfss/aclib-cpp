@@ -102,10 +102,10 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">X</span><span class="p">,</span> <span class="k">typename</span> <span class="n">Y</span><span class="p">,</span> <span class="k">typename</span> <span class="n">F</span><span class="p">,</span> <span class="k">typename</span> <span class="n">compare</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">less</span><span class="o">&lt;</span><span class="n">Y</span><span class="o">&gt;&gt;</span> <span class="n">LiChaoTree</span>
 </pre></div>
 </div>
-<p>関数の集合 <span class="math notranslate nohighlight">\(L = \{f_1,f_2,...,f_n\}\)</span> に対して, 次の2つの処理を行うことができます.</p>
+<p>関数の集合 <span class="math notranslate nohighlight">\(L = \{f_1,f_2, \dots ,f_n\}\)</span> に対して, 次の2つの処理を行うことができます.</p>
 <ul class="simple">
 <li><p>関数の追加</p></li>
-<li><p>ある <span class="math notranslate nohighlight">\(x\)</span> と全ての <span class="math notranslate nohighlight">\(1 \le j \le n\)</span> に対し, <span class="math notranslate nohighlight">\(\text{compare}(f_i(x),f_j(x)) \lor f_i(x) = f_j(x)\)</span> を満たす <span class="math notranslate nohighlight">\(f_i(x)\)</span> の取得</p></li>
+<li><p>ある <span class="math notranslate nohighlight">\(x\)</span> と全ての <span class="math notranslate nohighlight">\(1 \le j \le n\)</span> に対し, <span class="math notranslate nohighlight">\(\mathrm{compare}(f_i(x),f_j(x)) \lor f_i(x) = f_j(x)\)</span> を満たす <span class="math notranslate nohighlight">\(f_i(x)\)</span> の取得</p></li>
 </ul>
 <p>後者について特に <code class="docutils literal notranslate"><span class="pre">compare</span></code> が <code class="docutils literal notranslate"><span class="pre">std::less</span></code> の場合は最小値を, <code class="docutils literal notranslate"><span class="pre">std::greater</span></code> の場合は最大値を得ることができます.</p>
 <div class="section" id="id1">
@@ -126,7 +126,7 @@
 <div class="section" id="id4">
 <h4>制約<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\text{min_x} \le \text{max_x} \lt Xの最大値\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{min\_x} \le \mathrm{max\_x} \lt X\text{の最大値}\)</span></p></li>
 </ul>
 </div>
 </div>
@@ -141,7 +141,7 @@
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="k">operator</span><span class="p">()(</span><span class="n">X</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">add</span></code> で追加した関数 <span class="math notranslate nohighlight">\(f_1, f_2, ..., f_n\)</span> に対して, <span class="math notranslate nohighlight">\(\text{compare}(f_i(x), f_j(x)) \lor f_i(x) = f_j(x)\)</span> を全ての <span class="math notranslate nohighlight">\(1 \le j \le n\)</span> について満たす <span class="math notranslate nohighlight">\(f_i(x)\)</span> を返します.</p>
+<p><code class="docutils literal notranslate"><span class="pre">add</span></code> で追加した関数 <span class="math notranslate nohighlight">\(f_1, f_2, \dots, f_n\)</span> に対して, <span class="math notranslate nohighlight">\(\mathrm{compare}(f_i(x), f_j(x)) \lor f_i(x) = f_j(x)\)</span> を全ての <span class="math notranslate nohighlight">\(1 \le j \le n\)</span> について満たす <span class="math notranslate nohighlight">\(f_i(x)\)</span> を返します.</p>
 </div>
 <div class="section" id="merge">
 <h3>merge<a class="headerlink" href="#merge" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -151,7 +151,7 @@
 <div class="section" id="id5">
 <h4>制約<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\text{min_y} = \text{other.min_y} \land \text{max_y} = \text{other.max_y}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{min\_y} = \mathrm{other.min\_y} \land \mathrm{max\_y} = \mathrm{other.max\_y}\)</span></p></li>
 </ul>
 </div>
 </div>
