@@ -35,9 +35,9 @@ vector<T> mo(const vector<pair<int, int>> query, function<T(T, int)> extend, fun
     int pl = 0, pr = -1;
     for (auto i : idx) {
         auto [l, r] = query[i];
-        while (pl < l) cur = shrink(cur, pl), pl++;
         while (l < pl) pl--, cur = extend(cur, pl);
         while (pr < r) pr++, cur = extend(cur, pr);
+        while (pl < l) cur = shrink(cur, pl), pl++;
         while (r < pr) cur = shrink(cur, pr), pr--;
         ans[i] = cur;
     }
