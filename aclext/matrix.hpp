@@ -8,9 +8,9 @@
 
 using namespace std;
 
+namespace aclext {
 // <---
 // name:Matrix
-namespace aclext {
 template <typename T, T (*add)(T, T), T (*mul)(T, T), T zero(), T one(), bool has_subtraction = false>
 class Matrix {
     size_t n, m;
@@ -182,5 +182,5 @@ ostream& operator<<(ostream& out, const Matrix<atcoder::static_modint<m>, add, m
     return out;
 }
 #endif
-}
 // --->
+}
