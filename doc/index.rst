@@ -16,6 +16,7 @@ AtCoderの問題で要求される(かもしれない)アルゴリズムを提�
 
    bwt
    combination
+   cumulative_sum_2d
    dynamic_segment_tree
    kitamasa
    lca
