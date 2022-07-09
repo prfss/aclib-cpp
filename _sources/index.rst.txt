@@ -19,6 +19,7 @@ AtCoderの問題で要求される(かもしれない)アルゴリズムを提�
    cumulative_sum_2d
    dynamic_segment_tree
    kitamasa
+   kmp
    lca
    li_chao_tree
    matrix
