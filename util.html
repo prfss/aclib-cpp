@@ -53,11 +53,11 @@
 <li class="toctree-l1"><a class="reference internal" href="rerooting.html">Rerooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sieve.html">Sieve</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Util</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#find-le">find_le</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#next-le">next_le</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">制約</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#find-ge">find_ge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#next-ge">next_ge</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">制約</a></li>
 </ul>
 </li>
@@ -93,12 +93,12 @@
   <div class="section" id="util">
 <h1>Util<a class="headerlink" href="#util" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>ユーティリティです</p>
-<div class="section" id="find-le">
-<h2>find_le<a class="headerlink" href="#find-le" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span> <span class="n">find_le</span><span class="p">(</span><span class="n">S</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="p">,</span> <span class="n">T</span> <span class="n">def</span><span class="p">)</span>
+<div class="section" id="next-le">
+<h2>next_le<a class="headerlink" href="#next-le" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span> <span class="n">next_le</span><span class="p">(</span><span class="n">S</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="p">,</span> <span class="n">T</span> <span class="n">def</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>集合 <span class="math notranslate nohighlight">\(s\)</span> から <span class="math notranslate nohighlight">\(v\)</span> と等しいか,より小さい要素を探します.そのような要素が存在しない場合は <span class="math notranslate nohighlight">\(\mathrm{def}\)</span> を返します.</p>
+<p>集合 <span class="math notranslate nohighlight">\(s\)</span> に含まれる, <span class="math notranslate nohighlight">\(v\)</span> と等しいかより小さい最大の要素を返します.そのような要素が存在しない場合は <span class="math notranslate nohighlight">\(\mathrm{def}\)</span> を返します.</p>
 <div class="section" id="id1">
 <h3>制約<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
@@ -106,12 +106,12 @@
 </ul>
 </div>
 </div>
-<div class="section" id="find-ge">
-<h2>find_ge<a class="headerlink" href="#find-ge" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span> <span class="n">find_ge</span><span class="p">(</span><span class="n">S</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="p">,</span> <span class="n">T</span> <span class="n">def</span><span class="p">)</span>
+<div class="section" id="next-ge">
+<h2>next_ge<a class="headerlink" href="#next-ge" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span> <span class="n">next_ge</span><span class="p">(</span><span class="n">S</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="p">,</span> <span class="n">T</span> <span class="n">def</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>集合 <span class="math notranslate nohighlight">\(s\)</span> から <span class="math notranslate nohighlight">\(v\)</span> と等しいか,より大きい要素を探します.そのような要素が存在しない場合は <span class="math notranslate nohighlight">\(\mathrm{def}\)</span> を返します.</p>
+<p>集合 <span class="math notranslate nohighlight">\(s\)</span> に含まれる, <span class="math notranslate nohighlight">\(v\)</span> と等しいかより大きい最小の要素を返します.そのような要素が存在しない場合は <span class="math notranslate nohighlight">\(\mathrm{def}\)</span> を返します.</p>
 <div class="section" id="id2">
 <h3>制約<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
