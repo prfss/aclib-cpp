@@ -28,4 +28,5 @@ AtCoderの問題で要求される(かもしれない)アルゴリズムを提�
    monotonic_convex_hull_trick
    number_theory
    rerooting
-   sieve   
+   sieve
+   util
