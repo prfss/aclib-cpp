@@ -1,7 +1,7 @@
 Rerooting
 #########
 
-全方位木DPのためのクラスです
+全方位木DPを行います
 
 :doc:`rerooting_verification`
 
@@ -28,7 +28,7 @@ Rerooting
 
 で定めます.
 
-また :math:`u` から親節点 :math:`p` に返す値は
+また :math:`u` から親頂点 :math:`p` に返す値は
 
 .. math::
  \mathrm{subtree}(\mathit{reduce}(f, \mathrm{em}(), \mathit{neighbor}(u) \setminus \{p\}), u)
@@ -43,11 +43,11 @@ Rerooting
 
 ただし,
 
-* :math:`\mathit{neighbor}(u)` は :math:`u` の隣接節点の全体
+* :math:`\mathit{neighbor}(u)` は :math:`u` の隣接頂点の全体
 
 * :math:`f(x,v) = \mathrm{introduce}(x, \mathit{dp}[v], \mathit{cost}(u,v), u, v)`
 
-  * :math:`dp[v]` は 子節点 :math:`v` から親節点 :math:`u` に返す値
+  * :math:`dp[v]` は 子頂点 :math:`v` から親頂点 :math:`u` に返す値
 
 * :math:`reduce: (M \times \mathit{int} \to M) \times M \times (\mathit{Set\:of\:int}) \to M` は `重畳関数 <https://ja.wikipedia.org/wiki/%E9%AB%98%E9%9A%8E%E9%96%A2%E6%95%B0#fold>`_
 
@@ -55,9 +55,7 @@ Rerooting
 
 です.
 
-制約
-****
-- 入力は木
+
 
 メンバ
 ******
@@ -68,7 +66,7 @@ Rerooting
 
  rerooting(int n)
 
-グラフの節点数を :math:`n` として初期化します.
+:math:`n` 頂点 :math:`0` 辺の無向グラフを作ります.
 
 
 add_edge
@@ -77,7 +75,7 @@ add_edge
 
  void add_edge(int u, int v, C c = {})
 
-節点 :math:`u` と :math:`v` の間にコスト :math:`c` の枝を張ります.
+頂点 :math:`u` と :math:`v` の間にコスト :math:`c` の辺を追加します.
 
 制約
 -----
@@ -90,3 +88,7 @@ calc
  vector<R> calc()
 
 全方位木DPの計算結果を返します.
+
+制約
+----
+- このグラフは木である

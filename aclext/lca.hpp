@@ -50,7 +50,7 @@ class Lca {
         for (int i = 0; i < n; i++) {
             if (is_root[i]) {
                 dfs(i, -1, 0);
-                // 異なる木に所属する節点が指定された場合-1を返す
+                // 異なる木に所属する頂点が指定された場合-1を返す
                 vis.push_back(-1);
                 depth.push_back(-1);
             }
