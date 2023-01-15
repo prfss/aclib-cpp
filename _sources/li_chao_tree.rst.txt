@@ -1,7 +1,7 @@
 Li-Chao Tree
 ############
 
-Li-Chao tree を実装したクラスです
+Li-Chao tree の実装です
 
 :doc:`li_chao_tree_verification`
 

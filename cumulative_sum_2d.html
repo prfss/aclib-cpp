@@ -90,23 +90,25 @@
              
   <div class="section" id="d-cumulative-sum">
 <h1>2D Cumulative Sum<a class="headerlink" href="#d-cumulative-sum" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>2次元累積和を計算するためのクラスです</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">I</span><span class="p">,</span> <span class="k">typename</span> <span class="n">O</span><span class="o">&gt;</span> <span class="n">CumulativeSum2D</span>
+<p>2次元累積和を計算します</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">CumulativeSum2D</span>
 </pre></div>
 </div>
 <div class="section" id="id1">
 <h2>メンバ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id2">
 <h3>コンストラクタ<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">CumulativeSum2D</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span> <span class="n">l</span><span class="p">)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">I</span><span class="o">&gt;</span> <span class="n">CumulativeSum2D</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">I</span><span class="o">&gt;&gt;</span> <span class="n">l</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><span class="math notranslate nohighlight">\(l\)</span> から2次元配列 <span class="math notranslate nohighlight">\(a\)</span> を作ります.</p>
 </div>
 <div class="section" id="operator">
 <h3>operator()<a class="headerlink" href="#operator" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">O</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">size_t</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">y1</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">x2</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">y2</span><span class="p">)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="k">operator</span><span class="p">()(</span><span class="kt">size_t</span> <span class="n">x1</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">y1</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">x2</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">y2</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><span class="math notranslate nohighlight">\(i \in [x1,x2], j \in [y1,y2]\)</span> を満たす <span class="math notranslate nohighlight">\(i,j\)</span> について <span class="math notranslate nohighlight">\(a[i][j]\)</span> の総和を取得します.</p>
 </div>
 </div>
 </div>

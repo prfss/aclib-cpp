@@ -1,6 +1,6 @@
 Combination
 ###########
-組合せの総数 :math:`\binom{x}{y}` を計算するためのクラスです
+組合せの総数 :math:`\binom{x}{y}` を計算します
 
 .. code-block:: cpp
 
@@ -37,4 +37,4 @@ operator()
 
 制約
 ----
-* :math:`0 \le y \le x \le n`
+- :math:`0 \le y \le x \le n`

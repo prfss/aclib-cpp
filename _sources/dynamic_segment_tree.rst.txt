@@ -1,7 +1,7 @@
 Dynamic Segment Tree
 #####################
 
-動的セグメント木を実装したクラスです
+動的セグメント木の実装です
 
 :doc:`dynamic_segment_tree_verification`
 

@@ -92,10 +92,10 @@
              
   <div class="section" id="util">
 <h1>Util<a class="headerlink" href="#util" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>ユーティリティです</p>
+<p>ユーティリティ関数群です</p>
 <div class="section" id="next-le">
 <h2>next_le<a class="headerlink" href="#next-le" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span> <span class="n">next_le</span><span class="p">(</span><span class="n">S</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="p">,</span> <span class="n">T</span> <span class="n">def</span><span class="p">)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span> <span class="n">next_le</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="p">,</span> <span class="n">T</span> <span class="n">def</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>集合 <span class="math notranslate nohighlight">\(s\)</span> に含まれる, <span class="math notranslate nohighlight">\(v\)</span> と等しいかより小さい最大の要素を返します.そのような要素が存在しない場合は <span class="math notranslate nohighlight">\(\mathrm{def}\)</span> を返します.</p>
@@ -108,7 +108,7 @@
 </div>
 <div class="section" id="next-ge">
 <h2>next_ge<a class="headerlink" href="#next-ge" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span> <span class="n">next_ge</span><span class="p">(</span><span class="n">S</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="p">,</span> <span class="n">T</span> <span class="n">def</span><span class="p">)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">S</span><span class="o">&gt;</span> <span class="n">next_ge</span><span class="p">(</span><span class="k">const</span> <span class="n">S</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">,</span> <span class="n">T</span> <span class="n">v</span><span class="p">,</span> <span class="n">T</span> <span class="n">def</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>集合 <span class="math notranslate nohighlight">\(s\)</span> に含まれる, <span class="math notranslate nohighlight">\(v\)</span> と等しいかより大きい最小の要素を返します.そのような要素が存在しない場合は <span class="math notranslate nohighlight">\(\mathrm{def}\)</span> を返します.</p>

@@ -1,15 +1,11 @@
 Lca
 ####
 
-最小共通祖先(Lowest Common Ancestor)を求めるためのクラスです
+有向木の最小共通祖先(Lowest Common Ancestor)を求めます
 
 .. code-block:: cpp
 
  Lca
-
-制約
-*****
-- 入力は根から葉へ向きづけられた森である
 
 メンバ
 ******
@@ -20,7 +16,7 @@ Lca
 
  lca(int n)
 
-節点数を :math:`n` としてグラフを初期化します.
+:math:`n` 頂点 :math:`0` 辺の有向グラフを作ります.
 
 制約
 ----
@@ -33,7 +29,7 @@ add_edge
 
  void add_edge(int u, int v)
 
-節点 :math:`u` から :math:`v` へ枝を張ります.
+頂点 :math:`u` から :math:`v` への辺を追加します.
 
 制約
 ----
@@ -45,10 +41,11 @@ operator()
 
  int operator()(int u, int v)
 
-節点 :math:`u` と :math:`v` のLCAを返します.
+頂点 :math:`u` と :math:`v` の最小共通祖先を返します.
 
 :math:`u` と :math:`v` が互いに異なる木に所属する場合は :math:`-1` を返します.
 
 制約
 ----
 * :math:`0 \le u,v \lt n` 
+* このグラフは森である
