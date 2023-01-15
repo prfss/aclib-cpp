@@ -1,6 +1,5 @@
 #pragma once
 
-#include "atcoder/math"
 #include "atcoder/modint.hpp"
 #include <cassert>
 #include <vector>
