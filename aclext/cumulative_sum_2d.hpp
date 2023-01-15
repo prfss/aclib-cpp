@@ -1,3 +1,4 @@
+#include <cassert>
 #include <vector>
 
 using namespace std;
@@ -5,15 +6,17 @@ using namespace std;
 namespace aclext {
 // <---
 // name: 2D Cumulative Sum
-template <typename I, typename O>
+template <typename T>
 struct CumulativeSum2D {
-    vector<vector<O>> sum;
+    vector<vector<T>> sum;
+
+    template <typename I>
     CumulativeSum2D(const vector<vector<I>>& cnt) {
         assert(not cnt.empty());
         assert(not cnt[0].empty());
         const size_t n = cnt.size();
         const size_t m = cnt[0].size();
-        sum = vector(n + 1, vector<O>(m + 1));
+        sum = vector(n + 1, vector<T>(m + 1));
         for (size_t i = 0; i < n; i++) {
             for (size_t j = 0; j < m; j++) {
                 sum[i + 1][j + 1] = cnt[i][j];
@@ -33,7 +36,7 @@ struct CumulativeSum2D {
         }
     }
 
-    O operator()(size_t x1, size_t y1, size_t x2, size_t y2) {
+    T operator()(size_t x1, size_t y1, size_t x2, size_t y2) {
         return sum[x2 + 1][y2 + 1] - sum[x2 + 1][y1] - sum[x1][y2 + 1] + sum[x1][y1];
     }
 };
