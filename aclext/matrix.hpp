@@ -131,7 +131,7 @@ public:
         return r;
     }
 
-    Matrix operator^(long long b) const {
+    Matrix pow(long long b) const {
         assert(n == m);
 
         Matrix r = Matrix::identity(int(n)), a(*this);

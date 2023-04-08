@@ -98,10 +98,10 @@ operator*
 
  Matrix operator*(const Matrix &other)
 
-operator^
+pow
 =========
 .. code-block:: cpp
 
- Matrix operator^(ll x)
+ Matrix pow(ll x)
 
 この行列を :math:`x` 乗した行列を返します.

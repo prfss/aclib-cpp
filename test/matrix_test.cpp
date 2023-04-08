@@ -20,7 +20,7 @@ TEST(MatrixTest, Fibonacci) {
         Mat a({ { 1, 1 }, { 1, 0 } });
         Mat v = Mat::column_vector({ fib(1), fib(0) });
 
-        return int(((a ^ (n - 1)) * v)[0][0].val());
+        return int(((a.pow(n - 1)) * v)[0][0].val());
     };
 
     EXPECT_EQ(fib(0), 0);
