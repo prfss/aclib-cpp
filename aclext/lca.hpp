@@ -26,7 +26,7 @@ class Lca {
     int n;
     vector<int> id, vis, depth;
     vector<bool> is_root;
-    bool ok = true;
+    bool ok = false;
     vector<vector<int>> g;
 
     atcoder::segtree<P, lca::min, lca::empty> st;
