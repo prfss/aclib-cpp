@@ -20,7 +20,7 @@ WeightedIndex
 制約
 ----
 1. :math:`0 \le \mathrm{weights[i]} (0 \le i \lt n)`
-2. :math:`0 \lt \sum_{i}^{n-1} \mathrm{weights[i]} \le Tの最大値`
+2. :math:`0 \lt \sum_{i} \mathrm{weights[i]} \le Tの最大値`
 
 計算量
 ------
