@@ -28,6 +28,7 @@ AtCoderの問題で要求される(かもしれない)アルゴリズムを提�
    mo
    monotonic_convex_hull_trick
    number_theory
+   ordering
    random
    rerooting
    sieve
