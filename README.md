@@ -1,23 +1,22 @@
 # acl-ext
 
-C++ library for competitive programming which complements AtCoder Library
+C++ library for competitive programming ([Documentation](https://prfss.github.io/acl-ext/))
 
-[Documentation](https://prfss.github.io/acl-ext/)
+This library depends on STL and [AtCoder Library](https://github.com/atcoder/ac-library).
 
 ## Testing this library
 
-Requirements:[bazel](https://bazel.build/)
+Requirements:[bazelisk](https://github.com/bazelbuild/bazelisk)
 
 ```
-% bazel test --test_output=all //test:test_all
+% bazelisk test --test_output=all //test:test_all
 ```
 
 ## Japanese document generation
 
-Requirements:[sphinx](https://www.sphinx-doc.org/ja/master/)
+Requirements:[doxygen](https://www.doxygen.nl/index.html)
 
 ```
 % cd doc
-% pip install -r requirements.txt
-% make html
+% doxygen Doxyfile
 ```
