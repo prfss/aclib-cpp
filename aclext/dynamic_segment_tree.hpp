@@ -1,3 +1,5 @@
+/// @file
+/// @brief 動的セグメント木の実装です
 #pragma once
 
 // <---
@@ -7,8 +9,8 @@ template <typename S>
 struct Node {
     S val;
     Node *l, *r;
-    Node(S v)
-        : val(v), l(nullptr), r(nullptr) { }
+    Node(S v) :
+        val(v), l(nullptr), r(nullptr) { }
 };
 template <typename S, S (*op)(S, S), S (*e)(), typename X = int>
 class DynamicSegmentTree {
@@ -60,13 +62,13 @@ class DynamicSegmentTree {
     }
 
 public:
-    DynamicSegmentTree(X l, X r)
-        : min_x(l), max_x(r) {
+    DynamicSegmentTree(X l, X r) :
+        min_x(l), max_x(r) {
         root = allocate();
     }
 
-    DynamicSegmentTree(const DynamicSegmentTree<S, op, e>&& other)
-        : min_x(other.min_x), max_x(other.max_x), root(other.root) {
+    DynamicSegmentTree(const DynamicSegmentTree<S, op, e>&& other) :
+        min_x(other.min_x), max_x(other.max_x), root(other.root) {
         other.root = nullptr;
     }
 
@@ -81,13 +83,21 @@ public:
         del(root);
     }
 
-    void set(X i, S val) { set(i, val, root, min_x, max_x + 1); }
+    void set(X i, S val) {
+        set(i, val, root, min_x, max_x + 1);
+    }
 
-    S get(X i) { return prod(i, i + 1, root, min_x, max_x + 1); }
+    S get(X i) {
+        return prod(i, i + 1, root, min_x, max_x + 1);
+    }
 
-    S prod(X l, X r) { return prod(l, r, root, min_x, max_x + 1); }
+    S prod(X l, X r) {
+        return prod(l, r, root, min_x, max_x + 1);
+    }
 
-    S all_prod() { return prod(min_x, max_x + 1); }
+    S all_prod() {
+        return prod(min_x, max_x + 1);
+    }
 
     template <typename F>
     X max_right(X l, F f) {

@@ -1,3 +1,5 @@
+/// @file
+/// @brief 有向木の最小共通祖先(Lowest Common Ancestor)を求めます
 #pragma once
 
 #include "atcoder/segtree"
@@ -22,6 +24,7 @@ namespace lca {
     }
 }
 
+/// @brief LCAを計算するクラスです
 class Lca {
     int n;
     vector<int> id, vis, depth;
@@ -74,11 +77,19 @@ class Lca {
     }
 
 public:
-    Lca(int n)
-        : n(n), id(n), is_root(n, true), g(n) {
+    /// @f$n@f$頂点@f$0@f$辺の有向グラフを作ります.
+    /// @subsection constraint 制約
+    /// @f$1 \le n \le 10^8@f$
+    Lca(int n) :
+        n(n), id(n), is_root(n, true), g(n) {
         assert(1 <= n and n <= lca::MAX_N);
     }
 
+    /// 頂点@f$u@f$と頂点@f$v@f$の最小共通祖先を返します.
+    /// @f$u@f$と@f$v@f$が互いに異なる木に所属する場合は@f$-1@f$を返します.
+    /// ### 制約
+    /// - @f$0 \le u,v \lt n@f$
+    /// - このグラフは森である
     int operator()(int u, int v) {
         assert(0 <= u and u < n);
         assert(0 <= v and v < n);
@@ -92,6 +103,9 @@ public:
         return st.prod(u, v + 1).second;
     }
 
+    /// 頂点@f$u@f$から頂点@f$v@f$への辺を追加します.
+    /// ### 制約
+    /// - @f$0 \le u,v \lt n@f$
     void add_edge(int u, int v) {
         assert(0 <= u and u < n);
         assert(0 <= v and v < n);

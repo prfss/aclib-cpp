@@ -1,3 +1,5 @@
+/// @file
+/// @brief エラトステネスの篩です
 #pragma once
 
 #include <vector>
@@ -7,9 +9,23 @@ using namespace std;
 namespace aclext {
 // <---
 // name: Sieve of Eratosthenes
+
+/// @brief エラトステネスの篩を実装したクラスです
 struct Sieve {
+    /// 長さ@f$n@f$のブール配列です.
+    /// @f[
+    ///   \mathrm{is\_prime}[i] =
+    ///   \begin{cases}
+    ///   \mathrm{true} & \text{(iが素数)} \\
+    ///   \mathrm{false} & \text{(iが素数でない)} \\
+    ///   \end{cases}
+    /// @f]
     vector<bool> is_prime;
+
+    /// @f$n@f$以下の素数のリストです.
     vector<int> primes;
+
+    /// @f$n@f$以下の素数を計算し, 結果をプロパティ`is_prime`, `primes`に格納します.
     Sieve(int n) {
         is_prime.resize(n + 1);
         fill(is_prime.begin(), is_prime.end(), true);

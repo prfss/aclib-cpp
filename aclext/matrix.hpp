@@ -1,3 +1,7 @@
+/// @file
+/// @brief 行列クラスを提供します
+/// @details
+/// [Verification](verifications/matrix.md)
 #pragma once
 
 #include "atcoder/modint"
@@ -11,18 +15,32 @@ using namespace std;
 namespace aclext {
 // <---
 // name:Matrix
+/// 和・差・積・累乗などの演算を備えた行列クラスです
+/// @n
+/// `T`は要素の型です.`add`,`zero`は加算とその単位元,`mul`,`one`は乗算とその単位元を表します.
+/// また`has_subtraction == true`の時,`operator-`を定義します.
+/// ### 制約
+/// - @f$\mathrm{add}(x,\text{zero}()) = \mathrm{add}(\text{zero}(),x) = x@f$
+/// - @f$\mathrm{mul}(x,\text{one}()) = \mathrm{mul}(\text{one}(),x) = x@f$
 template <typename T, T (*add)(T, T), T (*mul)(T, T), T zero(), T one(), bool has_subtraction = false>
 class Matrix {
     size_t n, m;
     vector<vector<T>> a;
 
 public:
-    Matrix(int n, int m, T init = zero())
-        : n(n), m(m) {
+    /// 要素を @f$\mathrm{init}@f$ で初期化した @f$n \times m@f$ 行列を返します.
+    /// ### 制約
+    /// - @f$n,m \ge 1@f$
+    Matrix(int n, int m, T init = zero()) :
+        n(n), m(m) {
         assert(n >= 1 and m >= 1);
         a.assign(n, vector<T>(m, init));
     }
 
+    /// @f$(i,j)@f$成分が@f$\mathrm{list}[i][j]@f$であるような行列を返します.
+    /// ### 制約
+    /// - @f$\mathrm{list}[i] (0 \le i \lt \mathrm{list.size}())@f$の長さはすべて等しい
+    /// - @f$\mathrm{list}@f$は空ではない
     Matrix(const vector<vector<T>> list) {
         assert(!list.empty() && !list.front().empty());
 
@@ -35,6 +53,15 @@ public:
         }
     }
 
+    /// @f$n@f$次の単位行列@f$I_n@f$,すなわち
+    /// @f[
+    /// (I_n)_{ij} =
+    /// \begin{cases}
+    /// \mathrm{one}() & (i = j) \\
+    /// \mathrm{zero}() & (\text{それ以外}) \\
+    /// \end{cases}
+    /// @f]
+    /// を返します.
     static Matrix identity(int n) {
         assert(n >= 1);
         Matrix m = Matrix(n, n, zero());
@@ -131,6 +158,7 @@ public:
         return r;
     }
 
+    /// この行列を@f$b@f$乗した行列を返します.
     Matrix pow(long long b) const {
         assert(n == m);
 

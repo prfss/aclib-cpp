@@ -1,3 +1,5 @@
+/// @file
+/// @brief リセット処理が高速な固定長の真偽値配列です
 #include <limits.h>
 #include <vector>
 
@@ -11,12 +13,18 @@ struct BoolArrayElemProxy {
     BoolArrayElemProxy& operator=(const bool b);
     operator bool() const;
 };
+
+/// @brief リセット処理が高速な固定長の真偽値配列です
+/// @details
+/// ### 制約
+/// - `init`を`LLONG_MAX`回以上呼び出したときの動作は未定義
 class BoolArray {
 private:
     long long threshold;
     vector<long long> data;
 
 public:
+    /// 長さ`n`の配列を構築します.
     BoolArray(size_t n) :
         threshold(1), data(n) {
     }
@@ -29,10 +37,12 @@ public:
         return { i, *this };
     }
 
+    /// `n`を返します.
     size_t size() const {
         return data.size();
     }
 
+    /// 配列の要素をすべて`false`にします.
     void reset() {
         threshold++;
     }

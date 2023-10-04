@@ -1,3 +1,5 @@
+/// @file
+/// @brief 中央値を動的に求めます
 #pragma once
 
 #include <cassert>
@@ -8,6 +10,29 @@ using namespace std;
 namespace aclext {
 // <---
 // name: Median
+/// @brief 中央値を動的に求めるクラスです
+/// @details
+/// 中央値は要素数を@f$k@f$とするとき,@f$\mathrm{op}(k,x,y)@f$で定義します. ただし
+/// @f[
+///    x =
+///    \begin{cases}
+///   0 & (k = 0) \\
+///    \frac{k+1}{2}\text{番目の値} & (k\text{が奇数}) \\
+///    \frac{k}{2}\text{番目の値} & (k\text{が偶数})
+///    \end{cases}
+/// @f]
+/// @f[
+///    y =
+///    \begin{cases}
+///    0 & (k = 0) \\
+///    \frac{k+1}{2}\text{番目の値} & (k\text{が奇数}) \\
+///    \frac{k}{2}+1\text{番目の値} & (k\text{が偶数})
+///   \end{cases}
+/// @f]
+/// です.
+
+/// ### 制約
+/// - 格納される要素数は@f$10^9@f$個以下
 template <typename A, typename B, B (*op)(int, A, A)>
 class Median {
     multiset<A> suf;
@@ -30,10 +55,12 @@ class Median {
     }
 
 public:
+    /// 要素数を返します.
     int size() {
         return suf.size() + pre.size();
     }
 
+    /// 中央値を返します.
     B operator()() {
         int k = size();
         if (k == 0) {
@@ -45,6 +72,7 @@ public:
         }
     }
 
+    /// 数@f$x@f$を追加します.
     void insert(A x) {
         if (!suf.empty() and *suf.begin() <= x) {
             suf.insert(x);
@@ -57,6 +85,7 @@ public:
         balance();
     }
 
+    /// 数@f$x@f$が存在すれば,一つ削除します.
     void erase(A x) {
         auto it = suf.find(x);
         if (it != suf.end()) {

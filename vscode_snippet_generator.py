@@ -10,6 +10,7 @@ from typing import Optional, Tuple, List, Pattern
 CUT_BEGIN_RE: Pattern = re.compile(r"^\s*//\s*<---")
 CUT_END_RE: Pattern = re.compile(r"^\s*//\s*--->")
 NAME_RE: Pattern = re.compile(r"^\s*//\s*name:(.+)")
+COMMENT: Pattern = re.compile(r"^\s*///")
 
 
 def parse(block: List[str]) -> Optional[Tuple[str, str, List[str]]]:
@@ -42,7 +43,7 @@ def extract(source_code: str) -> List[Tuple[str, str, List[str]]]:
             if in_block:
                 block_list.append(block)
                 in_block = False
-        elif in_block:
+        elif in_block and not COMMENT.match(s):
             block.append(s)
 
     return list(filter(None, map(parse, block_list)))

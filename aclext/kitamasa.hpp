@@ -1,3 +1,7 @@
+/// @file
+/// @brief きたまさ法により線形漸化式の項を求めます
+/// @details
+/// [Verification](verifications/kitamasa.md)
 #pragma once
 
 #include <cassert>
@@ -10,6 +14,12 @@ using namespace std;
 namespace aclext {
 // <---
 // name: Kitamasa
+/// 漸化式の係数@f$\mathrm{coefficients} = \{ c_0, c_1, ..., c_{k-1} \}@f$と初期値@f$\mathrm{init} = \{a_0,a_1,...,a_{k-1}\}@f$から
+/// @f$k@f$階線形漸化式@f$a_n = a_{n-1} \cdot c_{k-1} + a_{n-2} \cdot c_{k-1} + \dots +a_{n-k} \cdot c_0@f$の第@f$n@f$項を求めます.
+/// ### 制約
+/// - @f$\mathrm{add}(x, \mathrm{zero}()) = \mathrm{add}(\mathrm{zero}(), x) = x@f$
+/// - @f$\mathrm{mul}(x, \mathrm{one}()) = \mathrm{mul}(\mathrm{one}(), x) = x@f$
+/// - @f$n \ge 0@f$
 template <typename S>
 S kitamasa(const vector<S>& coefficients, function<S(S, S)> add, function<S()> zero, function<S(S, S)> mul, function<S()> one, const vector<S>& init, long long n) {
     assert(coefficients.size() == init.size());

@@ -1,3 +1,7 @@
+/// @file
+/// @brief Li-Chao treeの実装です
+/// @details
+/// [Verification](verifications/li_chao_tree.md)
 #pragma once
 
 #include <cassert>
@@ -13,10 +17,20 @@ template <typename T>
 struct Node {
     Node *left, *right;
     T f;
-    Node(T f)
-        : left(nullptr), right(nullptr), f(f) { }
+    Node(T f) :
+        left(nullptr), right(nullptr), f(f) { }
 };
 
+/// 関数の集合@f$L = \{f_1,f_2, \dots ,f_n\}@f$に対して, 次の2つの処理を行うことができます.
+/// - 関数の追加
+/// - ある@f$x@f$と全ての@f$1 \le j \le n@f$に対し,@f$\mathrm{compare}(f_i(x),f_j(x)) \lor f_i(x) = f_j(x)@f$を満たす@f$f_i(x)@f$の取得
+///
+/// 後者について特に`compare`が `std::less`の場合は最小値を, `std::greater`の場合は最大値を得ることができます.
+
+/// ### 制約
+/// - `X`は整数型
+/// - `F`は `Y operator()(X)`を持つ
+/// - `add`で追加される相異なる関数@f$f@f$と@f$g@f$について,@f$f(x) = g(x)@f$となるような@f$x@f$は高々一つ
 template <typename X, typename Y, typename F, typename compare = std::less<Y>>
 class LiChaoTree {
     X min_x, max_x;
@@ -85,13 +99,16 @@ class LiChaoTree {
     }
 
 public:
-    LiChaoTree(const X& min_x, const X& max_x)
-        : min_x(min_x), max_x(max_x) {
+    /// ### 制約
+    /// @f$\mathrm{min\_x} \le \mathrm{max\_x} \lt X\text{の最大値}@f$
+    LiChaoTree(const X& min_x, const X& max_x) :
+        min_x(min_x), max_x(max_x) {
         assert(min_x <= max_x);
     }
 
     LiChaoTree(LiChaoTree<X, Y, F, compare>&& other) noexcept
-        : min_x(other.min_x), max_x(other.max_x), root(other.root), n(other.n) {
+        :
+        min_x(other.min_x), max_x(other.max_x), root(other.root), n(other.n) {
         other.root = nullptr;
     }
 
@@ -108,6 +125,7 @@ public:
         if (root != nullptr) del(root);
     }
 
+    /// `add`で追加した関数@f$f_1, f_2, \dots, f_n@f$に対して,@f$\mathrm{compare}(f_i(x), f_j(x)) \lor f_i(x) = f_j(x)@f$を全ての@f$1 \le j \le n@f$について満たす@f$f_i(x)@f$を返します.
     Y operator()(const X& x) {
         assert(min_x <= x and x <= max_x);
         assert(root != nullptr);
@@ -122,6 +140,8 @@ public:
         add_line(f, root, min_x, max_x + 1);
     }
 
+    /// ### 制約
+    /// - @f$\mathrm{min\_y} = \mathrm{other.min\_y} \land \mathrm{max\_y} = \mathrm{other.max\_y}@f$
     void merge(const LiChaoTree<X, Y, F, compare>& other) {
         assert(min_x == other.min_x);
         assert(max_x == other.max_x);
@@ -130,6 +150,7 @@ public:
         n += other.n;
     }
 
+    /// これまでに追加した関数の数を返します.
     int size() {
         return n;
     }

@@ -1,3 +1,5 @@
+/// @file
+/// @brief 重み付き乱択を行います
 #pragma once
 
 #include "random.hpp"
@@ -7,7 +9,8 @@
 using namespace std;
 
 namespace aclext {
-
+// <---
+// name: Weighted Index
 template <typename T>
 class WeightedIndex {
 private:
@@ -15,6 +18,10 @@ private:
     vector<T> cumulative_weight;
 
 public:
+    /// 重みを`weigths`として初期化します.
+    /// ### 制約
+    /// - @f$0 \le \mathrm{weights[i]} (0 \le i \lt \mathrm{weights.size()})@f$
+    /// - @f$0 \lt \sum_{i} \mathrm{weights[i]} \le Tの最大値@f$
     WeightedIndex(const vector<T>& weights) :
         n(weights.size()) {
         assert(weights.size() > 0);
@@ -23,6 +30,8 @@ public:
         assert(cumulative_weight.back() > 0);
     }
 
+    /// インデックスを重みに比例する確率で選択して返します.
+    /// `rng`は[乱数エンジン](https://ja.cppreference.com/w/cpp/numeric/random#.E4.B9.B1.E6.95.B0.E3.82.A8.E3.83.B3.E3.82.B8.E3.83.B3)です.
     template <typename R>
     size_t operator()(R& rng) const {
         T x = rand_range<T>(T(0), cumulative_weight.back(), rng);
@@ -39,4 +48,5 @@ public:
         return (size_t)r;
     }
 };
+// --->
 }
