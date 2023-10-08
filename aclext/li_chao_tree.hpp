@@ -1,5 +1,5 @@
 /// @file
-/// @brief Li-Chao treeの実装です
+/// @brief Li-Chao Treeの実装です
 /// @details
 /// [Verification](verifications/li_chao_tree.md)
 #pragma once
@@ -21,12 +21,13 @@ struct Node {
         left(nullptr), right(nullptr), f(f) { }
 };
 
+/// @brief Li-Chao Treeを実装したクラスです
+/// @details
 /// 関数の集合@f$L = \{f_1,f_2, \dots ,f_n\}@f$に対して, 次の2つの処理を行うことができます.
 /// - 関数の追加
 /// - ある@f$x@f$と全ての@f$1 \le j \le n@f$に対し,@f$\mathrm{compare}(f_i(x),f_j(x)) \lor f_i(x) = f_j(x)@f$を満たす@f$f_i(x)@f$の取得
 ///
 /// 後者について特に`compare`が `std::less`の場合は最小値を, `std::greater`の場合は最大値を得ることができます.
-
 /// ### 制約
 /// - `X`は整数型
 /// - `F`は `Y operator()(X)`を持つ

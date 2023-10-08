@@ -1,5 +1,5 @@
 /// @file
-/// @brief 行列クラスを提供します
+/// @brief 行列の計算をおこないます
 /// @details
 /// [Verification](verifications/matrix.md)
 #pragma once
@@ -15,8 +15,8 @@ using namespace std;
 namespace aclext {
 // <---
 // name:Matrix
-/// 和・差・積・累乗などの演算を備えた行列クラスです
-/// @n
+/// @brief 和・差・積・累乗などの演算を備えた行列クラスです
+/// @details
 /// `T`は要素の型です.`add`,`zero`は加算とその単位元,`mul`,`one`は乗算とその単位元を表します.
 /// また`has_subtraction == true`の時,`operator-`を定義します.
 /// ### 制約

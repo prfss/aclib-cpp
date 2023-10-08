@@ -1,4 +1,5 @@
 /// @file
+#pragma once
 namespace aclext {
 // <---
 // name: Ordering

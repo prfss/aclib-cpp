@@ -1,5 +1,5 @@
 /// @file
-/// @brief 中央値を動的に求めます
+/// @brief 中央値を求めます
 #pragma once
 
 #include <cassert>
@@ -10,7 +10,7 @@ using namespace std;
 namespace aclext {
 // <---
 // name: Median
-/// @brief 中央値を動的に求めるクラスです
+/// @brief 中央値を求めることができる多重集合です
 /// @details
 /// 中央値は要素数を@f$k@f$とするとき,@f$\mathrm{op}(k,x,y)@f$で定義します. ただし
 /// @f[
@@ -30,9 +30,6 @@ namespace aclext {
 ///   \end{cases}
 /// @f]
 /// です.
-
-/// ### 制約
-/// - 格納される要素数は@f$10^9@f$個以下
 template <typename A, typename B, B (*op)(int, A, A)>
 class Median {
     multiset<A> suf;

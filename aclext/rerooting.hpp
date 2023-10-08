@@ -1,5 +1,5 @@
 /// @file
-/// @brief 全方位木DPのためのクラスを提供します
+/// @brief 全方位木DPをおこないます
 /// @details [Verifications](verifications/rerooting.md)
 #pragma once
 
@@ -12,6 +12,8 @@ using namespace std;
 namespace aclext {
 // <---
 // name: Rerooting
+/// @brief 全方位木DPをおこなうためのクラスです
+/// @details
 /// @f$S@f$は部分木が親に返す値の型,@f$M@f$はマージを表現する型, @f$R@f$は解の型, @f$C@f$はコストの型です.
 /// @n
 /// @f$u@f$を根とした時の解は

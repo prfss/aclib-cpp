@@ -1,5 +1,5 @@
 /// @file
-/// @brief 確率的な選択を行う関数を提供します
+/// @brief 確率的な選択を行う関数です
 /// @details
 /// 以下で,`rng`は[乱数エンジン](https://ja.cppreference.com/w/cpp/numeric/random#.E4.B9.B1.E6.95.B0.E3.82.A8.E3.83.B3.E3.82.B8.E3.83.B3)です.
 #pragma once

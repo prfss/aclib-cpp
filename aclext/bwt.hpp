@@ -10,7 +10,8 @@ using namespace std;
 namespace aclext {
 // <---
 // name: Burrows-Wheeler Transform
-/// 文字列`s`とその接尾辞配列`sa`からBurrows-Wheeler変換を計算します.
+/// @brief 文字列`s`とその接尾辞配列`sa`からBurrows-Wheeler変換を計算します
+/// @details
 /// ### 制約
 /// `sa`は`s`の接尾辞配列(AtCoder Libraryと同仕様)
 string bwt(const string& s, const vector<int>& sa) {
@@ -25,7 +26,7 @@ string bwt(const string& s, const vector<int>& sa) {
     return res;
 }
 
-/// 文字列`s`からBurrows-Wheeler変換を計算します.
+/// @brief 文字列`s`のBurrows-Wheeler変換を計算します
 string bwt(const string& s) {
     return bwt(s, atcoder::suffix_array(s));
 }

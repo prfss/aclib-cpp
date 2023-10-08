@@ -2,6 +2,8 @@
 /// @brief Mo's algorithmの実装です
 /// @details
 /// [Verification](verifications/mo.md)
+#pragma once
+
 #include <algorithm>
 #include <cassert>
 #include <functional>

@@ -1,5 +1,7 @@
 /// @file
-/// @brief ２次元累積和を計算します
+/// @brief ２次元累積和を求めます
+#pragma once
+
 #include <cassert>
 #include <vector>
 
@@ -14,7 +16,7 @@ struct CumulativeSum2D {
     vector<vector<T>> sum;
 
     template <typename I>
-    /// `cnt`から2次元配列を作ります.
+    /// @brief `cnt`から2次元配列を作ります
     CumulativeSum2D(const vector<vector<I>>& cnt) {
         assert(not cnt.empty());
         assert(not cnt[0].empty());

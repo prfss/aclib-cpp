@@ -19,7 +19,7 @@ namespace aclext {
 /// @f$\mathrm{t}@f$の接頭辞かつ接尾辞であり, @f$\mathrm{t}@f$とは異なるような文字列のうち最長のものの長さです.
 /// 特に@f$\pi_0 = 0@f$です.
 /// ### 制約
-/// - @f$0 \le \mathrm{s.size()} \lt 10^8@f$
+/// - @f$0 \le \mathrm{s.size()} \lt 10^9@f$
 vector<int> prefix_function(const string& s) {
     vector<int> p(s.size());
     size_t i = 1;
@@ -43,8 +43,8 @@ vector<int> prefix_function(const string& s) {
 // name: Knuth-Morris-Pratt (KMP) algorithm
 /// 文字列`s`におけるパターン`pattern`の出現位置を返します.
 /// ### 制約
-/// - @f$0 \le \mathrm{s.size()} \lt 10^8@f$
-/// - @f$0 \le \mathrm{pattern.size()} \lt 10^8@f$
+/// - @f$0 \le \mathrm{s.size()} \lt 10^9@f$
+/// - @f$0 \le \mathrm{pattern.size()} \lt 10^9@f$
 vector<int> kmp_search(const string& s, const string& pattern) {
     assert(1 <= pattern.size());
     vector<int> pos;
