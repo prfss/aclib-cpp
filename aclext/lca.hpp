@@ -1,91 +1,70 @@
 /// @file
 /// @brief 有向木の最小共通祖先(Lowest Common Ancestor)を求めます
+/// @details
+/// [Verification](verifications/lca.md)
 #pragma once
 
-#include "atcoder/segtree"
 #include <cassert>
 #include <functional>
+#include <iostream>
 #include <vector>
 
 using namespace std;
 
+namespace aclext {
 // <---
 // name: Lowest Common Ancestor
-namespace aclext {
-using P = pair<int, int>;
-namespace lca {
-    const int MAX_N = 100'000'000;
-    P min(P x, P y) {
-        return std::min(x, y);
-    }
-
-    P empty() {
-        return { MAX_N, 0 };
-    }
-}
-
 /// @brief LCAを計算するクラスです
 class Lca {
-    int n;
-    vector<int> id, vis, depth;
-    vector<bool> is_root;
-    bool ok = false;
+    const int n;
+    const int log_max_k;
+    vector<vector<int>> par;
     vector<vector<int>> g;
+    vector<int> depth;
+    bool ok = false;
 
-    atcoder::segtree<P, lca::min, lca::empty> st;
+    static int next_log2(const long long x) {
+        long long y = 1;
+        int e = 0;
+        while (y < x) y <<= 1, e++;
+        return e;
+    }
 
-    void dfs(int u, int p, int d) {
-        vis.push_back(u);
-        depth.push_back(d);
-
-        for (auto v : g[u]) {
-            if (v == p) continue;
-            dfs(v, u, d + 1);
-            vis.push_back(u);
-            depth.push_back(d);
+    void dfs(int u, int d, int p) {
+        if (depth[u] >= 0) return;
+        par[0][u] = p;
+        depth[u] = d;
+        for (const auto& v : g[u]) {
+            dfs(v, d + 1, u);
         }
     }
 
     void init() {
         if (ok) return;
-        vis.clear();
-        depth.clear();
-        for (int i = 0; i < n; i++) {
-            if (is_root[i]) {
-                dfs(i, -1, 0);
-                // 異なる木に所属する頂点が指定された場合-1を返す
-                vis.push_back(-1);
-                depth.push_back(-1);
-            }
-        }
-
-        fill(id.begin(), id.end(), -1);
-        for (size_t i = 0; i < vis.size(); i++) {
-            if (vis[i] >= 0 and id[vis[i]] < 0) {
-                id[vis[i]] = i;
-            }
-        }
-
-        vector<P> l;
-        for (size_t i = 0; i < vis.size(); i++) {
-            l.emplace_back(depth[i], vis[i]);
-        }
-
-        st = decltype(st)(l);
-
         ok = true;
+
+        fill(depth.begin(), depth.end(), -1);
+
+        for (int u = 0; u < n; u++) {
+            dfs(u, 0, n);
+        }
+
+        for (int k = 0; k < log_max_k; k++) {
+            for (int u = 0; u <= n; u++) {
+                par[k + 1][u] = par[k][par[k][u]];
+            }
+        }
     }
 
 public:
-    /// @f$n@f$頂点@f$0@f$辺の有向グラフを作ります.
-    /// @subsection constraint 制約
-    /// @f$1 \le n \le 10^8@f$
+    /// @brief @f$n@f$頂点@f$0@f$辺の有向グラフを作ります
+    /// ### 制約
+    /// @f$1 \le n \le 10^9@f$
     Lca(int n) :
-        n(n), id(n), is_root(n, true), g(n) {
-        assert(1 <= n and n <= lca::MAX_N);
-    }
+        n(n), log_max_k(next_log2(n)), par(log_max_k + 1, vector<int>(n + 1)), g(n), depth(n) { }
 
-    /// 頂点@f$u@f$と頂点@f$v@f$の最小共通祖先を返します.
+    /// @brief 頂点@f$u@f$と頂点@f$v@f$の最小共通祖先を返します
+    /// @details
     /// @f$u@f$と@f$v@f$が互いに異なる木に所属する場合は@f$-1@f$を返します.
     /// ### 制約
     /// - @f$0 \le u,v \lt n@f$
@@ -96,22 +75,31 @@ public:
 
         init();
 
-        u = id[u];
-        v = id[v];
-        if (u > v) swap(u, v);
+        if (depth[u] > depth[v]) swap(u, v);
+        for (int k = 0; k <= log_max_k; k++) {
+            if ((((depth[v] - depth[u]) >> k) & 1) == 1) {
+                v = par[k][v];
+            }
+        }
+        if (u == v) return u;
 
-        return st.prod(u, v + 1).second;
+        for (int k = log_max_k; k >= 0; k--) {
+            if (par[k][u] != par[k][v]) {
+                u = par[k][u];
+                v = par[k][v];
+            }
+        }
+        return par[0][v] == n ? -1 : par[0][v];
     }
 
-    /// 頂点@f$u@f$から頂点@f$v@f$への辺を追加します.
+    /// @brief 頂点@f$u@f$から頂点@f$v@f$への辺を追加します
+    /// @details
     /// ### 制約
     /// - @f$0 \le u,v \lt n@f$
     void add_edge(int u, int v) {
         assert(0 <= u and u < n);
         assert(0 <= v and v < n);
-
         ok = false;
-        is_root[v] = false;
         g[u].push_back(v);
     }
 };
