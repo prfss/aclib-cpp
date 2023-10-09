@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['kitamasa_21',['kitamasa',['../kitamasa_8hpp.html#a716db05cbed0907c3737dd11330943f1',1,'aclext::kitamasa()'],['../md_verifications_kitamasa.html',1,'(Global Namespace)']]],
-  ['kitamasa_2ehpp_22',['kitamasa.hpp',['../kitamasa_8hpp.html',1,'']]],
-  ['kmp_23',['kmp',['../md_verifications_kmp.html',1,'']]],
-  ['kmp_2ehpp_24',['kmp.hpp',['../kmp_8hpp.html',1,'']]],
-  ['kmp_5fsearch_25',['kmp_search',['../kmp_8hpp.html#adbc3cf1a5f0372e4a4cec57d52c1a7af',1,'aclext']]]
+  ['identity_21',['identity',['../classMatrix.html#ad286394649070e0543d1760924a54aa4',1,'Matrix']]],
+  ['insert_22',['insert',['../classMedian.html#a1251f55d468dd4c9c8cf65d5613d07c4',1,'Median']]],
+  ['is_5fprime_23',['is_prime',['../number__theory_8hpp.html#a263397b09001fa2ed3eb7a0aa88f6244',1,'number_theory.cpp']]]
 ];

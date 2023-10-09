@@ -84,47 +84,45 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>aclext {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// &lt;---</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// name: Monotonic Convex Hull Trick</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> compare = std::less&lt;T&gt;&gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classaclext_1_1MonotonicConvexHullTrick.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="classaclext_1_1MonotonicConvexHullTrick.html">MonotonicConvexHullTrick</a> {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    deque&lt;pair&lt;T, T&gt;&gt; q;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> is_required(<span class="keyword">const</span> T&amp; a1, <span class="keyword">const</span> T&amp; b1, <span class="keyword">const</span> T&amp; a2, <span class="keyword">const</span> T&amp; b2, <span class="keyword">const</span> T&amp; a3, <span class="keyword">const</span> T&amp; b3) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> ((b2 - b1) * (a2 - a3) &lt; (b3 - b2) * (a1 - a2));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classaclext_1_1MonotonicConvexHullTrick.html">MonotonicConvexHullTrick</a>() { }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> add(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b) {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">while</span> (q.size() &gt;= 2</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;               and !is_required(a, b, q[q.size() - 1].first, q[q.size() - 1].second, q[q.size() - 2].first, q[q.size() - 2].second)) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            q.pop_back();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        q.push_back(make_pair(a, b));</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    T operator()(<span class="keyword">const</span> T&amp; x) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        assert(!q.empty());</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">while</span> (q.size() &gt;= 2) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keyword">auto</span> [a1, b1] = q[0];</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keyword">auto</span> [a2, b2] = q[1];</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">if</span> (compare()(a1 * x + b1, a2 * x + b2)) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            q.pop_front();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">auto</span> [a, b] = q.front();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span> a * x + b;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">// ---&gt;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
-<div class="ttc" id="aclassaclext_1_1MonotonicConvexHullTrick_html"><div class="ttname"><a href="classaclext_1_1MonotonicConvexHullTrick.html">aclext::MonotonicConvexHullTrick</a></div><div class="ttdoc">追加クエリおよび最小値/最大値クエリが単調な場合のConvex Hull Trickを実装したクラスです</div><div class="ttdef"><b>Definition:</b> monotonic_convex_hull_trick.hpp:42</div></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// &lt;---</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// name: Monotonic Convex Hull Trick</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> compare = std::less&lt;T&gt;&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classMonotonicConvexHullTrick.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMonotonicConvexHullTrick.html">MonotonicConvexHullTrick</a> {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    deque&lt;pair&lt;T, T&gt;&gt; q;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> is_required(<span class="keyword">const</span> T&amp; a1, <span class="keyword">const</span> T&amp; b1, <span class="keyword">const</span> T&amp; a2, <span class="keyword">const</span> T&amp; b2, <span class="keyword">const</span> T&amp; a3, <span class="keyword">const</span> T&amp; b3) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> ((b2 - b1) * (a2 - a3) &lt; (b3 - b2) * (a1 - a2));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    };</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classMonotonicConvexHullTrick.html">MonotonicConvexHullTrick</a>() { }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> add(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">while</span> (q.size() &gt;= 2</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;               and !is_required(a, b, q[q.size() - 1].first, q[q.size() - 1].second, q[q.size() - 2].first, q[q.size() - 2].second)) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            q.pop_back();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        q.push_back(make_pair(a, b));</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    T operator()(<span class="keyword">const</span> T&amp; x) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        assert(!q.empty());</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">while</span> (q.size() &gt;= 2) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keyword">auto</span> [a1, b1] = q[0];</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keyword">auto</span> [a2, b2] = q[1];</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span> (compare()(a1 * x + b1, a2 * x + b2)) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            q.pop_front();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">auto</span> [a, b] = q.front();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> a * x + b;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">// ---&gt;</span></div>
+<div class="ttc" id="aclassMonotonicConvexHullTrick_html"><div class="ttname"><a href="classMonotonicConvexHullTrick.html">MonotonicConvexHullTrick</a></div><div class="ttdoc">追加クエリおよび最小値/最大値クエリが単調な場合のConvex Hull Trickを実装したクラスです</div><div class="ttdef"><b>Definition:</b> monotonic_convex_hull_trick.hpp:41</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

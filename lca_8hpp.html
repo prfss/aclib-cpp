@@ -73,10 +73,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">lca.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -84,20 +81,20 @@ $(function() {
 
 <p>有向木の最小共通祖先(Lowest Common Ancestor)を求めます  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;atcoder/segtree&quot;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
+<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for lca.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="lca_8hpp__incl.png" border="0" usemap="#alca_8hpp" alt=""/></div>
 <map name="alca_8hpp" id="alca_8hpp">
-<area shape="rect" title="有向木の最小共通祖先(Lowest Common Ancestor)を求めます" alt="" coords="190,5,253,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,117,107"/>
-<area shape="rect" title=" " alt="" coords="141,80,206,107"/>
-<area shape="rect" title=" " alt="" coords="230,80,309,107"/>
-<area shape="rect" title=" " alt="" coords="333,80,392,107"/>
+<area shape="rect" title="有向木の最小共通祖先(Lowest Common Ancestor)を求めます" alt="" coords="152,5,215,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,71,107"/>
+<area shape="rect" title=" " alt="" coords="95,80,173,107"/>
+<area shape="rect" title=" " alt="" coords="198,80,270,107"/>
+<area shape="rect" title=" " alt="" coords="294,80,353,107"/>
 </map>
 </div>
 </div>
@@ -105,33 +102,13 @@ Include dependency graph for lca.hpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaclext_1_1Lca.html">Lca</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCAを計算するクラスです  <a href="classaclext_1_1Lca.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLca.html">Lca</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">LCAを計算するクラスです  <a href="classLca.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:ada58a5621fa26af4d191d88852d29db1"><td class="memItemLeft" align="right" valign="top"><a id="ada58a5621fa26af4d191d88852d29db1"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>P</b> = pair&lt; int, int &gt;</td></tr>
-<tr class="separator:ada58a5621fa26af4d191d88852d29db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a864d67093157d8890f96f67aeaa4009e"><td class="memItemLeft" align="right" valign="top"><a id="a864d67093157d8890f96f67aeaa4009e"></a>
-P&#160;</td><td class="memItemRight" valign="bottom"><b>min</b> (P x, P y)</td></tr>
-<tr class="separator:a864d67093157d8890f96f67aeaa4009e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a935eaa9a60717a9140be35d9f5e3a052"><td class="memItemLeft" align="right" valign="top"><a id="a935eaa9a60717a9140be35d9f5e3a052"></a>
-P&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> ()</td></tr>
-<tr class="separator:a935eaa9a60717a9140be35d9f5e3a052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ac85296e54208c506666fb3af8dc1e4c6"><td class="memItemLeft" align="right" valign="top"><a id="ac85296e54208c506666fb3af8dc1e4c6"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_N</b> = 100'000'000</td></tr>
-<tr class="separator:ac85296e54208c506666fb3af8dc1e4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>有向木の最小共通祖先(Lowest Common Ancestor)を求めます </p>
+<p><a class="el" href="md_verifications_lca.html">Verification</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

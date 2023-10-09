@@ -86,72 +86,75 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>aclext {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// &lt;---</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// name: rand range</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> R&gt;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="random_8hpp.html#a73063caf5888d73ee9a7cd88d7db45c6">   22</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">typename</span> enable_if&lt;is_integral&lt;T&gt;::value, T&gt;::type <a class="code" href="random_8hpp.html#a73063caf5888d73ee9a7cd88d7db45c6">rand_range</a>(T l, T r, R&amp; rng) {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    assert(l &lt; r);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> uniform_int_distribution&lt;T&gt;(l, r - 1)(rng);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> R&gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">inline</span> <span class="keyword">typename</span> enable_if&lt;is_floating_point&lt;T&gt;::value, T&gt;::type rand_range(T l, T r, R&amp; rng) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    assert(l &lt;= r);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> uniform_real_distribution&lt;double&gt;(l, r)(rng);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// ---&gt;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// &lt;---</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// name: rand bool</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="random_8hpp.html#a21ae616ba12ca8f2f90504f67317d541">   40</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="random_8hpp.html#a21ae616ba12ca8f2f90504f67317d541">rand_bool</a>(<span class="keywordtype">double</span> p, R&amp; rng) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    assert(0.0 &lt;= p and p &lt;= 1.0);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> dist = uniform_real_distribution&lt;double&gt;(0.0, 1.0);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">return</span> dist(rng) &lt; p;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// ---&gt;</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">// &lt;---</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// name: Weighted Index</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classaclext_1_1WeightedIndex.html">   51</a></span>&#160;<span class="keyword">class </span><a class="code" href="classaclext_1_1WeightedIndex.html">WeightedIndex</a> {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> n;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    vector&lt;T&gt; cumulative_weight;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classaclext_1_1WeightedIndex.html#a4cd11b21a594d83fae7261e01942163e">   61</a></span>&#160;    <a class="code" href="classaclext_1_1WeightedIndex.html#a4cd11b21a594d83fae7261e01942163e">WeightedIndex</a>(<span class="keyword">const</span> vector&lt;T&gt;&amp; weights) :</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        n(weights.size()) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        assert(weights.size() &gt; 0);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        cumulative_weight.resize(n);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        partial_sum(weights.begin(), weights.end(), cumulative_weight.begin());</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        assert(cumulative_weight.back() &gt; 0);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classaclext_1_1WeightedIndex.html#ace0cc5e4245cda4d61ca1567924f8bdb">   72</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classaclext_1_1WeightedIndex.html#ace0cc5e4245cda4d61ca1567924f8bdb">operator()</a>(R&amp; rng)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        T x = rand_range&lt;T&gt;(T(0), cumulative_weight.back(), rng);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">long</span> l = -1, r = n - 1;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">while</span> (r - l &gt; 1) {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">auto</span> m = (l + r) / 2;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            T v = cumulative_weight[m];</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">if</span> (x &gt;= v)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                l = m;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                r = m;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> (<span class="keywordtype">size_t</span>)r;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">// ---&gt;</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="ttc" id="aclassaclext_1_1WeightedIndex_html"><div class="ttname"><a href="classaclext_1_1WeightedIndex.html">aclext::WeightedIndex</a></div><div class="ttdoc">重み付き乱択を行います</div><div class="ttdef"><b>Definition:</b> random.hpp:51</div></div>
-<div class="ttc" id="aclassaclext_1_1WeightedIndex_html_a4cd11b21a594d83fae7261e01942163e"><div class="ttname"><a href="classaclext_1_1WeightedIndex.html#a4cd11b21a594d83fae7261e01942163e">aclext::WeightedIndex::WeightedIndex</a></div><div class="ttdeci">WeightedIndex(const vector&lt; T &gt; &amp;weights)</div><div class="ttdef"><b>Definition:</b> random.hpp:61</div></div>
-<div class="ttc" id="aclassaclext_1_1WeightedIndex_html_ace0cc5e4245cda4d61ca1567924f8bdb"><div class="ttname"><a href="classaclext_1_1WeightedIndex.html#ace0cc5e4245cda4d61ca1567924f8bdb">aclext::WeightedIndex::operator()</a></div><div class="ttdeci">size_t operator()(R &amp;rng) const</div><div class="ttdef"><b>Definition:</b> random.hpp:72</div></div>
-<div class="ttc" id="arandom_8hpp_html_a21ae616ba12ca8f2f90504f67317d541"><div class="ttname"><a href="random_8hpp.html#a21ae616ba12ca8f2f90504f67317d541">aclext::rand_bool</a></div><div class="ttdeci">bool rand_bool(double p, R &amp;rng)</div><div class="ttdef"><b>Definition:</b> random.hpp:40</div></div>
-<div class="ttc" id="arandom_8hpp_html_a73063caf5888d73ee9a7cd88d7db45c6"><div class="ttname"><a href="random_8hpp.html#a73063caf5888d73ee9a7cd88d7db45c6">aclext::rand_range</a></div><div class="ttdeci">enable_if&lt; is_integral&lt; T &gt;::value, T &gt;::type rand_range(T l, T r, R &amp;rng)</div><div class="ttdef"><b>Definition:</b> random.hpp:22</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// &lt;---</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// name: rand_range</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> R&gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="random_8hpp.html#a14516209a5271d4498f5a7cfc4412d28">   21</a></span>&#160;<span class="keyword">inline</span> enable_if_t&lt;is_integral_v&lt;T&gt;, T&gt; <a class="code" href="random_8hpp.html#a14516209a5271d4498f5a7cfc4412d28">rand_range</a>(T l, T r, R&amp; rng) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    assert(l &lt; r);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> uniform_int_distribution&lt;T&gt;(l, r - 1)(rng);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> R&gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="random_8hpp.html#ab5fa823e671b971a3a5b4c5ed9f89f58">   30</a></span>&#160;<span class="keyword">inline</span> enable_if_t&lt;is_floating_point_v&lt;T&gt;, T&gt; <a class="code" href="random_8hpp.html#a14516209a5271d4498f5a7cfc4412d28">rand_range</a>(T l, T r, R&amp; rng) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    assert(l &lt; r);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> uniform_real_distribution&lt;double&gt;(l, r)(rng);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">inline</span> T right_closed(T r) {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> nextafter(r, numeric_limits&lt;T&gt;::max());</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// ---&gt;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">// &lt;---</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// name: rand_bool</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="random_8hpp.html#a2cd7708a476465b8f996aafe094542f7">   47</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="random_8hpp.html#a2cd7708a476465b8f996aafe094542f7">rand_bool</a>(<span class="keywordtype">double</span> p, R&amp; rng) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    assert(0.0 &lt;= p and p &lt;= 1.0);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> dist = uniform_real_distribution&lt;double&gt;(0.0, 1.0);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> dist(rng) &lt; p;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// ---&gt;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// &lt;---</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// name: Weighted Index</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classWeightedIndex.html">   58</a></span>&#160;<span class="keyword">class </span><a class="code" href="classWeightedIndex.html">WeightedIndex</a> {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> n;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    vector&lt;T&gt; cumulative_weight;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classWeightedIndex.html#a4cd11b21a594d83fae7261e01942163e">   68</a></span>&#160;    <a class="code" href="classWeightedIndex.html#a4cd11b21a594d83fae7261e01942163e">WeightedIndex</a>(<span class="keyword">const</span> vector&lt;T&gt;&amp; weights) :</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        n(weights.size()) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        assert(weights.size() &gt; 0);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        cumulative_weight.resize(n);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        partial_sum(weights.begin(), weights.end(), cumulative_weight.begin());</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        assert(cumulative_weight.back() &gt; 0);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R&gt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classWeightedIndex.html#ace0cc5e4245cda4d61ca1567924f8bdb">   79</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classWeightedIndex.html#ace0cc5e4245cda4d61ca1567924f8bdb">operator()</a>(R&amp; rng)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        T x = rand_range&lt;T&gt;(T(0), cumulative_weight.back(), rng);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">long</span> l = -1, r = n - 1;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">while</span> (r - l &gt; 1) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keyword">auto</span> m = (l + r) / 2;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            T v = cumulative_weight[m];</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">if</span> (x &gt;= v)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                l = m;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                r = m;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> (<span class="keywordtype">size_t</span>)r;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">// ---&gt;</span></div>
+<div class="ttc" id="aclassWeightedIndex_html"><div class="ttname"><a href="classWeightedIndex.html">WeightedIndex</a></div><div class="ttdoc">重み付き乱択を行います</div><div class="ttdef"><b>Definition:</b> random.hpp:58</div></div>
+<div class="ttc" id="aclassWeightedIndex_html_a4cd11b21a594d83fae7261e01942163e"><div class="ttname"><a href="classWeightedIndex.html#a4cd11b21a594d83fae7261e01942163e">WeightedIndex::WeightedIndex</a></div><div class="ttdeci">WeightedIndex(const vector&lt; T &gt; &amp;weights)</div><div class="ttdef"><b>Definition:</b> random.hpp:68</div></div>
+<div class="ttc" id="aclassWeightedIndex_html_ace0cc5e4245cda4d61ca1567924f8bdb"><div class="ttname"><a href="classWeightedIndex.html#ace0cc5e4245cda4d61ca1567924f8bdb">WeightedIndex::operator()</a></div><div class="ttdeci">size_t operator()(R &amp;rng) const</div><div class="ttdef"><b>Definition:</b> random.hpp:79</div></div>
+<div class="ttc" id="arandom_8hpp_html_a14516209a5271d4498f5a7cfc4412d28"><div class="ttname"><a href="random_8hpp.html#a14516209a5271d4498f5a7cfc4412d28">rand_range</a></div><div class="ttdeci">enable_if_t&lt; is_integral_v&lt; T &gt;, T &gt; rand_range(T l, T r, R &amp;rng)</div><div class="ttdef"><b>Definition:</b> random.hpp:21</div></div>
+<div class="ttc" id="arandom_8hpp_html_a2cd7708a476465b8f996aafe094542f7"><div class="ttname"><a href="random_8hpp.html#a2cd7708a476465b8f996aafe094542f7">rand_bool</a></div><div class="ttdeci">bool rand_bool(double p, R &amp;rng)</div><div class="ttdef"><b>Definition:</b> random.hpp:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

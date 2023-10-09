@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>確率的な選択を行う関数を提供します  
+<p>確率的な選択を行う関数です  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;cfloat&gt;</code><br />
@@ -92,7 +92,7 @@ Include dependency graph for random.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="random_8hpp__incl.png" border="0" usemap="#arandom_8hpp" alt=""/></div>
 <map name="arandom_8hpp" id="arandom_8hpp">
-<area shape="rect" title="確率的な選択を行う関数を提供します" alt="" coords="157,5,247,32"/>
+<area shape="rect" title="確率的な選択を行う関数です" alt="" coords="157,5,247,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,71,107"/>
 <area shape="rect" title=" " alt="" coords="95,80,149,107"/>
 <area shape="rect" title=" " alt="" coords="173,80,231,107"/>
@@ -105,29 +105,32 @@ Include dependency graph for random.hpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaclext_1_1WeightedIndex.html">WeightedIndex&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">重み付き乱択を行います  <a href="classaclext_1_1WeightedIndex.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeightedIndex.html">WeightedIndex&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">重み付き乱択を行います  <a href="classWeightedIndex.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a73063caf5888d73ee9a7cd88d7db45c6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename R &gt; </td></tr>
-<tr class="memitem:a73063caf5888d73ee9a7cd88d7db45c6"><td class="memTemplItemLeft" align="right" valign="top">enable_if&lt; is_integral&lt; T &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="random_8hpp.html#a73063caf5888d73ee9a7cd88d7db45c6">rand_range</a> (T l, T r, R &amp;rng)</td></tr>
-<tr class="separator:a73063caf5888d73ee9a7cd88d7db45c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a867247de4b3ffaefdca9660e8567148c"><td class="memTemplParams" colspan="2"><a id="a867247de4b3ffaefdca9660e8567148c"></a>
-template&lt;typename T , typename R &gt; </td></tr>
-<tr class="memitem:a867247de4b3ffaefdca9660e8567148c"><td class="memTemplItemLeft" align="right" valign="top">enable_if&lt; is_floating_point&lt; T &gt;::value, T &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><b>rand_range</b> (T l, T r, R &amp;rng)</td></tr>
-<tr class="separator:a867247de4b3ffaefdca9660e8567148c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21ae616ba12ca8f2f90504f67317d541"><td class="memTemplParams" colspan="2">template&lt;typename R &gt; </td></tr>
-<tr class="memitem:a21ae616ba12ca8f2f90504f67317d541"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="random_8hpp.html#a21ae616ba12ca8f2f90504f67317d541">rand_bool</a> (double p, R &amp;rng)</td></tr>
-<tr class="separator:a21ae616ba12ca8f2f90504f67317d541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14516209a5271d4498f5a7cfc4412d28"><td class="memTemplParams" colspan="2">template&lt;typename T , typename R &gt; </td></tr>
+<tr class="memitem:a14516209a5271d4498f5a7cfc4412d28"><td class="memTemplItemLeft" align="right" valign="top">enable_if_t&lt; is_integral_v&lt; T &gt;, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="random_8hpp.html#a14516209a5271d4498f5a7cfc4412d28">rand_range</a> (T l, T r, R &amp;rng)</td></tr>
+<tr class="separator:a14516209a5271d4498f5a7cfc4412d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5fa823e671b971a3a5b4c5ed9f89f58"><td class="memTemplParams" colspan="2">template&lt;typename T , typename R &gt; </td></tr>
+<tr class="memitem:ab5fa823e671b971a3a5b4c5ed9f89f58"><td class="memTemplItemLeft" align="right" valign="top">enable_if_t&lt; is_floating_point_v&lt; T &gt;, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="random_8hpp.html#ab5fa823e671b971a3a5b4c5ed9f89f58">rand_range</a> (T l, T r, R &amp;rng)</td></tr>
+<tr class="separator:ab5fa823e671b971a3a5b4c5ed9f89f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bdaaa009987045f22553b9ed841de8f"><td class="memTemplParams" colspan="2"><a id="a8bdaaa009987045f22553b9ed841de8f"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a8bdaaa009987045f22553b9ed841de8f"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>right_closed</b> (T r)</td></tr>
+<tr class="separator:a8bdaaa009987045f22553b9ed841de8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd7708a476465b8f996aafe094542f7"><td class="memTemplParams" colspan="2">template&lt;typename R &gt; </td></tr>
+<tr class="memitem:a2cd7708a476465b8f996aafe094542f7"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="random_8hpp.html#a2cd7708a476465b8f996aafe094542f7">rand_bool</a> (double p, R &amp;rng)</td></tr>
+<tr class="separator:a2cd7708a476465b8f996aafe094542f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>確率的な選択を行う関数を提供します </p>
+<div class="textblock"><p>確率的な選択を行う関数です </p>
 <p>以下で,<code>rng</code>は<a href="https://ja.cppreference.com/w/cpp/numeric/random#.E4.B9.B1.E6.95.B0.E3.82.A8.E3.83.B3.E3.82.B8.E3.83.B3">乱数エンジン</a>です. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a21ae616ba12ca8f2f90504f67317d541"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21ae616ba12ca8f2f90504f67317d541">&#9670;&nbsp;</a></span>rand_bool()</h2>
+<a id="a2cd7708a476465b8f996aafe094542f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd7708a476465b8f996aafe094542f7">&#9670;&nbsp;</a></span>rand_bool()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,7 +139,7 @@ template&lt;typename T , typename R &gt; </td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool aclext::rand_bool </td>
+          <td class="memname">bool rand_bool </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>p</em>, </td>
@@ -168,8 +171,8 @@ template&lt;typename T , typename R &gt; </td></tr>
 
 </div>
 </div>
-<a id="a73063caf5888d73ee9a7cd88d7db45c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73063caf5888d73ee9a7cd88d7db45c6">&#9670;&nbsp;</a></span>rand_range()</h2>
+<a id="a14516209a5271d4498f5a7cfc4412d28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14516209a5271d4498f5a7cfc4412d28">&#9670;&nbsp;</a></span>rand_range() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +181,7 @@ template&lt;typename T , typename R &gt; </td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enable_if&lt;is_integral&lt;T&gt;::value, T&gt;::type aclext::rand_range </td>
+          <td class="memname">enable_if_t&lt;is_integral_v&lt;T&gt;, T&gt; rand_range </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>l</em>, </td>
@@ -208,6 +211,54 @@ template&lt;typename T , typename R &gt; </td></tr>
 </table>
 </div><div class="memdoc">
 <p>整数区間 \([l,r)\)から一様に数を選んで返します. </p>
+<h3><a class="anchor" id="autotoc_md19"></a>
+制約</h3>
+<ul>
+<li>\(l \lt r\) </li>
+</ul>
+
+</div>
+</div>
+<a id="ab5fa823e671b971a3a5b4c5ed9f89f58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5fa823e671b971a3a5b4c5ed9f89f58">&#9670;&nbsp;</a></span>rand_range() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enable_if_t&lt;is_floating_point_v&lt;T&gt;, T&gt; rand_range </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">R &amp;&#160;</td>
+          <td class="paramname"><em>rng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>実数区間 \([l,r)\)から一様に数を選んで返します. </p>
 <h3><a class="anchor" id="autotoc_md20"></a>
 制約</h3>
 <ul>

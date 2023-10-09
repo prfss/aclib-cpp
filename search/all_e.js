@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['sieve_62',['Sieve',['../structaclext_1_1Sieve.html',1,'Sieve'],['../structaclext_1_1Sieve.html#adffc505672ed3ae6bf59de1542eeaea9',1,'aclext::Sieve::Sieve()']]],
-  ['sieve_2ehpp_63',['sieve.hpp',['../sieve_8hpp.html',1,'']]],
-  ['size_64',['size',['../classaclext_1_1BoolArray.html#a259cb5a711406a8c3e5d937eb9350cca',1,'aclext::BoolArray::size()'],['../classaclext_1_1LiChaoTree.html#af4b57d21919c42d55af03391f91a1c08',1,'aclext::LiChaoTree::size()'],['../classaclext_1_1Median.html#af4b57d21919c42d55af03391f91a1c08',1,'aclext::Median::size()']]]
+  ['rand_5fbool_56',['rand_bool',['../random_8hpp.html#a2cd7708a476465b8f996aafe094542f7',1,'random.hpp']]],
+  ['rand_5frange_57',['rand_range',['../random_8hpp.html#a14516209a5271d4498f5a7cfc4412d28',1,'rand_range(T l, T r, R &amp;rng):&#160;random.hpp'],['../random_8hpp.html#ab5fa823e671b971a3a5b4c5ed9f89f58',1,'rand_range(T l, T r, R &amp;rng):&#160;random.hpp']]],
+  ['random_2ehpp_58',['random.hpp',['../random_8hpp.html',1,'']]],
+  ['rerooting_59',['rerooting',['../md_verifications_rerooting.html',1,'']]],
+  ['rerooting_60',['Rerooting',['../classRerooting.html',1,'']]],
+  ['rerooting_2ehpp_61',['rerooting.hpp',['../rerooting_8hpp.html',1,'']]],
+  ['reset_62',['reset',['../classBoolArray.html#ad20897c5c8bd47f5d4005989bead0e55',1,'BoolArray']]]
 ];

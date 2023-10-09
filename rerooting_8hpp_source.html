@@ -84,83 +84,81 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>aclext {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// &lt;---</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// name: Rerooting</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> S, <span class="keyword">typename</span> M, <span class="keyword">typename</span> R, <span class="keyword">typename</span> C, M (*merge)(M, M, <span class="keywordtype">int</span>), M (*<span class="keywordtype">int</span>roduce)(M, S, C, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>), M (*em)(), R (*result)(M, <span class="keywordtype">int</span>), S (*subtree)(M, <span class="keywordtype">int</span>)&gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classaclext_1_1Rerooting.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classaclext_1_1Rerooting.html">Rerooting</a> {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> n;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    vector&lt;vector&lt;pair&lt;int, C&gt;&gt;&gt; g;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    vector&lt;R&gt; ans;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    vector&lt;vector&lt;S&gt;&gt; dp;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    S dfs1(<span class="keywordtype">int</span> u, <span class="keywordtype">int</span> p) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        M s = em();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">int</span> k = g[u].size();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        dp[u] = vector&lt;S&gt;(k);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keyword">auto</span> [v, c] = g[u][i];</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (v == p) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            dp[u][i] = dfs1(v, u);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            s = introduce(s, dp[u][i], c, u, v);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> subtree(s, u);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> dfs2(<span class="keywordtype">int</span> u, S par, <span class="keywordtype">int</span> p) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">int</span> k = g[u].size();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">auto</span> [v, c] = g[u][i];</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">if</span> (v == p) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                dp[u][i] = par;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        vector&lt;M&gt; dp_l(k + 1, em()), dp_r(k + 1, em());</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            dp_l[i + 1] = introduce(dp_l[i], dp[u][i], g[u][i].second, u, g[u][i].first);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        ans[u] = result(dp_l[k], u);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = k - 1; i &gt;= 0; i--) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            dp_r[i] = introduce(dp_r[i + 1], dp[u][i], g[u][i].second, u, g[u][i].first);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">auto</span> [v, c] = g[u][i];</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">if</span> (v == p) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            dfs2(v, subtree(merge(dp_l[i], dp_r[i + 1], u), u), u);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classaclext_1_1Rerooting.html">Rerooting</a>(<span class="keywordtype">int</span> n) :</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        n(n), g(n), ans(n) { }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> add_edge(<span class="keywordtype">int</span> u, <span class="keywordtype">int</span> v, C c = {}) {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        assert(0 &lt;= u &amp;&amp; u &lt; n);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        assert(0 &lt;= v &amp;&amp; v &lt; n);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        g[u].emplace_back(v, c);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        g[v].emplace_back(u, c);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    vector&lt;R&gt; calc() {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        dp = vector&lt;vector&lt;S&gt;&gt;(n);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        dfs1(0, -1);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        dfs2(0, {}, -1);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> ans;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">// ---&gt;</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
-<div class="ttc" id="aclassaclext_1_1Rerooting_html"><div class="ttname"><a href="classaclext_1_1Rerooting.html">aclext::Rerooting</a></div><div class="ttdef"><b>Definition:</b> rerooting.hpp:34</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// &lt;---</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// name: Rerooting</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> S, <span class="keyword">typename</span> M, <span class="keyword">typename</span> R, <span class="keyword">typename</span> C, M (*merge)(M, M, <span class="keywordtype">int</span>), M (*<span class="keywordtype">int</span>roduce)(M, S, C, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>), M (*em)(), R (*result)(M, <span class="keywordtype">int</span>), S (*subtree)(M, <span class="keywordtype">int</span>)&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classRerooting.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRerooting.html">Rerooting</a> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> n;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    vector&lt;vector&lt;pair&lt;int, C&gt;&gt;&gt; g;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    vector&lt;R&gt; ans;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    vector&lt;vector&lt;S&gt;&gt; dp;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    S dfs1(<span class="keywordtype">int</span> u, <span class="keywordtype">int</span> p) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        M s = em();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordtype">int</span> k = g[u].size();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        dp[u] = vector&lt;S&gt;(k);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keyword">auto</span> [v, c] = g[u][i];</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span> (v == p) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            dp[u][i] = dfs1(v, u);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            s = introduce(s, dp[u][i], c, u, v);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> subtree(s, u);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> dfs2(<span class="keywordtype">int</span> u, S par, <span class="keywordtype">int</span> p) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">int</span> k = g[u].size();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">auto</span> [v, c] = g[u][i];</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">if</span> (v == p) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                dp[u][i] = par;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        vector&lt;M&gt; dp_l(k + 1, em()), dp_r(k + 1, em());</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            dp_l[i + 1] = introduce(dp_l[i], dp[u][i], g[u][i].second, u, g[u][i].first);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        ans[u] = result(dp_l[k], u);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = k - 1; i &gt;= 0; i--) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            dp_r[i] = introduce(dp_r[i + 1], dp[u][i], g[u][i].second, u, g[u][i].first);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; k; i++) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keyword">auto</span> [v, c] = g[u][i];</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">if</span> (v == p) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            dfs2(v, subtree(merge(dp_l[i], dp_r[i + 1], u), u), u);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classRerooting.html">Rerooting</a>(<span class="keywordtype">int</span> n) :</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        n(n), g(n), ans(n) { }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> add_edge(<span class="keywordtype">int</span> u, <span class="keywordtype">int</span> v, C c = {}) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        assert(0 &lt;= u &amp;&amp; u &lt; n);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        assert(0 &lt;= v &amp;&amp; v &lt; n);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        g[u].emplace_back(v, c);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        g[v].emplace_back(u, c);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    vector&lt;R&gt; calc() {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        dp = vector&lt;vector&lt;S&gt;&gt;(n);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        dfs1(0, -1);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        dfs2(0, {}, -1);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">return</span> ans;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">// ---&gt;</span></div>
+<div class="ttc" id="aclassRerooting_html"><div class="ttname"><a href="classRerooting.html">Rerooting</a></div><div class="ttdoc">全方位木DPをおこなうためのクラスです</div><div class="ttdef"><b>Definition:</b> rerooting.hpp:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

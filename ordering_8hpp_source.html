@@ -76,31 +76,31 @@ $(function() {
 <div class="title">ordering.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ordering_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">namespace </span>aclext {</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// &lt;---</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// name: Ordering</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classaclext_1_1Ordering.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classaclext_1_1Ordering.html">Ordering</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    T x;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    T y;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classaclext_1_1Ordering.html">Ordering</a>(T x, T y) :</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        x(x), y(y) { }</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classaclext_1_1Ordering.html#a67b76affb3b5d35fa419ac234144038b">   14</a></span>&#160;    <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> x &lt; y;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classaclext_1_1Ordering.html#a97cd6536bf967d2f347d3223ae07e4e5">   18</a></span>&#160;    <a class="code" href="classaclext_1_1Ordering.html">Ordering</a> <a class="code" href="classaclext_1_1Ordering.html#a97cd6536bf967d2f347d3223ae07e4e5">then</a>(<span class="keyword">const</span> T other_x, <span class="keyword">const</span> T other_y)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">if</span> (x == y)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classaclext_1_1Ordering.html">Ordering</a> { other_x, other_y };</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// ---&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="ttc" id="aclassaclext_1_1Ordering_html"><div class="ttname"><a href="classaclext_1_1Ordering.html">aclext::Ordering</a></div><div class="ttdef"><b>Definition:</b> ordering.hpp:6</div></div>
-<div class="ttc" id="aclassaclext_1_1Ordering_html_a97cd6536bf967d2f347d3223ae07e4e5"><div class="ttname"><a href="classaclext_1_1Ordering.html#a97cd6536bf967d2f347d3223ae07e4e5">aclext::Ordering::then</a></div><div class="ttdeci">Ordering then(const T other_x, const T other_y) const</div><div class="ttdoc">の時,Ordering(other_x,other_y),それ以外の時*thisを返す.</div><div class="ttdef"><b>Definition:</b> ordering.hpp:18</div></div>
+<a href="ordering_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// &lt;---</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// name: Ordering</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classOrdering.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classOrdering.html">Ordering</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    T x;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    T y;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classOrdering.html">Ordering</a>(T x, T y) :</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        x(x), y(y) { }</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classOrdering.html#a67b76affb3b5d35fa419ac234144038b">   15</a></span>&#160;    <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">return</span> x &lt; y;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classOrdering.html#a97cd6536bf967d2f347d3223ae07e4e5">   19</a></span>&#160;    <a class="code" href="classOrdering.html">Ordering</a> <a class="code" href="classOrdering.html#a97cd6536bf967d2f347d3223ae07e4e5">then</a>(<span class="keyword">const</span> T other_x, <span class="keyword">const</span> T other_y)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span> (x == y)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classOrdering.html">Ordering</a> { other_x, other_y };</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// ---&gt;</span></div>
+<div class="ttc" id="aclassOrdering_html"><div class="ttname"><a href="classOrdering.html">Ordering</a></div><div class="ttdef"><b>Definition:</b> ordering.hpp:7</div></div>
+<div class="ttc" id="aclassOrdering_html_a97cd6536bf967d2f347d3223ae07e4e5"><div class="ttname"><a href="classOrdering.html#a97cd6536bf967d2f347d3223ae07e4e5">Ordering::then</a></div><div class="ttdeci">Ordering then(const T other_x, const T other_y) const</div><div class="ttdoc">の時,Ordering(other_x,other_y),それ以外の時*thisを返す.</div><div class="ttdef"><b>Definition:</b> ordering.hpp:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,5 +1,5 @@
 <map id="matrix.hpp" name="matrix.hpp">
-<area shape="rect" id="node1" title="行列クラスを提供します" alt="" coords="225,5,307,32"/>
+<area shape="rect" id="node1" title="行列の計算をおこないます" alt="" coords="225,5,307,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,113,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="137,80,203,107"/>
 <area shape="rect" id="node4" title=" " alt="" coords="227,80,305,107"/>

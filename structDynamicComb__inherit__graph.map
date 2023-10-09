@@ -1,0 +1,4 @@
+<map id="DynamicComb" name="DynamicComb">
+<area shape="rect" id="node1" title="組合わせの総数を計算するクラスです" alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node2" href="$structComb.html" title="modをコンパイル時定数として組合わせの総数を計算するクラスです" alt="" coords="7,80,110,107"/>
+</map>

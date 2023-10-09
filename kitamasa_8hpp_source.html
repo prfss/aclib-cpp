@@ -85,63 +85,61 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>aclext {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// &lt;---</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// name: Kitamasa</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="kitamasa_8hpp.html#a716db05cbed0907c3737dd11330943f1">   24</a></span>&#160;S <a class="code" href="kitamasa_8hpp.html#a716db05cbed0907c3737dd11330943f1">kitamasa</a>(<span class="keyword">const</span> vector&lt;S&gt;&amp; coefficients, <span class="keyword">function</span>&lt;S(S, S)&gt; add, <span class="keyword">function</span>&lt;S()&gt; zero, <span class="keyword">function</span>&lt;S(S, S)&gt; mul, <span class="keyword">function</span>&lt;S()&gt; one, <span class="keyword">const</span> vector&lt;S&gt;&amp; init, <span class="keywordtype">long</span> <span class="keywordtype">long</span> n) {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    assert(coefficients.size() == init.size());</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">size_t</span> k = coefficients.size();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    function&lt;vector&lt;S&gt;(<span class="keyword">const</span> vector&lt;S&gt;&amp;)&gt; next_coefficients = [&amp;](<span class="keyword">const</span> vector&lt;S&gt;&amp; cur) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        vector&lt;S&gt; res(k);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; k; ++i) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            res[i] = mul(coefficients[i], cur[k - 1]);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">if</span> (i &gt; 0) res[i] = add(res[i], cur[i - 1]);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    function&lt;vector&lt;S&gt;(<span class="keyword">const</span> vector&lt;S&gt;&amp;)&gt; double_coefficients = [&amp;](<span class="keyword">const</span> vector&lt;S&gt;&amp; coefficients) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        vector&lt;vector&lt;S&gt;&gt; temp = { coefficients };</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 1; i &lt; k; i++) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            temp.push_back(next_coefficients(temp.back()));</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        vector&lt;S&gt; dbl(k);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; k; i++) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; k; j++) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                dbl[j] = add(dbl[j], mul(temp[0][i], temp[i][j]));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> dbl;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    function&lt;vector&lt;S&gt;(<span class="keywordtype">long</span> <span class="keywordtype">long</span>)&gt; calc_coefficients = [&amp;](<span class="keywordtype">long</span> <span class="keywordtype">long</span> n) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span> (n &lt; (<span class="keywordtype">long</span> <span class="keywordtype">long</span>)k) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            vector&lt;S&gt; res(k);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            res[n] = one();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">auto</span> co = double_coefficients(calc_coefficients(n / 2));</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">if</span> ((n &amp; 1LL) != 0LL) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            co = next_coefficients(co);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">return</span> co;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    };</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">auto</span> co = calc_coefficients(n);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    S res = zero();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; k; i++) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        res = add(res, mul(co[i], init[i]));</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> res;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">// ---&gt;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="ttc" id="akitamasa_8hpp_html_a716db05cbed0907c3737dd11330943f1"><div class="ttname"><a href="kitamasa_8hpp.html#a716db05cbed0907c3737dd11330943f1">aclext::kitamasa</a></div><div class="ttdeci">S kitamasa(const vector&lt; S &gt; &amp;coefficients, function&lt; S(S, S)&gt; add, function&lt; S()&gt; zero, function&lt; S(S, S)&gt; mul, function&lt; S()&gt; one, const vector&lt; S &gt; &amp;init, long long n)</div><div class="ttdef"><b>Definition:</b> kitamasa.hpp:24</div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// &lt;---</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// name: Kitamasa</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> S&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="kitamasa_8hpp.html#abf8875996404c85349be44bf27478b83">   23</a></span>&#160;S <a class="code" href="kitamasa_8hpp.html#abf8875996404c85349be44bf27478b83">kitamasa</a>(<span class="keyword">const</span> vector&lt;S&gt;&amp; coefficients, <span class="keyword">function</span>&lt;S(S, S)&gt; add, <span class="keyword">function</span>&lt;S()&gt; zero, <span class="keyword">function</span>&lt;S(S, S)&gt; mul, <span class="keyword">function</span>&lt;S()&gt; one, <span class="keyword">const</span> vector&lt;S&gt;&amp; init, <span class="keywordtype">long</span> <span class="keywordtype">long</span> n) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    assert(coefficients.size() == init.size());</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">size_t</span> k = coefficients.size();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    function&lt;vector&lt;S&gt;(<span class="keyword">const</span> vector&lt;S&gt;&amp;)&gt; next_coefficients = [&amp;](<span class="keyword">const</span> vector&lt;S&gt;&amp; cur) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        vector&lt;S&gt; res(k);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; k; ++i) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            res[i] = mul(coefficients[i], cur[k - 1]);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> (i &gt; 0) res[i] = add(res[i], cur[i - 1]);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    };</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    function&lt;vector&lt;S&gt;(<span class="keyword">const</span> vector&lt;S&gt;&amp;)&gt; double_coefficients = [&amp;](<span class="keyword">const</span> vector&lt;S&gt;&amp; coefficients) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        vector&lt;vector&lt;S&gt;&gt; temp = { coefficients };</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 1; i &lt; k; i++) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            temp.push_back(next_coefficients(temp.back()));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        vector&lt;S&gt; dbl(k);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; k; i++) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j = 0; j &lt; k; j++) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                dbl[j] = add(dbl[j], mul(temp[0][i], temp[i][j]));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> dbl;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    function&lt;vector&lt;S&gt;(<span class="keywordtype">long</span> <span class="keywordtype">long</span>)&gt; calc_coefficients = [&amp;](<span class="keywordtype">long</span> <span class="keywordtype">long</span> n) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span> (n &lt; (<span class="keywordtype">long</span> <span class="keywordtype">long</span>)k) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            vector&lt;S&gt; res(k);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            res[n] = one();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">auto</span> co = double_coefficients(calc_coefficients(n / 2));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> ((n &amp; 1LL) != 0LL) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            co = next_coefficients(co);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> co;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">auto</span> co = calc_coefficients(n);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    S res = zero();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; k; i++) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        res = add(res, mul(co[i], init[i]));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">// ---&gt;</span></div>
+<div class="ttc" id="akitamasa_8hpp_html_abf8875996404c85349be44bf27478b83"><div class="ttname"><a href="kitamasa_8hpp.html#abf8875996404c85349be44bf27478b83">kitamasa</a></div><div class="ttdeci">S kitamasa(const vector&lt; S &gt; &amp;coefficients, function&lt; S(S, S)&gt; add, function&lt; S()&gt; zero, function&lt; S(S, S)&gt; mul, function&lt; S()&gt; one, const vector&lt; S &gt; &amp;init, long long n)</div><div class="ttdef"><b>Definition:</b> kitamasa.hpp:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

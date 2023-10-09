@@ -100,23 +100,25 @@ Include dependency graph for kmp.hpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1d65c35bd47113037ce9600bc18e9e2b"><td class="memItemLeft" align="right" valign="top">vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmp_8hpp.html#a1d65c35bd47113037ce9600bc18e9e2b">prefix_function</a> (const string &amp;s)</td></tr>
-<tr class="separator:a1d65c35bd47113037ce9600bc18e9e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbc3cf1a5f0372e4a4cec57d52c1a7af"><td class="memItemLeft" align="right" valign="top">vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmp_8hpp.html#adbc3cf1a5f0372e4a4cec57d52c1a7af">kmp_search</a> (const string &amp;s, const string &amp;pattern)</td></tr>
-<tr class="separator:adbc3cf1a5f0372e4a4cec57d52c1a7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9756a3f1b724433028b2b3d9e1141ed4"><td class="memItemLeft" align="right" valign="top">vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmp_8hpp.html#a9756a3f1b724433028b2b3d9e1141ed4">prefix_function</a> (const string &amp;s)</td></tr>
+<tr class="memdesc:a9756a3f1b724433028b2b3d9e1141ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列<code>s</code>のprefix functionを返します  <a href="kmp_8hpp.html#a9756a3f1b724433028b2b3d9e1141ed4">More...</a><br /></td></tr>
+<tr class="separator:a9756a3f1b724433028b2b3d9e1141ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c222a90b80cd57df62e9cc32808d603"><td class="memItemLeft" align="right" valign="top">vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="kmp_8hpp.html#a5c222a90b80cd57df62e9cc32808d603">kmp_search</a> (const string &amp;s, const string &amp;pattern)</td></tr>
+<tr class="memdesc:a5c222a90b80cd57df62e9cc32808d603"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列<code>s</code>におけるパターン<code>pattern</code>の出現位置を返します  <a href="kmp_8hpp.html#a5c222a90b80cd57df62e9cc32808d603">More...</a><br /></td></tr>
+<tr class="separator:a5c222a90b80cd57df62e9cc32808d603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Knuth-Morris-Pratt法の実装です </p>
 <p><a class="el" href="md_verifications_kmp.html">Verification</a> </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="adbc3cf1a5f0372e4a4cec57d52c1a7af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbc3cf1a5f0372e4a4cec57d52c1a7af">&#9670;&nbsp;</a></span>kmp_search()</h2>
+<a id="a5c222a90b80cd57df62e9cc32808d603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c222a90b80cd57df62e9cc32808d603">&#9670;&nbsp;</a></span>kmp_search()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt;int&gt; aclext::kmp_search </td>
+          <td class="memname">vector&lt;int&gt; kmp_search </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>s</em>, </td>
@@ -134,24 +136,25 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>文字列<code>s</code>におけるパターン<code>pattern</code>の出現位置を返します. </p>
-<h3><a class="anchor" id="autotoc_md7"></a>
+
+<p>文字列<code>s</code>におけるパターン<code>pattern</code>の出現位置を返します </p>
+<h3><a class="anchor" id="autotoc_md6"></a>
 制約</h3>
 <ul>
-<li>\(0 \le \mathrm{s.size()} \lt 10^8\)</li>
-<li>\(0 \le \mathrm{pattern.size()} \lt 10^8\) </li>
+<li>\(0 \le \mathrm{s.size()} \lt 10^9\)</li>
+<li>\(0 \le \mathrm{pattern.size()} \lt 10^9\) </li>
 </ul>
 
 </div>
 </div>
-<a id="a1d65c35bd47113037ce9600bc18e9e2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d65c35bd47113037ce9600bc18e9e2b">&#9670;&nbsp;</a></span>prefix_function()</h2>
+<a id="a9756a3f1b724433028b2b3d9e1141ed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9756a3f1b724433028b2b3d9e1141ed4">&#9670;&nbsp;</a></span>prefix_function()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt;int&gt; aclext::prefix_function </td>
+          <td class="memname">vector&lt;int&gt; prefix_function </td>
           <td>(</td>
           <td class="paramtype">const string &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -159,14 +162,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>文字列<code>s</code>のprefix function, すなわち以下のように定義される長さが<code>s.size()</code>の配列 \(\pi\)を返します. </p><p class="formulaDsp">
-\[ \pi = \max_{k \in [0,i]} \{k \mid \mathrm{s.substr(0,k)} = \mathrm{s.substr(i-(k-1),k)} \}\]
+
+<p>文字列<code>s</code>のprefix functionを返します </p>
+<p>すなわち以下のように定義される長さが<code>s.size()</code>の配列 \(\pi\)を返します. </p><p class="formulaDsp">
+\[ \pi_i = \max_{k \in [0,i]} \{k \mid \mathrm{s.substr(0,k)} = \mathrm{s.substr(i-(k-1),k)} \}\]
 </p>
 <p> 言い換えると, \(\pi_i\)は \(\mathrm{s}\)の接頭辞 \(t = \mathrm{s.substr(0,i+1)}\)に対して, \(\mathrm{t}\)の接頭辞かつ接尾辞であり, \(\mathrm{t}\)とは異なるような文字列のうち最長のものの長さです. 特に \(\pi_0 = 0\)です. </p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md5"></a>
 制約</h3>
 <ul>
-<li>\(0 \le \mathrm{s.size()} \lt 10^8\) </li>
+<li>\(0 \le \mathrm{s.size()} \lt 10^9\) </li>
 </ul>
 
 </div>

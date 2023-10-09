@@ -78,40 +78,48 @@ $(function() {
 <div class="contents">
 <a href="combination_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;atcoder/modint.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="number__theory_8hpp.html">number_theory.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>aclext {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// &lt;---</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// name: Combination</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span><span class="keyword">template</span> &lt;<span class="keywordtype">int</span> mod&gt;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structaclext_1_1Comb.html">   19</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structaclext_1_1Comb.html">Comb</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">using</span> M = atcoder::static_modint&lt;mod&gt;;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> n;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    vector&lt;M&gt; fact, inv;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structaclext_1_1Comb.html#a4c4922e4a4385d8a5da8d41ce8edf6d4">   27</a></span>&#160;    <a class="code" href="structaclext_1_1Comb.html#a4c4922e4a4385d8a5da8d41ce8edf6d4">Comb</a>(<span class="keywordtype">int</span> n) :</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        n(n), fact(n + 1, 0), inv(n + 1, 0) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        assert(n &lt; M::mod());</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        fact[0] = 1;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= n; i++) fact[i] = fact[i - 1] * i;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        inv[n] = fact[n].inv();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = n; i &gt;= 1; i--) inv[i - 1] = inv[i] * i;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structaclext_1_1Comb.html#a7e29cdfbf9f301d835693ef5f50d782f">   39</a></span>&#160;    M <a class="code" href="structaclext_1_1Comb.html#a7e29cdfbf9f301d835693ef5f50d782f">operator()</a>(<span class="keywordtype">int</span> m, <span class="keywordtype">int</span> k) {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        assert(!(m &gt; n || m &lt; k || k &lt; 0));</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> fact[m] * inv[m - k] * inv[k];</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// ---&gt;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="ttc" id="astructaclext_1_1Comb_html"><div class="ttname"><a href="structaclext_1_1Comb.html">aclext::Comb</a></div><div class="ttdoc">組み合わせの総数を計算するクラスです</div><div class="ttdef"><b>Definition:</b> combination.hpp:19</div></div>
-<div class="ttc" id="astructaclext_1_1Comb_html_a4c4922e4a4385d8a5da8d41ce8edf6d4"><div class="ttname"><a href="structaclext_1_1Comb.html#a4c4922e4a4385d8a5da8d41ce8edf6d4">aclext::Comb::Comb</a></div><div class="ttdeci">Comb(int n)</div><div class="ttdef"><b>Definition:</b> combination.hpp:27</div></div>
-<div class="ttc" id="astructaclext_1_1Comb_html_a7e29cdfbf9f301d835693ef5f50d782f"><div class="ttname"><a href="structaclext_1_1Comb.html#a7e29cdfbf9f301d835693ef5f50d782f">aclext::Comb::operator()</a></div><div class="ttdeci">M operator()(int m, int k)</div><div class="ttdef"><b>Definition:</b> combination.hpp:39</div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// &lt;---</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// name: Combination</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structDynamicComb.html">   15</a></span>&#160;<span class="comment"></span><span class="keyword">struct </span><a class="code" href="structDynamicComb.html">DynamicComb</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> n;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> m;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    vector&lt;long long&gt; fact, inv;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structDynamicComb.html#aff3d7feecfb0853a411c699de163f9b9">   23</a></span>&#160;    <a class="code" href="structDynamicComb.html#aff3d7feecfb0853a411c699de163f9b9">DynamicComb</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> m) :</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        n(n), m(m), fact(n + 1, 0), inv(n + 1, 0) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        fact[0] = 1;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt;= n; i++) fact[i] = (fact[i - 1] * i) % m;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> [g, x, y] = <a class="code" href="number__theory_8hpp.html#ae855dc441f994fd985bd28ab8d675155">extgcd</a>(fact[n], (<span class="keywordtype">long</span> <span class="keywordtype">long</span>)m);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        inv[n] = (x + m) % m;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = n; i &gt;= 1; i--) inv[i - 1] = (inv[i] * i) % m;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structDynamicComb.html#a4e0474cee48c8d7b42fc342437134c82">   36</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structDynamicComb.html#a4e0474cee48c8d7b42fc342437134c82">operator()</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        assert(x &lt;= n and y &lt;= x and y &gt;= 0);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> fact[x] * inv[x - y] % m * inv[y] % m;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">int</span> Mod&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structComb.html">   44</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structComb.html">Comb</a> : <span class="keyword">public</span> <a class="code" href="structDynamicComb.html">DynamicComb</a> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="structComb.html">Comb</a>(<span class="keywordtype">int</span> n) :</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="structDynamicComb.html">DynamicComb</a>(n, Mod) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// ---&gt;</span></div>
+<div class="ttc" id="anumber__theory_8hpp_html"><div class="ttname"><a href="number__theory_8hpp.html">number_theory.hpp</a></div><div class="ttdoc">初等整数論関連の関数です</div></div>
+<div class="ttc" id="anumber__theory_8hpp_html_ae855dc441f994fd985bd28ab8d675155"><div class="ttname"><a href="number__theory_8hpp.html#ae855dc441f994fd985bd28ab8d675155">extgcd</a></div><div class="ttdeci">tuple&lt; T, T, T &gt; extgcd(T a, T b)</div><div class="ttdoc">拡張ユークリッドの互除法です</div><div class="ttdef"><b>Definition:</b> number_theory.hpp:32</div></div>
+<div class="ttc" id="astructComb_html"><div class="ttname"><a href="structComb.html">Comb</a></div><div class="ttdoc">modをコンパイル時定数として組合わせの総数を計算するクラスです</div><div class="ttdef"><b>Definition:</b> combination.hpp:44</div></div>
+<div class="ttc" id="astructDynamicComb_html"><div class="ttname"><a href="structDynamicComb.html">DynamicComb</a></div><div class="ttdoc">組合わせの総数を計算するクラスです</div><div class="ttdef"><b>Definition:</b> combination.hpp:15</div></div>
+<div class="ttc" id="astructDynamicComb_html_a4e0474cee48c8d7b42fc342437134c82"><div class="ttname"><a href="structDynamicComb.html#a4e0474cee48c8d7b42fc342437134c82">DynamicComb::operator()</a></div><div class="ttdeci">int operator()(int x, int y) const</div><div class="ttdef"><b>Definition:</b> combination.hpp:36</div></div>
+<div class="ttc" id="astructDynamicComb_html_aff3d7feecfb0853a411c699de163f9b9"><div class="ttname"><a href="structDynamicComb.html#aff3d7feecfb0853a411c699de163f9b9">DynamicComb::DynamicComb</a></div><div class="ttdeci">DynamicComb(int n, int m)</div><div class="ttdef"><b>Definition:</b> combination.hpp:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

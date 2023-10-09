@@ -1,6 +1,8 @@
 <map id="combination.hpp" name="combination.hpp">
-<area shape="rect" id="node1" title="組み合わせの総数 を計算します" alt="" coords="136,5,252,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,137,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="161,80,227,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="251,80,310,107"/>
+<area shape="rect" id="node1" title="組合わせの総数 を求めます" alt="" coords="140,5,256,32"/>
+<area shape="rect" id="node2" href="$number__theory_8hpp.html" title="初等整数論関連の関数です" alt="" coords="30,80,161,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="163,155,222,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="236,80,301,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,52,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="77,155,127,181"/>
 </map>

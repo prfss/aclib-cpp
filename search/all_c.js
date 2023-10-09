@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['point_49',['Point',['../structaclext_1_1Point.html',1,'aclext']]],
-  ['pointdelta_50',['PointDelta',['../structaclext_1_1PointDelta.html',1,'aclext']]],
-  ['pow_51',['pow',['../classaclext_1_1Matrix.html#a3e2b43abb5d07c0ef95b4bd6336adb3d',1,'aclext::Matrix']]],
-  ['prefix_5ffunction_52',['prefix_function',['../kmp_8hpp.html#a1d65c35bd47113037ce9600bc18e9e2b',1,'aclext']]],
-  ['prime_5ffactor_53',['prime_factor',['../number__theory_8hpp.html#aa6eb3f455030dbd5780946fb4df03d48',1,'aclext']]],
-  ['primes_54',['primes',['../structaclext_1_1Sieve.html#aaf3a127bb6f35f982fb654ce4c37480a',1,'aclext::Sieve']]]
+  ['operator_20bool_47',['operator bool',['../classOrdering.html#a67b76affb3b5d35fa419ac234144038b',1,'Ordering']]],
+  ['operator_28_29_48',['operator()',['../structDynamicComb.html#a4e0474cee48c8d7b42fc342437134c82',1,'DynamicComb::operator()()'],['../structCumulativeSum2D.html#a04c232ad37db78237d3ee77553cf0cc4',1,'CumulativeSum2D::operator()()'],['../classLca.html#a463094b7a23699713ef57e12680ff2b8',1,'Lca::operator()()'],['../classLiChaoTree.html#a108ce566a024be8bade8b87b0deff599',1,'LiChaoTree::operator()()'],['../classMedian.html#a8ce372a42574d2443d7c8e395d9b1f28',1,'Median::operator()()'],['../classWeightedIndex.html#ace0cc5e4245cda4d61ca1567924f8bdb',1,'WeightedIndex::operator()()']]],
+  ['ordering_49',['Ordering',['../classOrdering.html',1,'']]],
+  ['ordering_2ehpp_50',['ordering.hpp',['../ordering_8hpp.html',1,'']]]
 ];

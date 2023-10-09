@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['weightedindex_136',['WeightedIndex',['../classaclext_1_1WeightedIndex.html#a4cd11b21a594d83fae7261e01942163e',1,'aclext::WeightedIndex']]]
+  ['weightedindex_135',['WeightedIndex',['../classWeightedIndex.html#a4cd11b21a594d83fae7261e01942163e',1,'WeightedIndex']]]
 ];

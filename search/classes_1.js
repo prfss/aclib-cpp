@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['comb_71',['Comb',['../structaclext_1_1Comb.html',1,'aclext']]],
-  ['cumulativesum2d_72',['CumulativeSum2D',['../structaclext_1_1CumulativeSum2D.html',1,'aclext']]]
+  ['comb_70',['Comb',['../structComb.html',1,'']]],
+  ['cumulativesum2d_71',['CumulativeSum2D',['../structCumulativeSum2D.html',1,'']]]
 ];

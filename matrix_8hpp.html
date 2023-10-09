@@ -80,7 +80,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>行列クラスを提供します  
+<p>行列の計算をおこないます  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;atcoder/modint&quot;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
@@ -92,7 +92,7 @@ Include dependency graph for matrix.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="matrix_8hpp__incl.png" border="0" usemap="#amatrix_8hpp" alt=""/></div>
 <map name="amatrix_8hpp" id="amatrix_8hpp">
-<area shape="rect" title="行列クラスを提供します" alt="" coords="225,5,307,32"/>
+<area shape="rect" title="行列の計算をおこないます" alt="" coords="225,5,307,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,113,107"/>
 <area shape="rect" title=" " alt="" coords="137,80,203,107"/>
 <area shape="rect" title=" " alt="" coords="227,80,305,107"/>
@@ -105,18 +105,27 @@ Include dependency graph for matrix.hpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classaclext_1_1Matrix.html">Matrix&lt; T, add, mul, zero, one, has_subtraction &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatrix.html">Matrix&lt; T, add, mul, zero, one, has_subtraction &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">和・差・積・累乗などの演算を備えた行列クラスです  <a href="classMatrix.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhas__val.html">has_val&lt; Type, typename &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhas__val_3_01Type_00_01enable__if__t_3_01is__member__function__pointer__v_3_01decltype_07_6Type_1_1val_08_4_01_4_01_4.html">has_val&lt; Type, enable_if_t&lt; is_member_function_pointer_v&lt; decltype(&amp;Type::val)&gt; &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad0a2a62fdc0ef7786233a12950a71a18"><td class="memTemplParams" colspan="2"><a id="ad0a2a62fdc0ef7786233a12950a71a18"></a>
+<tr class="memitem:aafd8fc85fd2a23808ca8dc9644290797"><td class="memTemplParams" colspan="2"><a id="aafd8fc85fd2a23808ca8dc9644290797"></a>
 template&lt;typename T , auto add, auto mul, auto zero, auto one, bool b&gt; </td></tr>
-<tr class="memitem:ad0a2a62fdc0ef7786233a12950a71a18"><td class="memTemplItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;out, const Matrix&lt; T, add, mul, zero, one, b &gt; &amp;a)</td></tr>
-<tr class="separator:ad0a2a62fdc0ef7786233a12950a71a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd8fc85fd2a23808ca8dc9644290797"><td class="memTemplItemLeft" align="right" valign="top">enable_if_t&lt;!<a class="el" href="structhas__val.html">has_val</a>&lt; T &gt;::value, ostream &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;out, const <a class="el" href="classMatrix.html">Matrix</a>&lt; T, add, mul, zero, one, b &gt; &amp;a)</td></tr>
+<tr class="separator:aafd8fc85fd2a23808ca8dc9644290797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadcb5b97e0aa094e2e59f7dae66993ce"><td class="memTemplParams" colspan="2"><a id="aadcb5b97e0aa094e2e59f7dae66993ce"></a>
+template&lt;typename M , auto add, auto mul, auto zero, auto one, bool b&gt; </td></tr>
+<tr class="memitem:aadcb5b97e0aa094e2e59f7dae66993ce"><td class="memTemplItemLeft" align="right" valign="top">enable_if_t&lt; <a class="el" href="structhas__val.html">has_val</a>&lt; M &gt;::value, ostream &amp; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;out, const <a class="el" href="classMatrix.html">Matrix</a>&lt; M, add, mul, zero, one, b &gt; &amp;a)</td></tr>
+<tr class="separator:aadcb5b97e0aa094e2e59f7dae66993ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>行列クラスを提供します </p>
+<div class="textblock"><p>行列の計算をおこないます </p>
 <p><a class="el" href="md_verifications_matrix.html">Verification</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->

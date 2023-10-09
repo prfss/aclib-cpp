@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['dynamicsegmenttree_73',['DynamicSegmentTree',['../classaclext_1_1DynamicSegmentTree.html',1,'aclext']]]
+  ['dynamiccomb_72',['DynamicComb',['../structDynamicComb.html',1,'']]],
+  ['dynamicsegmenttree_73',['DynamicSegmentTree',['../classDynamicSegmentTree.html',1,'']]]
 ];

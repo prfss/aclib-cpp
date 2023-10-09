@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['rand_5fbool_55',['rand_bool',['../random_8hpp.html#a21ae616ba12ca8f2f90504f67317d541',1,'aclext']]],
-  ['rand_5frange_56',['rand_range',['../random_8hpp.html#a73063caf5888d73ee9a7cd88d7db45c6',1,'aclext']]],
-  ['random_2ehpp_57',['random.hpp',['../random_8hpp.html',1,'']]],
-  ['rerooting_58',['Rerooting',['../classaclext_1_1Rerooting.html',1,'aclext']]],
-  ['rerooting_59',['rerooting',['../md_verifications_rerooting.html',1,'']]],
-  ['rerooting_2ehpp_60',['rerooting.hpp',['../rerooting_8hpp.html',1,'']]],
-  ['reset_61',['reset',['../classaclext_1_1BoolArray.html#ad20897c5c8bd47f5d4005989bead0e55',1,'aclext::BoolArray']]]
+  ['point_51',['Point',['../structgrid_1_1Point.html',1,'grid']]],
+  ['pointdelta_52',['PointDelta',['../structgrid_1_1PointDelta.html',1,'grid']]],
+  ['pow_53',['pow',['../classMatrix.html#a3e2b43abb5d07c0ef95b4bd6336adb3d',1,'Matrix']]],
+  ['prefix_5ffunction_54',['prefix_function',['../kmp_8hpp.html#a9756a3f1b724433028b2b3d9e1141ed4',1,'kmp.hpp']]],
+  ['prime_5ffactor_55',['prime_factor',['../number__theory_8hpp.html#a782c52023702388d843c9f20645d5eb5',1,'number_theory.cpp']]]
 ];

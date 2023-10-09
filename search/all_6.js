@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['identity_18',['identity',['../classaclext_1_1Matrix.html#ad286394649070e0543d1760924a54aa4',1,'aclext::Matrix']]],
-  ['insert_19',['insert',['../classaclext_1_1Median.html#a1251f55d468dd4c9c8cf65d5613d07c4',1,'aclext::Median']]],
-  ['is_5fprime_20',['is_prime',['../structaclext_1_1Sieve.html#ab5a8a46f21acf36ffe30a3ad93d5ea12',1,'aclext::Sieve::is_prime()'],['../number__theory_8hpp.html#a1589e1b4218ba4b1577f3647fe033962',1,'aclext::is_prime()']]]
+  ['has_5fval_19',['has_val',['../structhas__val.html',1,'']]],
+  ['has_5fval_3c_20type_2c_20enable_5fif_5ft_3c_20is_5fmember_5ffunction_5fpointer_5fv_3c_20decltype_28_26type_3a_3aval_29_3e_20_3e_20_3e_20',['has_val&lt; Type, enable_if_t&lt; is_member_function_pointer_v&lt; decltype(&amp;Type::val)&gt; &gt; &gt;',['../structhas__val_3_01Type_00_01enable__if__t_3_01is__member__function__pointer__v_3_01decltype_07_6Type_1_1val_08_4_01_4_01_4.html',1,'']]]
 ];

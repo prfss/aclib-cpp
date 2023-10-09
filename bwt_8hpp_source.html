@@ -83,10 +83,9 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>aclext {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// &lt;---</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// name: Burrows-Wheeler Transform</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="bwt_8hpp.html#a4f3acdfe606e805a5d0f4097a3077b49">   16</a></span>&#160;<span class="comment"></span><span class="keywordtype">string</span> <a class="code" href="bwt_8hpp.html#a4f3acdfe606e805a5d0f4097a3077b49">bwt</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s, <span class="keyword">const</span> vector&lt;int&gt;&amp; sa) {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// &lt;---</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// name: Burrows-Wheeler Transform</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="bwt_8hpp.html#ab4a2c02370ce822c47db6bc079ffdc2a">   16</a></span>&#160;<span class="comment"></span><span class="keywordtype">string</span> <a class="code" href="bwt_8hpp.html#ab4a2c02370ce822c47db6bc079ffdc2a">bwt</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s, <span class="keyword">const</span> vector&lt;int&gt;&amp; sa) {</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">string</span> res;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">size_t</span> n = s.size();</div>
@@ -98,12 +97,11 @@ $(function() {
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">return</span> res;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="bwt_8hpp.html#aef65bf60ecac008ebc06672254654e1c">   29</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="bwt_8hpp.html#a4f3acdfe606e805a5d0f4097a3077b49">bwt</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="bwt_8hpp.html#a4f3acdfe606e805a5d0f4097a3077b49">bwt</a>(s, atcoder::suffix_array(s));</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="bwt_8hpp.html#a25ea4557e198e4e255ee353f54e1266c">   29</a></span>&#160;<span class="keywordtype">string</span> <a class="code" href="bwt_8hpp.html#ab4a2c02370ce822c47db6bc079ffdc2a">bwt</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="bwt_8hpp.html#ab4a2c02370ce822c47db6bc079ffdc2a">bwt</a>(s, atcoder::suffix_array(s));</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// ---&gt;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
-<div class="ttc" id="abwt_8hpp_html_a4f3acdfe606e805a5d0f4097a3077b49"><div class="ttname"><a href="bwt_8hpp.html#a4f3acdfe606e805a5d0f4097a3077b49">aclext::bwt</a></div><div class="ttdeci">string bwt(const string &amp;s, const vector&lt; int &gt; &amp;sa)</div><div class="ttdef"><b>Definition:</b> bwt.hpp:16</div></div>
+<div class="ttc" id="abwt_8hpp_html_ab4a2c02370ce822c47db6bc079ffdc2a"><div class="ttname"><a href="bwt_8hpp.html#ab4a2c02370ce822c47db6bc079ffdc2a">bwt</a></div><div class="ttdeci">string bwt(const string &amp;s, const vector&lt; int &gt; &amp;sa)</div><div class="ttdoc">文字列sとその接尾辞配列saからBurrows-Wheeler変換を計算します</div><div class="ttdef"><b>Definition:</b> bwt.hpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

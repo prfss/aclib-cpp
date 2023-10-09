@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['node_80',['Node',['../structaclext_1_1Node.html',1,'aclext']]],
-  ['node_3c_20f_20_3e_81',['Node&lt; F &gt;',['../structaclext_1_1Node.html',1,'aclext']]]
+  ['matrix_79',['Matrix',['../classMatrix.html',1,'']]],
+  ['median_80',['Median',['../classMedian.html',1,'']]],
+  ['monotonicconvexhulltrick_81',['MonotonicConvexHullTrick',['../classMonotonicConvexHullTrick.html',1,'']]]
 ];

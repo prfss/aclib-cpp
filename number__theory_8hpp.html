@@ -79,18 +79,29 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>初等整数論関連の関数を提供します  
+<p>初等整数論関連の関数です  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;map&gt;</code><br />
+<code>#include &lt;tuple&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for number_theory.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="number__theory_8hpp__incl.png" border="0" usemap="#anumber__theory_8hpp" alt=""/></div>
 <map name="anumber__theory_8hpp" id="anumber__theory_8hpp">
-<area shape="rect" title="初等整数論関連の関数を提供します" alt="" coords="5,5,136,32"/>
-<area shape="rect" title=" " alt="" coords="9,80,55,107"/>
-<area shape="rect" title=" " alt="" coords="80,80,139,107"/>
+<area shape="rect" title="初等整数論関連の関数です" alt="" coords="37,5,167,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,52,107"/>
+<area shape="rect" title=" " alt="" coords="77,80,127,107"/>
+<area shape="rect" title=" " alt="" coords="151,80,210,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="number__theory_8hpp__dep__incl.png" border="0" usemap="#anumber__theory_8hppdep" alt=""/></div>
+<map name="anumber__theory_8hppdep" id="anumber__theory_8hppdep">
+<area shape="rect" title="初等整数論関連の関数です" alt="" coords="5,5,136,32"/>
+<area shape="rect" href="combination_8hpp.html" title="組合わせの総数 を求めます" alt="" coords="13,80,129,107"/>
 </map>
 </div>
 </div>
@@ -98,49 +109,116 @@ Include dependency graph for number_theory.hpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0f51a410d9b6049e8e42e51e92552f06"><td class="memItemLeft" align="right" valign="top"><a id="a0f51a410d9b6049e8e42e51e92552f06"></a>
-vector&lt; long long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#a0f51a410d9b6049e8e42e51e92552f06">divisor</a> (long long n)</td></tr>
-<tr class="memdesc:a0f51a410d9b6049e8e42e51e92552f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">数 \(n\)の約数を返します. <br /></td></tr>
-<tr class="separator:a0f51a410d9b6049e8e42e51e92552f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6eb3f455030dbd5780946fb4df03d48"><td class="memItemLeft" align="right" valign="top"><a id="aa6eb3f455030dbd5780946fb4df03d48"></a>
-map&lt; long long, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#aa6eb3f455030dbd5780946fb4df03d48">prime_factor</a> (long long n)</td></tr>
-<tr class="memdesc:aa6eb3f455030dbd5780946fb4df03d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">数 \(n\)の素因数分解を返します. <br /></td></tr>
-<tr class="separator:aa6eb3f455030dbd5780946fb4df03d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1589e1b4218ba4b1577f3647fe033962"><td class="memItemLeft" align="right" valign="top"><a id="a1589e1b4218ba4b1577f3647fe033962"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#a1589e1b4218ba4b1577f3647fe033962">is_prime</a> (long long n)</td></tr>
-<tr class="memdesc:a1589e1b4218ba4b1577f3647fe033962"><td class="mdescLeft">&#160;</td><td class="mdescRight">数 \(n\)が素数であるか判定します. <br /></td></tr>
-<tr class="separator:a1589e1b4218ba4b1577f3647fe033962"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a041611ca4a8bd3c2e623f0529b010e6d"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#a041611ca4a8bd3c2e623f0529b010e6d">totient</a> (long long x)</td></tr>
-<tr class="separator:a041611ca4a8bd3c2e623f0529b010e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afefb3c5fec93eb0ccbe6f4dbd80c1769"><td class="memTemplParams" colspan="2"><a id="afefb3c5fec93eb0ccbe6f4dbd80c1769"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:afefb3c5fec93eb0ccbe6f4dbd80c1769"><td class="memTemplItemLeft" align="right" valign="top">tuple&lt; T, T, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#afefb3c5fec93eb0ccbe6f4dbd80c1769">extgcd</a> (T a, T b)</td></tr>
-<tr class="memdesc:afefb3c5fec93eb0ccbe6f4dbd80c1769"><td class="mdescLeft">&#160;</td><td class="mdescRight">拡張ユークリッドの互除法です. \(ax + by = \gcd(a,b)\)を満たす整数 \(x,y\)を求め \((\gcd(x,y),x,y)\)の形で返します. <br /></td></tr>
-<tr class="separator:afefb3c5fec93eb0ccbe6f4dbd80c1769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55dcebe085641d1177b664bb7ac221a7"><td class="memItemLeft" align="right" valign="top"><a id="a55dcebe085641d1177b664bb7ac221a7"></a>
+vector&lt; long long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#a55dcebe085641d1177b664bb7ac221a7">divisor</a> (long long n)</td></tr>
+<tr class="memdesc:a55dcebe085641d1177b664bb7ac221a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">数 \(n\)の約数を返します <br /></td></tr>
+<tr class="separator:a55dcebe085641d1177b664bb7ac221a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a782c52023702388d843c9f20645d5eb5"><td class="memItemLeft" align="right" valign="top"><a id="a782c52023702388d843c9f20645d5eb5"></a>
+map&lt; long long, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#a782c52023702388d843c9f20645d5eb5">prime_factor</a> (long long n)</td></tr>
+<tr class="memdesc:a782c52023702388d843c9f20645d5eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">数 \(n\)の素因数分解を返します <br /></td></tr>
+<tr class="separator:a782c52023702388d843c9f20645d5eb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a263397b09001fa2ed3eb7a0aa88f6244"><td class="memItemLeft" align="right" valign="top"><a id="a263397b09001fa2ed3eb7a0aa88f6244"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#a263397b09001fa2ed3eb7a0aa88f6244">is_prime</a> (long long n)</td></tr>
+<tr class="memdesc:a263397b09001fa2ed3eb7a0aa88f6244"><td class="mdescLeft">&#160;</td><td class="mdescRight">数 \(n\)が素数であるか判定します <br /></td></tr>
+<tr class="separator:a263397b09001fa2ed3eb7a0aa88f6244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a765b858cf8ff7dc45bb7b53dbffd563d"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#a765b858cf8ff7dc45bb7b53dbffd563d">totient</a> (long long n)</td></tr>
+<tr class="memdesc:a765b858cf8ff7dc45bb7b53dbffd563d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a href="https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E3%81%AE%CF%86%E9%96%A2%E6%95%B0">オイラーのトーシェント関数</a>です  <a href="number__theory_8hpp.html#a765b858cf8ff7dc45bb7b53dbffd563d">More...</a><br /></td></tr>
+<tr class="separator:a765b858cf8ff7dc45bb7b53dbffd563d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae855dc441f994fd985bd28ab8d675155"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae855dc441f994fd985bd28ab8d675155"><td class="memTemplItemLeft" align="right" valign="top">tuple&lt; T, T, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#ae855dc441f994fd985bd28ab8d675155">extgcd</a> (T a, T b)</td></tr>
+<tr class="memdesc:ae855dc441f994fd985bd28ab8d675155"><td class="mdescLeft">&#160;</td><td class="mdescRight">拡張ユークリッドの互除法です  <a href="number__theory_8hpp.html#ae855dc441f994fd985bd28ab8d675155">More...</a><br /></td></tr>
+<tr class="separator:ae855dc441f994fd985bd28ab8d675155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adec2a6a7baaa17f0b6fe23f82e2fa03b"><td class="memItemLeft" align="right" valign="top">pair&lt; vector&lt; bool &gt;, vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="number__theory_8hpp.html#adec2a6a7baaa17f0b6fe23f82e2fa03b">sieve</a> (int n)</td></tr>
+<tr class="memdesc:adec2a6a7baaa17f0b6fe23f82e2fa03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">エラトステネスの篩です  <a href="number__theory_8hpp.html#adec2a6a7baaa17f0b6fe23f82e2fa03b">More...</a><br /></td></tr>
+<tr class="separator:adec2a6a7baaa17f0b6fe23f82e2fa03b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>初等整数論関連の関数を提供します </p>
+<div class="textblock"><p>初等整数論関連の関数です </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a041611ca4a8bd3c2e623f0529b010e6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a041611ca4a8bd3c2e623f0529b010e6d">&#9670;&nbsp;</a></span>totient()</h2>
+<a id="ae855dc441f994fd985bd28ab8d675155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae855dc441f994fd985bd28ab8d675155">&#9670;&nbsp;</a></span>extgcd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tuple&lt;T, T, T&gt; extgcd </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>拡張ユークリッドの互除法です </p>
+<p>\(ax + by = \gcd(a,b)\)を満たす整数 \(x,y\)を求め \((\gcd(x,y),x,y)\)の形で返します. </p>
+
+</div>
+</div>
+<a id="adec2a6a7baaa17f0b6fe23f82e2fa03b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adec2a6a7baaa17f0b6fe23f82e2fa03b">&#9670;&nbsp;</a></span>sieve()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">long long aclext::totient </td>
+          <td class="memname">pair&lt;vector&lt;bool&gt;, vector&lt;int&gt; &gt; sieve </td>
           <td>(</td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E3%81%AE%CF%86%E9%96%A2%E6%95%B0">オイラーのトーシェント関数</a>です. </p>
-<h3><a class="anchor" id="autotoc_md19"></a>
+
+<p>エラトステネスの篩です </p>
+<p>\(n\)以下の素数を計算し, 結果を格納したペアを返します.</p><ul>
+<li>第1要素 各数が素数かどうかを表す長さ \(n\)のブール配列です.</li>
+<li>第2要素 \(n\)以下の素数のリストです. </li>
+</ul>
+
+</div>
+</div>
+<a id="a765b858cf8ff7dc45bb7b53dbffd563d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a765b858cf8ff7dc45bb7b53dbffd563d">&#9670;&nbsp;</a></span>totient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long totient </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a href="https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E3%81%AE%CF%86%E9%96%A2%E6%95%B0">オイラーのトーシェント関数</a>です </p>
+<h3><a class="anchor" id="autotoc_md18"></a>
 制約</h3>
 <ul>
-<li>\(1 \leq n \leq 10^9\) </li>
+<li>\(1 \leq n \leq 10^{18}\) </li>
 </ul>
 
 </div>

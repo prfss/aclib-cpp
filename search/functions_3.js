@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['divisor_111',['divisor',['../number__theory_8hpp.html#a0f51a410d9b6049e8e42e51e92552f06',1,'aclext']]]
+  ['divisor_109',['divisor',['../number__theory_8hpp.html#a55dcebe085641d1177b664bb7ac221a7',1,'number_theory.cpp']]],
+  ['dynamiccomb_110',['DynamicComb',['../structDynamicComb.html#aff3d7feecfb0853a411c699de163f9b9',1,'DynamicComb']]]
 ];
