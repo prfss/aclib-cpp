@@ -67,3 +67,24 @@ long long totient(long long n) {
     return ans;
 }
 // --->
+
+// <---
+// name: Sieve of Eratosthenes
+pair<vector<bool>, vector<int>> sieve(int n) {
+    vector<bool> is_prime(n + 1);
+    fill(is_prime.begin(), is_prime.end(), true);
+    is_prime[0] = is_prime[1] = false;
+
+    vector<int> primes;
+    for (long long i = 2; i <= n; i++) {
+        if (is_prime[i]) {
+            primes.push_back(i);
+            for (long long j = i * i; j <= n; j += i) {
+                is_prime[j] = false;
+            }
+        }
+    }
+
+    return { is_prime, primes };
+}
+// --->

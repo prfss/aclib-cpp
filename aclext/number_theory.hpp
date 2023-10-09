@@ -38,3 +38,12 @@ inline tuple<T, T, T> extgcd(T a, T b) {
     }
 }
 // --->
+
+/// @brief エラトステネスの篩です
+/// @details
+/// @f$n@f$以下の素数を計算し, 結果を格納したペアを返します.
+/// - 第1要素
+/// 各数が素数かどうかを表す長さ@f$n@f$のブール配列です.
+/// - 第2要素
+/// @f$n@f$以下の素数のリストです.
+pair<vector<bool>, vector<int>> sieve(int n);
