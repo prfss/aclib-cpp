@@ -68,7 +68,7 @@ def main() -> None:
     snippet = dict()
     try:
         for file in directory.iterdir():
-            if file.is_file() and file.suffix == ".hpp":
+            if file.is_file() and (file.suffix == ".hpp" or file.suffix == ".cpp"):
                 with open(file, "r") as f:
                     source_code = f.read()
                     extracted = extract(source_code)
