@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 
 TEST(MonotonicCHTTest, IncrementalMin) {
-    aclext::MonotonicConvexHullTrick<int> cht;
+    MonotonicConvexHullTrick<int> cht;
     cht.add(5, 1);
     EXPECT_EQ(cht(1), 6);
     cht.add(5, 0);
@@ -18,7 +18,7 @@ TEST(MonotonicCHTTest, IncrementalMin) {
 }
 
 TEST(MonotonicCHTTest, IncrementalMax) {
-    aclext::MonotonicConvexHullTrick<int, std::greater<int>> cht;
+    MonotonicConvexHullTrick<int, std::greater<int>> cht;
     cht.add(-4, 10);
     EXPECT_EQ(cht(1), 6);
     cht.add(-2, 6);
@@ -36,7 +36,7 @@ TEST(MonotonicCHTTest, IncrementalMax) {
 }
 
 TEST(MonotonicCHTTest, DecrementalMin) {
-    aclext::MonotonicConvexHullTrick<int> cht;
+    MonotonicConvexHullTrick<int> cht;
     cht.add(-2, 12);
     EXPECT_EQ(cht(8), -4);
     EXPECT_EQ(cht(4), 4);
@@ -51,7 +51,7 @@ TEST(MonotonicCHTTest, DecrementalMin) {
 }
 
 TEST(MonotonicCHTTest, DecrementalMax) {
-    aclext::MonotonicConvexHullTrick<int, std::greater<int>> cht;
+    MonotonicConvexHullTrick<int, std::greater<int>> cht;
     cht.add(4, -20);
     EXPECT_EQ(cht(6), 4);
     cht.add(3, -14);

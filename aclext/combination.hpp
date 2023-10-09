@@ -8,7 +8,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Combination
 /// @brief 組合わせの総数を計算するクラスです
@@ -40,4 +39,3 @@ struct Comb {
     }
 };
 // --->
-}

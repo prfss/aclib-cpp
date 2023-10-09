@@ -7,7 +7,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: 2D Cumulative Sum
 /// @brief ２次元累積和を計算するクラスです
@@ -48,4 +47,3 @@ struct CumulativeSum2D {
     }
 };
 // --->
-}

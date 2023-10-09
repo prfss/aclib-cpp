@@ -2,6 +2,7 @@
 /// @brief リセット処理が高速な真偽値配列です
 #pragma once
 
+#include <iostream>
 #include <limits.h>
 #include <vector>
 
@@ -9,23 +10,30 @@ using namespace std;
 
 // <---
 // name: Bool Array
-namespace aclext {
-class BoolArray;
-struct BoolArrayElemProxy {
-    size_t idx;
-    BoolArray& ba;
-    BoolArrayElemProxy& operator=(const bool b);
-    operator bool() const;
-};
-
 /// @brief リセット処理が高速な固定長の真偽値配列です
 /// @details
 /// ### 制約
 /// - reset() を`LLONG_MAX`回以上呼び出したときの動作は未定義
 class BoolArray {
+
 private:
     long long threshold;
     vector<long long> data;
+    struct ElemProxy {
+        const size_t idx;
+        BoolArray* const ba;
+        ElemProxy& operator=(const ElemProxy& other) {
+            if (this == &other) return *this;
+            return *this = bool(other);
+        }
+        ElemProxy& operator=(bool b) {
+            ba->data[idx] = b ? ba->threshold : 0;
+            return *this;
+        }
+        operator bool() const {
+            return ba->data[idx] == ba->threshold;
+        }
+    };
 
 public:
     /// @brief 長さ@f$n@f$の配列を構築します
@@ -37,8 +45,8 @@ public:
         return data[i] == threshold;
     }
 
-    BoolArrayElemProxy operator[](size_t i) {
-        return { i, *this };
+    ElemProxy operator[](size_t i) {
+        return { i, this };
     }
 
     /// @brief この配列の長さを返します
@@ -50,16 +58,13 @@ public:
     void reset() {
         threshold++;
     }
-
-    friend BoolArrayElemProxy;
 };
 
-BoolArrayElemProxy& BoolArrayElemProxy::operator=(const bool b) {
-    ba.data[idx] = b ? ba.threshold : 0;
-    return *this;
-}
-BoolArrayElemProxy::operator bool() const {
-    return ba.data[idx] == ba.threshold;
-}
-}
+// BoolArray::ElemProxy& BoolArray::ElemProxy::operator=(const bool b) {
+//     ba.data[idx] = b ? ba.threshold : 0;
+//     return *this;
+// }
+// BoolArray::ElemProxy::operator bool() const {
+//     return ba.data[idx] == ba.threshold;
+// }
 // --->

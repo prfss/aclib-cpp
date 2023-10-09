@@ -10,7 +10,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Prefix Function
 /// 文字列`s`のprefix function, すなわち以下のように定義される長さが`s.size()`の配列\f$\pi\f$を返します.
@@ -70,4 +69,3 @@ vector<int> kmp_search(const string& s, const string& pattern) {
     return pos;
 }
 // --->
-}

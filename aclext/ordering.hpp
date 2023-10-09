@@ -1,6 +1,6 @@
 /// @file
 #pragma once
-namespace aclext {
+
 // <---
 // name: Ordering
 template <typename T>
@@ -24,4 +24,3 @@ public:
     }
 };
 // --->
-}

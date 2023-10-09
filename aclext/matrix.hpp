@@ -12,7 +12,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name:Matrix
 /// @brief 和・差・積・累乗などの演算を備えた行列クラスです
@@ -187,8 +186,15 @@ public:
     }
 };
 
+template <typename Type, typename = void>
+struct has_val : false_type { };
+
+template <typename Type>
+struct has_val<Type,
+               enable_if_t<is_member_function_pointer_v<decltype(&Type::val)>>> : true_type { };
+
 template <typename T, auto add, auto mul, auto zero, auto one, bool b>
-ostream& operator<<(ostream& out, const Matrix<T, add, mul, zero, one, b>& a) {
+enable_if_t<!has_val<T>::value, ostream&> operator<<(ostream& out, const Matrix<T, add, mul, zero, one, b>& a) {
     for (size_t i = 0; i < a.nrow(); i++) {
         out << i << ": ";
         for (size_t j = 0; j < a.ncol(); j++)
@@ -198,9 +204,8 @@ ostream& operator<<(ostream& out, const Matrix<T, add, mul, zero, one, b>& a) {
     return out;
 }
 
-#ifdef ATCODER_MODINT_HPP
-template <int m, auto add, auto mul, auto zero, auto one, bool b>
-ostream& operator<<(ostream& out, const Matrix<atcoder::static_modint<m>, add, mul, zero, one, b>& a) {
+template <typename M, auto add, auto mul, auto zero, auto one, bool b>
+enable_if_t<has_val<M>::value, ostream&> operator<<(ostream& out, const Matrix<M, add, mul, zero, one, b>& a) {
     for (size_t i = 0; i < a.nrow(); i++) {
         out << i << ": ";
         for (size_t j = 0; j < a.ncol(); j++)
@@ -209,6 +214,4 @@ ostream& operator<<(ostream& out, const Matrix<atcoder::static_modint<m>, add, m
     }
     return out;
 }
-#endif
 // --->
-}

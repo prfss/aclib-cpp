@@ -7,7 +7,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Divisor
 /// @brief 数@f$n@f$の約数を返します
@@ -95,4 +94,3 @@ tuple<T, T, T> extgcd(T a, T b) {
     }
 }
 // --->
-}

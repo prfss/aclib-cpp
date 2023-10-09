@@ -2,7 +2,6 @@
 #include "gtest/gtest.h"
 #include <vector>
 
-using namespace aclext;
 using namespace std;
 
 namespace small_example {

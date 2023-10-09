@@ -4,7 +4,7 @@
 TEST(LcaTest, SmallExample) {
     const int n = 9;
 
-    aclext::Lca lca(n);
+    Lca lca(n);
 
     lca.add_edge(0, 1);
     lca.add_edge(0, 2);

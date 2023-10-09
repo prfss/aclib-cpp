@@ -12,15 +12,6 @@ using namespace std;
 
 // <---
 // name: Li-Chao Tree
-namespace aclext {
-template <typename T>
-struct Node {
-    Node *left, *right;
-    T f;
-    Node(T f) :
-        left(nullptr), right(nullptr), f(f) { }
-};
-
 /// @brief Li-Chao Treeを実装したクラスです
 /// @details
 /// 関数の集合@f$L = \{f_1,f_2, \dots ,f_n\}@f$に対して, 次の2つの処理を行うことができます.
@@ -34,6 +25,14 @@ struct Node {
 /// - `add`で追加される相異なる関数@f$f@f$と@f$g@f$について,@f$f(x) = g(x)@f$となるような@f$x@f$は高々一つ
 template <typename X, typename Y, typename F, typename compare = std::less<Y>>
 class LiChaoTree {
+    template <typename T>
+    struct Node {
+        Node *left, *right;
+        T f;
+        Node(T f) :
+            left(nullptr), right(nullptr), f(f) { }
+    };
+
     X min_x, max_x;
     Node<F>* root = nullptr;
     int n = 0;
@@ -157,4 +156,3 @@ public:
     }
 };
 // --->
-}

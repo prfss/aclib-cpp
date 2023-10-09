@@ -11,7 +11,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Lowest Common Ancestor
 /// @brief LCAを計算するクラスです
@@ -104,4 +103,3 @@ public:
     }
 };
 // --->
-}

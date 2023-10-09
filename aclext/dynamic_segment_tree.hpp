@@ -3,17 +3,18 @@
 #pragma once
 
 // <---
-// name:Dynamic Segment Tree
-namespace aclext {
-template <typename S>
-struct Node {
-    S val;
-    Node *l, *r;
-    Node(S v) :
-        val(v), l(nullptr), r(nullptr) { }
-};
+// name: Dynamic Segment Tree
+
 template <typename S, S (*op)(S, S), S (*e)(), typename X = int>
 class DynamicSegmentTree {
+    template <typename T>
+    struct Node {
+        T val;
+        Node *l, *r;
+        Node(T v) :
+            val(v), l(nullptr), r(nullptr) { }
+    };
+
     Node<S>* root;
     X min_x, max_x;
 
@@ -127,5 +128,4 @@ public:
         return y;
     }
 };
-}
 // --->

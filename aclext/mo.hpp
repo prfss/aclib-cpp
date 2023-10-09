@@ -15,7 +15,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Mo's Algorithm
 /// 区間クエリのリスト @f$\mathrm{query} = \{[l_1,r_1], [l_2,r_2], \dots ,[l_q, r_q]\}@f$ に対し, 答えのリスト @f$\{\mathit{ans}(l_1,r_1),\mathit{ans}(l_2,r_2), \dots ,\mathit{ans}(l_q,r_q)\}@f$
@@ -62,4 +61,3 @@ vector<T> mo(const vector<pair<int, int>> query, function<T(T, int)> extend, fun
     return ans;
 }
 // --->
-}

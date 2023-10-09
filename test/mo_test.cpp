@@ -1,8 +1,6 @@
 #include "aclext/mo.hpp"
 #include "gtest/gtest.h"
 
-using namespace aclext;
-
 TEST(MoTest, RangeSum) {
     vector<int> a = { 3, 1, 6, -8, 4, 3, -3, 5, 10, -2 };
 

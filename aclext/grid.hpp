@@ -6,9 +6,9 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Grid
+namespace grid {
 struct PointDelta {
     int di, dj;
     PointDelta(int di, int dj) :

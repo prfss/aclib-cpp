@@ -7,7 +7,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Median
 /// @brief 中央値を求めることができる多重集合です
@@ -98,4 +97,3 @@ public:
     }
 };
 // --->
-}

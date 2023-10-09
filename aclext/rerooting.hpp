@@ -9,7 +9,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Rerooting
 /// @brief 全方位木DPをおこなうためのクラスです
@@ -104,4 +103,3 @@ public:
     }
 };
 // --->
-}

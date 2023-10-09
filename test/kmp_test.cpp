@@ -1,8 +1,6 @@
 #include "aclext/kmp.hpp"
 #include "gtest/gtest.h"
 
-using namespace aclext;
-
 TEST(KmpTest, PrefixFunction) {
     const vector<string> s = { "abcabcd", "aabaaab" };
     const vector<vector<int>> pi = { { 0, 0, 0, 1, 2, 3, 0 }, { 0, 1, 0, 1, 2, 2, 3 } };

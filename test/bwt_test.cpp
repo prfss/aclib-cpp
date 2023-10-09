@@ -1,8 +1,6 @@
 #include "aclext/bwt.hpp"
 #include "gtest/gtest.h"
 
-using namespace aclext;
-
 TEST(BwtTest, SmallExample) {
     const string s = "mississippi";
 

@@ -1,8 +1,6 @@
 #include "aclext/combination.hpp"
 #include "gtest/gtest.h"
 
-using namespace aclext;
-
 TEST(CombinationTest, BasicProperties) {
     const long long MOD = 1'000'000'007;
 

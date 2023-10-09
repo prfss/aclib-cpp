@@ -1,8 +1,6 @@
 #include "aclext/kitamasa.hpp"
 #include "gtest/gtest.h"
 
-using namespace aclext;
-
 template <typename T>
 T add(T a, T b) { return a + b; }
 template <typename T>

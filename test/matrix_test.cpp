@@ -2,8 +2,6 @@
 #include "atcoder/modint"
 #include "gtest/gtest.h"
 
-using namespace aclext;
-
 using mint = atcoder::modint1000000007;
 
 mint add(mint a, mint b) { return a + b; }

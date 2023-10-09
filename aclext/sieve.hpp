@@ -6,10 +6,8 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Sieve of Eratosthenes
-
 /// @brief エラトステネスの篩を実装したクラスです
 struct Sieve {
     /// 長さ@f$n@f$のブール配列です.
@@ -41,4 +39,3 @@ struct Sieve {
     }
 };
 // --->
-}

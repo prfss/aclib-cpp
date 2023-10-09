@@ -12,7 +12,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: rand range
 /// 整数区間@f$[l,r)@f$から一様に数を選んで返します.
@@ -85,4 +84,3 @@ public:
     }
 };
 // --->
-}

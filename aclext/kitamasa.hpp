@@ -11,7 +11,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Kitamasa
 /// 漸化式の係数@f$\mathrm{coefficients} = \{ c_0, c_1, ..., c_{k-1} \}@f$と初期値@f$\mathrm{init} = \{a_0,a_1,...,a_{k-1}\}@f$から
@@ -72,4 +71,3 @@ S kitamasa(const vector<S>& coefficients, function<S(S, S)> add, function<S()> z
     return res;
 }
 // --->
-}

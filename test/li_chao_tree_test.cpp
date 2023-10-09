@@ -12,7 +12,7 @@ struct F {
     }
 };
 
-using LCTree = aclext::LiChaoTree<int, int, F>;
+using LCTree = LiChaoTree<int, int, F>;
 
 TEST(LiChaoTreeTest, SmallExample) {
     LCTree lct(-10, 6);

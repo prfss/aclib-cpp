@@ -7,7 +7,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Monotonic Convex Hull Trick
 /// @brief 追加クエリおよび最小値/最大値クエリが単調な場合のConvex Hull Trickを実装したクラスです
@@ -74,4 +73,3 @@ public:
     }
 };
 // --->
-}

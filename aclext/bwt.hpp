@@ -7,7 +7,6 @@
 
 using namespace std;
 
-namespace aclext {
 // <---
 // name: Burrows-Wheeler Transform
 /// @brief 文字列`s`とその接尾辞配列`sa`からBurrows-Wheeler変換を計算します
@@ -31,4 +30,3 @@ string bwt(const string& s) {
     return bwt(s, atcoder::suffix_array(s));
 }
 // --->
-}

@@ -7,9 +7,13 @@
 using namespace std;
 
 namespace rmq {
-int op(int a, int b) { return min(a, b); }
-int e() { return 1'000'000; }
-using stree = aclext::DynamicSegmentTree<int, op, e>;
+int op(int a, int b) {
+    return min(a, b);
+}
+int e() {
+    return 1'000'000;
+}
+using stree = DynamicSegmentTree<int, op, e>;
 }
 
 TEST(DynamicSegmentTreeTest, RMQ) {

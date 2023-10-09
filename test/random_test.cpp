@@ -2,8 +2,6 @@
 #include "gtest/gtest.h"
 #include <random>
 
-using namespace aclext;
-
 TEST(RandomTest, Simple) {
     mt19937 rng(12345);
 

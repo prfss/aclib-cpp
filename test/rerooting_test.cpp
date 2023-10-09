@@ -36,7 +36,7 @@ S subtree(M a, int u) {
     return a.first;
 }
 
-using dp = aclext::Rerooting<S, M, R, C, merge, introduce, em, result, subtree>;
+using dp = Rerooting<S, M, R, C, merge, introduce, em, result, subtree>;
 };
 
 TEST(RerootingTest, LongestPath) {
@@ -80,7 +80,7 @@ S subtree(M m, int u) {
     return m.first + 1;
 }
 
-using dp = aclext::Rerooting<S, M, R, C, merge, introduce, em, result, subtree>;
+using dp = Rerooting<S, M, R, C, merge, introduce, em, result, subtree>;
 }
 
 TEST(RerootingTest, SubtreeMax) {
