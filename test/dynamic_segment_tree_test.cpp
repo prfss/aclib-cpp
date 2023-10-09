@@ -37,7 +37,7 @@ TEST(DynamicSegmentTreeTest, MaxRight) {
     vector<int> v({ 10, 4, -3, 2, 1, 6, 5, -4, -5, -7 });
     rmq::stree st(0, v.size() - 1);
 
-    for (int i = 0; i < v.size(); i++) {
+    for (size_t i = 0; i < v.size(); i++) {
         st.set(i, v[i]);
     }
 
