@@ -13,25 +13,33 @@
 using namespace std;
 
 // <---
-// name: rand range
+// name: rand_range
 /// 整数区間@f$[l,r)@f$から一様に数を選んで返します.
 /// ### 制約
 /// - @f$l \lt r@f$
 template <typename T, typename R>
-inline typename enable_if<is_integral<T>::value, T>::type rand_range(T l, T r, R& rng) {
+inline enable_if_t<is_integral_v<T>, T> rand_range(T l, T r, R& rng) {
     assert(l < r);
     return uniform_int_distribution<T>(l, r - 1)(rng);
 }
 
+/// 実数区間@f$[l,r)@f$から一様に数を選んで返します.
+/// ### 制約
+/// - @f$l \lt r@f$
 template <typename T, typename R>
-inline typename enable_if<is_floating_point<T>::value, T>::type rand_range(T l, T r, R& rng) {
-    assert(l <= r);
+inline enable_if_t<is_floating_point_v<T>, T> rand_range(T l, T r, R& rng) {
+    assert(l < r);
     return uniform_real_distribution<double>(l, r)(rng);
+}
+
+template <typename T>
+inline T right_closed(T r) {
+    return nextafter(r, numeric_limits<T>::max());
 }
 // --->
 
 // <---
-// name: rand bool
+// name: rand_bool
 /// @f$p@f$の確率で`true`を,@f$1 - p@f$の確率で`false`を返します.
 /// ### 制約
 /// - @f$0 \le p \le 1@f$
