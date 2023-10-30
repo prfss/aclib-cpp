@@ -31,7 +31,6 @@ class Lca {
 
     void dfs(int u, int d, int p) {
         if (depth[u] >= 0) return;
-        par[0][u] = p;
         depth[u] = d;
         for (const auto& v : g[u]) {
             dfs(v, d + 1, u);
@@ -45,7 +44,9 @@ class Lca {
         fill(depth.begin(), depth.end(), -1);
 
         for (int u = 0; u < n; u++) {
-            dfs(u, 0, n);
+            if (par[0][u] == n) {
+                dfs(u, 0, n);
+            }
         }
 
         for (int k = 0; k < log_max_k; k++) {
@@ -60,7 +61,7 @@ public:
     /// ### 制約
     /// @f$1 \le n \le 10^9@f$
     Lca(int n) :
-        n(n), log_max_k(next_log2(n)), par(log_max_k + 1, vector<int>(n + 1)), g(n), depth(n) { }
+        n(n), log_max_k(next_log2(n)), par(log_max_k + 1, vector<int>(n + 1, n)), g(n), depth(n + 1) { }
 
     /// @brief 頂点@f$u@f$と頂点@f$v@f$の最小共通祖先を返します
     /// @details
@@ -100,6 +101,7 @@ public:
         assert(0 <= v and v < n);
         ok = false;
         g[u].push_back(v);
+        par[0][v] = u;
     }
 };
 // --->
