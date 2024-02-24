@@ -41,9 +41,9 @@ struct CumulativeSum2D {
         }
     }
 
-    /// @f$i \in [x1,x2], j \in [y1,y2]@f$を満たす@f$i,j@f$について@f$a[i][j]@f$の総和を取得します.
+    /// @f$i \in [x1,x2), j \in [y1,y2)@f$を満たす@f$i,j@f$について@f$a[i][j]@f$の総和を取得します.
     T operator()(size_t x1, size_t y1, size_t x2, size_t y2) {
-        return sum[x2 + 1][y2 + 1] - sum[x2 + 1][y1] - sum[x1][y2 + 1] + sum[x1][y1];
+        return sum[x2][y2] - sum[x2][y1] - sum[x1][y2] + sum[x1][y1];
     }
 };
 // --->
