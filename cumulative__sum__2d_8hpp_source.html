@@ -116,7 +116,7 @@ $(function() {
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structCumulativeSum2D.html#a04c232ad37db78237d3ee77553cf0cc4">   45</a></span>&#160;    T <a class="code" href="structCumulativeSum2D.html#a04c232ad37db78237d3ee77553cf0cc4">operator()</a>(<span class="keywordtype">size_t</span> x1, <span class="keywordtype">size_t</span> y1, <span class="keywordtype">size_t</span> x2, <span class="keywordtype">size_t</span> y2) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> sum[x2 + 1][y2 + 1] - sum[x2 + 1][y1] - sum[x1][y2 + 1] + sum[x1][y1];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> sum[x2][y2] - sum[x2][y1] - sum[x1][y2] + sum[x1][y1];</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">// ---&gt;</span></div>
