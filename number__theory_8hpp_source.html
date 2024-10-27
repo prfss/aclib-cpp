@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>aclext: number_theory.hpp Source File</title>
+<title>aclib-cpp: number_theory.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">aclext
+   <div id="projectname">aclib-cpp
    </div>
   </td>
  </tr>
@@ -68,7 +68,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_9c610b98e63a3d351967de8fe599e8ef.html">aclext</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_2f32a2ad703c6af05e24919120ed3bbc.html">aclib</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -84,13 +84,13 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;vector&lt;long long&gt; <a class="code" href="number__theory_8hpp.html#a55dcebe085641d1177b664bb7ac221a7">divisor</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n);</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="number__theory_8hpp.html#a55dcebe085641d1177b664bb7ac221a7">   12</a></span>&#160;vector&lt;long long&gt; <a class="code" href="number__theory_8hpp.html#a55dcebe085641d1177b664bb7ac221a7">divisor</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;map&lt;long long, int&gt; <a class="code" href="number__theory_8hpp.html#a782c52023702388d843c9f20645d5eb5">prime_factor</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n);</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="number__theory_8hpp.html#a782c52023702388d843c9f20645d5eb5">   15</a></span>&#160;map&lt;long long, int&gt; <a class="code" href="number__theory_8hpp.html#a782c52023702388d843c9f20645d5eb5">prime_factor</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="number__theory_8hpp.html#a263397b09001fa2ed3eb7a0aa88f6244">is_prime</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n);</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="number__theory_8hpp.html#a263397b09001fa2ed3eb7a0aa88f6244">   18</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="number__theory_8hpp.html#a263397b09001fa2ed3eb7a0aa88f6244">is_prime</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="number__theory_8hpp.html#a765b858cf8ff7dc45bb7b53dbffd563d">totient</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n);</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="number__theory_8hpp.html#a765b858cf8ff7dc45bb7b53dbffd563d">   24</a></span>&#160;<span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="number__theory_8hpp.html#a765b858cf8ff7dc45bb7b53dbffd563d">totient</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// &lt;---</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// name: Extended Euclidean Algorithm</span></div>
@@ -105,12 +105,12 @@ $(function() {
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// ---&gt;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;pair&lt;vector&lt;bool&gt;, vector&lt;int&gt;&gt; <a class="code" href="number__theory_8hpp.html#adec2a6a7baaa17f0b6fe23f82e2fa03b">sieve</a>(<span class="keywordtype">int</span> n);</div>
-<div class="ttc" id="anumber__theory_8hpp_html_a263397b09001fa2ed3eb7a0aa88f6244"><div class="ttname"><a href="number__theory_8hpp.html#a263397b09001fa2ed3eb7a0aa88f6244">is_prime</a></div><div class="ttdeci">bool is_prime(long long n)</div><div class="ttdoc">数 が素数であるか判定します</div><div class="ttdef"><b>Definition:</b> number_theory.cpp:37</div></div>
-<div class="ttc" id="anumber__theory_8hpp_html_a55dcebe085641d1177b664bb7ac221a7"><div class="ttname"><a href="number__theory_8hpp.html#a55dcebe085641d1177b664bb7ac221a7">divisor</a></div><div class="ttdeci">vector&lt; long long &gt; divisor(long long n)</div><div class="ttdoc">数 の約数を返します</div><div class="ttdef"><b>Definition:</b> number_theory.cpp:8</div></div>
-<div class="ttc" id="anumber__theory_8hpp_html_a765b858cf8ff7dc45bb7b53dbffd563d"><div class="ttname"><a href="number__theory_8hpp.html#a765b858cf8ff7dc45bb7b53dbffd563d">totient</a></div><div class="ttdeci">long long totient(long long n)</div><div class="ttdoc">オイラーのトーシェント関数です</div><div class="ttdef"><b>Definition:</b> number_theory.cpp:50</div></div>
-<div class="ttc" id="anumber__theory_8hpp_html_a782c52023702388d843c9f20645d5eb5"><div class="ttname"><a href="number__theory_8hpp.html#a782c52023702388d843c9f20645d5eb5">prime_factor</a></div><div class="ttdeci">map&lt; long long, int &gt; prime_factor(long long n)</div><div class="ttdoc">数 の素因数分解を返します</div><div class="ttdef"><b>Definition:</b> number_theory.cpp:22</div></div>
-<div class="ttc" id="anumber__theory_8hpp_html_adec2a6a7baaa17f0b6fe23f82e2fa03b"><div class="ttname"><a href="number__theory_8hpp.html#adec2a6a7baaa17f0b6fe23f82e2fa03b">sieve</a></div><div class="ttdeci">pair&lt; vector&lt; bool &gt;, vector&lt; int &gt; &gt; sieve(int n)</div><div class="ttdoc">エラトステネスの篩です</div><div class="ttdef"><b>Definition:</b> number_theory.cpp:73</div></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="number__theory_8hpp.html#adec2a6a7baaa17f0b6fe23f82e2fa03b">   49</a></span>&#160;pair&lt;vector&lt;bool&gt;, vector&lt;int&gt;&gt; <a class="code" href="number__theory_8hpp.html#adec2a6a7baaa17f0b6fe23f82e2fa03b">sieve</a>(<span class="keywordtype">int</span> n);</div>
+<div class="ttc" id="anumber__theory_8hpp_html_a263397b09001fa2ed3eb7a0aa88f6244"><div class="ttname"><a href="number__theory_8hpp.html#a263397b09001fa2ed3eb7a0aa88f6244">is_prime</a></div><div class="ttdeci">bool is_prime(long long n)</div><div class="ttdoc">数 が素数であるか判定します</div></div>
+<div class="ttc" id="anumber__theory_8hpp_html_a55dcebe085641d1177b664bb7ac221a7"><div class="ttname"><a href="number__theory_8hpp.html#a55dcebe085641d1177b664bb7ac221a7">divisor</a></div><div class="ttdeci">vector&lt; long long &gt; divisor(long long n)</div><div class="ttdoc">数 の約数を返します</div></div>
+<div class="ttc" id="anumber__theory_8hpp_html_a765b858cf8ff7dc45bb7b53dbffd563d"><div class="ttname"><a href="number__theory_8hpp.html#a765b858cf8ff7dc45bb7b53dbffd563d">totient</a></div><div class="ttdeci">long long totient(long long n)</div><div class="ttdoc">オイラーのトーシェント関数です</div></div>
+<div class="ttc" id="anumber__theory_8hpp_html_a782c52023702388d843c9f20645d5eb5"><div class="ttname"><a href="number__theory_8hpp.html#a782c52023702388d843c9f20645d5eb5">prime_factor</a></div><div class="ttdeci">map&lt; long long, int &gt; prime_factor(long long n)</div><div class="ttdoc">数 の素因数分解を返します</div></div>
+<div class="ttc" id="anumber__theory_8hpp_html_adec2a6a7baaa17f0b6fe23f82e2fa03b"><div class="ttname"><a href="number__theory_8hpp.html#adec2a6a7baaa17f0b6fe23f82e2fa03b">sieve</a></div><div class="ttdeci">pair&lt; vector&lt; bool &gt;, vector&lt; int &gt; &gt; sieve(int n)</div><div class="ttdoc">エラトステネスの篩です</div></div>
 <div class="ttc" id="anumber__theory_8hpp_html_ae855dc441f994fd985bd28ab8d675155"><div class="ttname"><a href="number__theory_8hpp.html#ae855dc441f994fd985bd28ab8d675155">extgcd</a></div><div class="ttdeci">tuple&lt; T, T, T &gt; extgcd(T a, T b)</div><div class="ttdoc">拡張ユークリッドの互除法です</div><div class="ttdef"><b>Definition:</b> number_theory.hpp:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

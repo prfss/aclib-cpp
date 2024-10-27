@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>aclext: Grid&lt; T, S &gt; Class Template Reference</title>
+<title>aclib-cpp: Grid&lt; T, S &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,7 +28,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">aclext
+   <div id="projectname">aclib-cpp
    </div>
   </td>
  </tr>
@@ -85,15 +85,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aee97eb65aeb57440de81590d8a9fe796"><td class="memItemLeft" align="right" valign="top"><a id="aee97eb65aeb57440de81590d8a9fe796"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Grid</b> (S spec)</td></tr>
 <tr class="separator:aee97eb65aeb57440de81590d8a9fe796"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26ab2fcdf3a349cdb985882560764ee6"><td class="memItemLeft" align="right" valign="top"><a id="a26ab2fcdf3a349cdb985882560764ee6"></a>
-T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const typename S::P &amp;p)</td></tr>
-<tr class="separator:a26ab2fcdf3a349cdb985882560764ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d8e9a74b825f2394c0cc3d13d75fc84"><td class="memItemLeft" align="right" valign="top"><a id="a3d8e9a74b825f2394c0cc3d13d75fc84"></a>
-const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const typename S::P &amp;p) const</td></tr>
-<tr class="separator:a3d8e9a74b825f2394c0cc3d13d75fc84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af57d7ac19a4a150806d5f2ccca3aaa61"><td class="memItemLeft" align="right" valign="top"><a id="af57d7ac19a4a150806d5f2ccca3aaa61"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>in_grid</b> (const typename S::P &amp;p) const</td></tr>
-<tr class="separator:af57d7ac19a4a150806d5f2ccca3aaa61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81114aeb425faaa3abe9da77cc0f8209"><td class="memItemLeft" align="right" valign="top"><a id="a81114aeb425faaa3abe9da77cc0f8209"></a>
+decltype(array[0])&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const typename S::P &amp;p)</td></tr>
+<tr class="separator:a81114aeb425faaa3abe9da77cc0f8209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bdca946187fe51939097ecfae173d89"><td class="memItemLeft" align="right" valign="top"><a id="a8bdca946187fe51939097ecfae173d89"></a>
+decltype(as_const(array)[0])&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (const typename S::P &amp;p) const</td></tr>
+<tr class="separator:a8bdca946187fe51939097ecfae173d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c8947def570669256388e3706ce2245"><td class="memItemLeft" align="right" valign="top"><a id="a3c8947def570669256388e3706ce2245"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>contains</b> (const typename S::P &amp;p) const</td></tr>
+<tr class="separator:a3c8947def570669256388e3706ce2245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd455e65f9e678b19121f7174188bab6"><td class="memItemLeft" align="right" valign="top"><a id="acd455e65f9e678b19121f7174188bab6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>enc</b> (const typename S::P &amp;p)</td></tr>
+<tr class="separator:acd455e65f9e678b19121f7174188bab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3309570be36c6bf346b07c1b2ad9e299"><td class="memItemLeft" align="right" valign="top"><a id="a3309570be36c6bf346b07c1b2ad9e299"></a>
+S::P&#160;</td><td class="memItemRight" valign="bottom"><b>dec</b> (int v)</td></tr>
+<tr class="separator:a3309570be36c6bf346b07c1b2ad9e299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="grid_8hpp_source.html">grid.hpp</a></li>
