@@ -1,6 +1,6 @@
 -std=c++17
 -Wall
 -Wconversion
--Ibazel-acl-ext/external/ac-library
--Ibazel-acl-ext/external/com_google_googletest/googletest/include
--Ibazel-acl-ext
+-Ibazel-aclib-cpp/external/ac-library
+-Ibazel-aclib-cpp/external/com_google_googletest/googletest/include
+-Ibazel-aclib-cpp
