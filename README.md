@@ -1,6 +1,6 @@
-# acl-ext
+# aclib-cpp
 
-C++ library for competitive programming ([Documentation](https://prfss.github.io/acl-ext/))
+C++ library for competitive programming ([Documentation](https://prfss.github.io/aclib-cpp/))
 
 This library depends on STL and [AtCoder Library](https://github.com/atcoder/ac-library).
 
