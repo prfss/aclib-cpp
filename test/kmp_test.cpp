@@ -1,4 +1,4 @@
-#include "aclext/kmp.hpp"
+#include "aclib/kmp.hpp"
 #include "gtest/gtest.h"
 
 TEST(KmpTest, PrefixFunction) {

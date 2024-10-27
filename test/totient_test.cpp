@@ -1,4 +1,4 @@
-#include "aclext/number_theory.hpp"
+#include "aclib/number_theory.hpp"
 #include "gtest/gtest.h"
 
 TEST(TotientTest, ItWorks) {

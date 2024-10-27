@@ -1,4 +1,4 @@
-#include "../aclext/rerooting.hpp"
+#include "../aclib/rerooting.hpp"
 #include "gtest/gtest.h"
 #include <algorithm>
 #include <vector>

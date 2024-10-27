@@ -8,7 +8,7 @@ cc_test(
         "-std=c++17",
     ],
     deps = [
-        "//aclext:lib",
+        "//aclib:lib",
         "@ac-library//:main",
         "@com_google_googletest//:gtest_main",
     ],

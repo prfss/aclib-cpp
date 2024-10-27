@@ -1,4 +1,4 @@
-#include "aclext/bwt.hpp"
+#include "aclib/bwt.hpp"
 #include "gtest/gtest.h"
 
 TEST(BwtTest, SmallExample) {

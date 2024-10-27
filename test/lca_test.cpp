@@ -1,4 +1,4 @@
-#include "aclext/lca.hpp"
+#include "aclib/lca.hpp"
 #include "gtest/gtest.h"
 
 TEST(LcaTest, SmallExample) {

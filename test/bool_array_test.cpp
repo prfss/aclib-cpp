@@ -1,4 +1,4 @@
-#include "aclext/bool_array.hpp"
+#include "aclib/bool_array.hpp"
 #include "gtest/gtest.h"
 
 TEST(BoolArrayTest, SmallExample) {

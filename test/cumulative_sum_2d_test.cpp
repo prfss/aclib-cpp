@@ -1,4 +1,4 @@
-#include "aclext/cumulative_sum_2d.hpp"
+#include "aclib/cumulative_sum_2d.hpp"
 #include "gtest/gtest.h"
 #include <vector>
 

@@ -78,7 +78,7 @@ def main() -> None:
                         )
                         stem = file.stem
                         item = dict({"scope": "cpp", "prefix": [prefix], "body": code})
-                        name = f"{name} (aclext:{stem})"
+                        name = f"{name} (aclib:{stem})"
                         if name in snippet:
                             print(
                                 f"Snippet '{name}' already exists. New one is skipped"
