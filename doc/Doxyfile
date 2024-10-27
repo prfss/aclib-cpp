@@ -2,7 +2,7 @@
 
 DOXYFILE_ENCODING      = UTF-8
 
-PROJECT_NAME           = "aclext"
+PROJECT_NAME           = "aclib-cpp"
 
 PROJECT_NUMBER         =
 
@@ -161,7 +161,7 @@ WARN_LOGFILE           =
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
 
-INPUT                  = ../aclext,verifications,index.md
+INPUT                  = ../aclib,verifications,index.md
 
 INPUT_ENCODING         = UTF-8
 
