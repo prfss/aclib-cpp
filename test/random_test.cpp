@@ -6,7 +6,7 @@ const int SEED = 31415926;
 
 TEST(RandomTest, WeightedIndexDouble) {
     mt19937_64 rng(SEED);
-    vector<double> weights = { 1.0, 1.5, 2.0, 10.0, 1.01, 7.5, 9.5 };
+    vector<double> weights = { 1.0, 1.5, 2.0, 10.0, 1.01, 7.5, 9.5, 0.0 };
     auto dist = WeightedIndex(weights);
     const int n = 1000000;
     vector<int> c(dist.size());
@@ -27,11 +27,12 @@ TEST(RandomTest, WeightedIndexDouble) {
                        - weights.begin();
         EXPECT_EQ(nearest, k);
     }
+    EXPECT_EQ(c.back(), 0);
 }
 
 TEST(RandomTest, WeightedIndexUInt) {
     mt19937_64 rng(SEED);
-    vector<uint> weights = { 1, 2, 5, 3, 10, 8, 100 };
+    vector<uint> weights = { 1, 2, 5, 3, 10, 8, 100, 0 };
     auto dist = WeightedIndex(weights);
     const int n = 1000000;
     vector<int> c(dist.size());
@@ -52,4 +53,5 @@ TEST(RandomTest, WeightedIndexUInt) {
                        - weights.begin();
         EXPECT_EQ(nearest, k);
     }
+    EXPECT_EQ(c.back(), 0);
 }
