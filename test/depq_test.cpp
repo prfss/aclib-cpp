@@ -40,7 +40,7 @@ TEST(DepqTest, MakeIntervalHeap) {
     EXPECT_TRUE(is_interval_heap(vs4));
 }
 
-TEST(DepqTest, DepqWorks) {
+TEST(DepqTest, Oracle) {
     const int n = 1000;
     mt19937_64 rng(SEED);
     auto uf = uniform_int_distribution<int>(0, n);
