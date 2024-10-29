@@ -12,16 +12,20 @@ T one() { return T(1); }
 
 using ll = long long;
 
+long long fib_naive(int v) {
+    vector<long long> xs = { 0, 1 };
+    for (int i = 2; i <= v; i++) {
+        xs.push_back(xs[i - 1] + xs[i - 2]);
+    }
+    return xs[v];
+}
+
 TEST(KitamasaTest, Fibonacci) {
     auto fib = [](long long n) {
         return kitamasa<ll>({ 1, 1 }, add<ll>, zero<ll>, mul<ll>, one<ll>, { 0, 1 }, n);
     };
-    EXPECT_EQ(fib(0), 0);
-    EXPECT_EQ(fib(1), 1);
-    EXPECT_EQ(fib(2), 1);
-    EXPECT_EQ(fib(3), 2);
-    EXPECT_EQ(fib(4), 3);
-    EXPECT_EQ(fib(5), 5);
-    EXPECT_EQ(fib(10), 55);
-    EXPECT_EQ(fib(50), 12586269025);
+
+    for (int i = 0; i <= 50; i++) {
+        EXPECT_EQ(fib(i), fib_naive(i));
+    }
 }
