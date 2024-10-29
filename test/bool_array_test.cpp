@@ -20,6 +20,7 @@ TEST(BoolArrayTest, SmallExample) {
     EXPECT_FALSE(c);
     EXPECT_FALSE(ba[2]);
     ba[2] = ba[1];
+    // 以下はvector<bool>と同様
     EXPECT_TRUE(b) << "const ElemProxy shares original element value";
     EXPECT_FALSE(c);
     EXPECT_TRUE(ba[2]);
