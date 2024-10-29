@@ -1,6 +1,22 @@
 #include "aclib/combination.hpp"
 #include "gtest/gtest.h"
 
+long long pow_mod(long long a, long long b, long long mod) {
+    long long res = 1;
+    while (b > 0) {
+        if (b & 1) {
+            res = (res * a) % mod;
+        }
+        a = (a * a) % mod;
+        b >>= 1;
+    }
+    return res;
+}
+
+long long inv(long long a, long long mod) {
+    return pow_mod(a, mod - 2, mod);
+}
+
 TEST(CombinationTest, BasicProperties) {
     const int MOD = 1'000'000'007;
 
@@ -14,6 +30,22 @@ TEST(CombinationTest, BasicProperties) {
     }
 
     EXPECT_EQ(comb(n, n), 1);
+}
+
+TEST(CombinationTest, Naive) {
+    const int MOD = 99991;
+    const int n = 1000;
+
+    Comb<MOD> comb(n);
+
+    for (int i = 1; i <= n; i++) {
+        long long v = 1;
+        for (int j = 1; j <= i; j++) {
+            v = (v * (i - j + 1)) % MOD;
+            v = (v * inv(j, MOD)) % MOD;
+            EXPECT_EQ(comb(i, j), v);
+        }
+    }
 }
 
 TEST(CombinationTest, SmallExample) {
