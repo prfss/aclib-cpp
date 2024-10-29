@@ -1,8 +1,6 @@
 #include "aclib/li_chao_tree.hpp"
 #include "gtest/gtest.h"
 
-#include <vector>
-
 using namespace std;
 
 struct F {
