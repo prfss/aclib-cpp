@@ -7,6 +7,8 @@
 
 using namespace std;
 
+// <---
+// name: Double Ended Priority Queue
 /// @brief ベクタ`v`をin-placeにInterval Heapに変換します.
 /// @details
 /// 言い換えると,\f$n\f$をベクタ`v`の長さとしたとき,`v`が次の条件を満たすように要素を並び替えます.
@@ -224,3 +226,4 @@ private:
         return i;
     }
 };
+// --->
