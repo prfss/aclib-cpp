@@ -140,58 +140,66 @@ private:
     }
 
     size_t heap_up_left(size_t i) {
+        T v = std::move(data[i]);
         while (i > 1) {
             size_t p = ((i - 2) >> 1) & ~size_t(1);
-            if (data[i] < data[p]) {
-                swap(data[i], data[p]);
+            if (v < data[p]) {
+                data[i] = std::move(data[p]);
                 i = p;
             } else {
                 break;
             }
         }
+        data[i] = v;
         return i;
     }
 
     size_t heap_up_right(size_t i) {
+        T v = std::move(data[i]);
         while (i > 1) {
             size_t p = ((i - 2) >> 1) | size_t(1);
-            if (data[p] < data[i]) {
-                swap(data[p], data[i]);
+            if (data[p] < v) {
+                data[i] = std::move(data[p]);
                 i = p;
             } else {
                 break;
             }
         }
+        data[i] = v;
         return i;
     }
 
     size_t heap_down_left(size_t i) {
+        T v = std::move(data[i]);
         while (true) {
             size_t c = (i << 1) + 2;
             if (c >= data.size()) break;
             if (c + 2 < data.size() && data[c] > data[c + 2]) c += 2;
-            if (data[i] > data[c]) {
-                swap(data[i], data[c]);
+            if (v > data[c]) {
+                data[i] = std::move(data[c]);
                 i = c;
             } else {
                 break;
             }
         }
+        data[i] = v;
         return i;
     }
 
     size_t heap_down_right(size_t i) {
+        T v = std::move(data[i]);
         while (true) {
             size_t c = ((i & ~size_t(1)) << 1) + 3;
             if (c >= data.size()) break;
             if (c + 2 < data.size() && data[c] < data[c + 2]) c += 2;
-            if (data[i] < data[c]) {
-                swap(data[i], data[c]);
+            if (v < data[c]) {
+                data[i] = std::move(data[c]);
                 i = c;
             } else {
                 break;
             }
         }
+        data[i] = v;
         return i;
     }
 };
