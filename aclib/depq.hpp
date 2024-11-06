@@ -1,8 +1,21 @@
+/// @file
+/// @brief [Double Ended Priority Queue](https://en.wikipedia.org/wiki/Double-ended_priority_queue)のInterval Heapによる実装です
+#pragma once
+
 #include <cassert>
 #include <vector>
 
 using namespace std;
 
+/// @brief ベクタ`v`をin-placeにInterval Heapに変換します.
+/// @details
+/// 言い換えると,\f$n\f$をベクタ`v`の長さとしたとき,`v`が次の条件を満たすように要素を並び替えます.
+/// - 偶数\f$i\f$に対して,
+///   - \f$i + 1 \lt n\f$ならば\f$v_i \le v_{i+1}\f$
+///   - \f$ k \in \{2,3,4,5\}\f$に対して,\f$2i+k \lt n\f$ならば\f$v_i \le v_{2i+k} \le v_{i+1}\f$
+///
+/// さらにこの実装では次の条件も満たします.
+/// - 偶数\f$i \lt n\f$と奇数\f$j \lt n\f$に対して, \f$ v_{i} \le v_{j}\f$
 template <typename T>
 void make_interval_heap(vector<T>& v) {
     size_t min_heap_len = (v.size() + 1) / 2;
@@ -78,6 +91,7 @@ bool is_interval_heap(const vector<T>& v) {
     return is_interval_heap_inner(v, 0, 1);
 }
 
+/// @brief Double Ended Priority Queueを実現する構造体です
 template <typename T>
 struct DoubleEndedPriorityQueue {
     vector<T> data;
@@ -92,26 +106,32 @@ struct DoubleEndedPriorityQueue {
         make_interval_heap(data);
     }
 
+    /// @brief キューのサイズを返します
     inline size_t size() const { return data.size(); }
 
+    /// @brief キューが空かどうかを返します
     inline bool empty() const { return data.empty(); }
 
+    /// @brief キューに要素を追加します
     void push(T x) {
         data.push_back(x);
         if (size() < 2) return;
         heap_up(size() - 1);
     }
 
+    /// @brief キューに含まれる最小値を返します
     inline const T& peek_min() const {
         assert(!empty());
         return data[0];
     }
 
+    /// @brief キューに含まれる最大値を返します
     inline const T& peek_max() const {
         assert(!empty());
         return size() == 1 ? data[0] : data[1];
     }
 
+    /// @brief キューから最小値を取り出します
     T pop_min() {
         assert(!data.empty());
         swap(data[0], data[size() - 1]);
@@ -121,6 +141,7 @@ struct DoubleEndedPriorityQueue {
         return x;
     }
 
+    /// @brief キューから最大値を取り出します
     T pop_max() {
         assert(!data.empty());
         swap(data[size() == 1 ? 0 : 1], data[size() - 1]);
