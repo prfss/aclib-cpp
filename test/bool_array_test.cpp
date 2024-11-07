@@ -12,7 +12,7 @@ TEST(BoolArrayTest, SmallExample) {
     EXPECT_TRUE(a) << "Copied";
     EXPECT_FALSE(ba[1]) << "Unchanged element";
     ba[1] = a;
-    EXPECT_TRUE(ba[1]) << "ElemProxy assignment";
+    EXPECT_TRUE(ba[1]) << "Reference assignment";
 
     const auto b = ba[2];
     const bool c = ba[2];
@@ -21,7 +21,7 @@ TEST(BoolArrayTest, SmallExample) {
     EXPECT_FALSE(ba[2]);
     ba[2] = ba[1];
     // 以下はvector<bool>と同様
-    EXPECT_TRUE(b) << "const ElemProxy shares original element value";
+    EXPECT_TRUE(b) << "const Reference shares original element value";
     EXPECT_FALSE(c);
     EXPECT_TRUE(ba[2]);
 }

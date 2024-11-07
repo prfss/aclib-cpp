@@ -19,14 +19,14 @@ class BoolArray {
 private:
     long long threshold;
     vector<long long> data;
-    struct ElemProxy {
+    struct Reference {
         const size_t idx;
         BoolArray* const ba;
-        ElemProxy& operator=(const ElemProxy& other) {
+        Reference& operator=(const Reference& other) {
             if (this == &other) return *this;
             return *this = bool(other);
         }
-        ElemProxy& operator=(bool b) {
+        Reference& operator=(bool b) {
             ba->data[idx] = b ? ba->threshold : 0;
             return *this;
         }
@@ -45,7 +45,7 @@ public:
         return data[i] == threshold;
     }
 
-    ElemProxy operator[](size_t i) {
+    Reference operator[](size_t i) {
         return { i, this };
     }
 
@@ -59,12 +59,4 @@ public:
         threshold++;
     }
 };
-
-// BoolArray::ElemProxy& BoolArray::ElemProxy::operator=(const bool b) {
-//     ba.data[idx] = b ? ba.threshold : 0;
-//     return *this;
-// }
-// BoolArray::ElemProxy::operator bool() const {
-//     return ba.data[idx] == ba.threshold;
-// }
 // --->
