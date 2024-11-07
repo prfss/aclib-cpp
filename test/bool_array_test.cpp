@@ -1,5 +1,6 @@
 #include "aclib/bool_array.hpp"
 #include "gtest/gtest.h"
+#include <random>
 
 TEST(BoolArrayTest, SmallExample) {
     auto ba = BoolArray(3);
@@ -24,4 +25,29 @@ TEST(BoolArrayTest, SmallExample) {
     EXPECT_TRUE(b) << "const Reference shares original element value";
     EXPECT_FALSE(c);
     EXPECT_TRUE(ba[2]);
+}
+
+const int SEED = 314159;
+
+TEST(BoolArrayTest, Naive) {
+    const int n = 100;
+    BoolArray ba(n);
+    vector<bool> naive(n);
+
+    auto rng = mt19937_64(SEED);
+
+    const int k = 10000;
+    for (int i = 0; i < k; i++) {
+        bool reset = bernoulli_distribution(0.02)(rng);
+        if (reset) {
+            ba.reset();
+            naive = vector<bool>(n);
+        } else {
+            size_t i = uniform_int_distribution<size_t>(0, n - 1)(rng);
+            bool b = bernoulli_distribution(0.5)(rng);
+            ba[i] = b;
+            naive[i] = b;
+        }
+        EXPECT_EQ(ba.pop_count(), count(naive.begin(), naive.end(), true));
+    }
 }
