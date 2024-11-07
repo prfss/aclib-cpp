@@ -96,8 +96,6 @@ bool is_interval_heap(const vector<T>& v) {
 /// @brief Double Ended Priority Queueを実現する構造体です
 template <typename T>
 struct DoubleEndedPriorityQueue {
-    vector<T> data;
-
     DoubleEndedPriorityQueue() = default;
     DoubleEndedPriorityQueue(const vector<T>& v) :
         data(v) {
@@ -154,6 +152,7 @@ struct DoubleEndedPriorityQueue {
     }
 
 private:
+    vector<T> data;
     void heap_up(size_t i) {
         if ((i | 1) < size() && data[i & ~size_t(1)] > data[i | size_t(1)]) {
             swap(data[i & ~size_t(1)], data[i | size_t(1)]);
