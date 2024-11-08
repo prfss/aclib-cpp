@@ -151,6 +151,14 @@ struct DoubleEndedPriorityQueue {
         return x;
     }
 
+    vector<T> into_vector() && {
+        return std::move(data);
+    }
+
+    const vector<T>& get_vector() const {
+        return data;
+    }
+
 private:
     vector<T> data;
     void heap_up(size_t i) {

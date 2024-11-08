@@ -81,7 +81,7 @@ TEST(DepqTest, Oracle) {
             }
 
             EXPECT_EQ(q.size(), s.size());
-            EXPECT_TRUE(is_interval_heap(q.data));
+            EXPECT_TRUE(is_interval_heap(q.get_vector()));
             if (!q.empty()) {
                 EXPECT_EQ(q.peek_min(), *s.begin());
                 EXPECT_EQ(q.peek_max(), *s.rbegin());
