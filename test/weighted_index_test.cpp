@@ -1,10 +1,10 @@
-#include "aclib/random.hpp"
+#include "aclib/weighted_index.hpp"
 #include "gtest/gtest.h"
 #include <random>
 
 const int SEED = 31415926;
 
-TEST(RandomTest, WeightedIndexDouble) {
+TEST(WeightedIndexTest_Stochastic, Double) {
     mt19937_64 rng(SEED);
     vector<double> weights = { 1.0, 1.5, 2.0, 10.0, 1.01, 7.5, 9.5, 0.0 };
     auto dist = WeightedIndex(weights);
@@ -30,7 +30,7 @@ TEST(RandomTest, WeightedIndexDouble) {
     EXPECT_EQ(c.back(), 0);
 }
 
-TEST(RandomTest, WeightedIndexUInt) {
+TEST(WeightedIndexTest_Stochastic, UInt) {
     mt19937_64 rng(SEED);
     vector<uint> weights = { 1, 2, 5, 3, 10, 8, 100, 0 };
     auto dist = WeightedIndex(weights);
