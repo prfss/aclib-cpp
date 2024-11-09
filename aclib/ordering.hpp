@@ -16,7 +16,8 @@ public:
         return x < y;
     }
     /// @f$x = y@f$の時,`Ordering(other_x,other_y)`,それ以外の時`*this`を返す.
-    Ordering then(const T other_x, const T other_y) const {
+    template <typename U>
+    Ordering then(const U other_x, const U other_y) const {
         if (x == y)
             return Ordering { other_x, other_y };
         else
