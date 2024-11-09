@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['grid_17',['Grid',['../classgrid_1_1Grid.html',1,'grid']]],
-  ['grid_2ehpp_18',['grid.hpp',['../grid_8hpp.html',1,'']]]
+  ['get_17',['get',['../classDynamicSegmentTree.html#a49f2df93fc4e0472d02e3c103785fcbb',1,'DynamicSegmentTree']]]
 ];

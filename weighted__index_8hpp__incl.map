@@ -1,8 +1,8 @@
-<map id="random.hpp" name="random.hpp">
-<area shape="rect" id="node1" title="確率的な選択を行う関数です" alt="" coords="157,5,247,32"/>
+<map id="weighted_index.hpp" name="weighted_index.hpp">
+<area shape="rect" id="node1" title="確率的な選択を行う関数です" alt="" coords="135,5,269,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,80,71,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="95,80,149,107"/>
 <area shape="rect" id="node4" title=" " alt="" coords="173,80,231,107"/>
 <area shape="rect" id="node5" title=" " alt="" coords="256,80,321,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="346,80,429,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="346,80,405,107"/>
 </map>

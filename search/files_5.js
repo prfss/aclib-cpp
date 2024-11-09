@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['lca_2ehpp_95',['lca.hpp',['../lca_8hpp.html',1,'']]],
-  ['li_5fchao_5ftree_2ehpp_96',['li_chao_tree.hpp',['../li__chao__tree_8hpp.html',1,'']]]
+  ['matrix_2ehpp_95',['matrix.hpp',['../matrix_8hpp.html',1,'']]],
+  ['mo_2ehpp_96',['mo.hpp',['../mo_8hpp.html',1,'']]],
+  ['monotonic_5fconvex_5fhull_5ftrick_2ehpp_97',['monotonic_convex_hull_trick.hpp',['../monotonic__convex__hull__trick_8hpp.html',1,'']]]
 ];

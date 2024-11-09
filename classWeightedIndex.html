@@ -79,12 +79,15 @@ $(function() {
 <p>重み付き乱択を行います  
  <a href="classWeightedIndex.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="random_8hpp_source.html">random.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="weighted__index_8hpp_source.html">weighted_index.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4cd11b21a594d83fae7261e01942163e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeightedIndex.html#a4cd11b21a594d83fae7261e01942163e">WeightedIndex</a> (const vector&lt; T &gt; &amp;weights)</td></tr>
 <tr class="separator:a4cd11b21a594d83fae7261e01942163e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a259cb5a711406a8c3e5d937eb9350cca"><td class="memItemLeft" align="right" valign="top"><a id="a259cb5a711406a8c3e5d937eb9350cca"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const</td></tr>
+<tr class="separator:a259cb5a711406a8c3e5d937eb9350cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace0cc5e4245cda4d61ca1567924f8bdb"><td class="memTemplParams" colspan="2">template&lt;typename R &gt; </td></tr>
 <tr class="memitem:ace0cc5e4245cda4d61ca1567924f8bdb"><td class="memTemplItemLeft" align="right" valign="top">size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWeightedIndex.html#ace0cc5e4245cda4d61ca1567924f8bdb">operator()</a> (R &amp;rng) const</td></tr>
 <tr class="separator:ace0cc5e4245cda4d61ca1567924f8bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,11 +122,11 @@ class WeightedIndex&lt; T &gt;</h3>
 </table>
 </div><div class="memdoc">
 <p>重みを<code>weights</code>として初期化します. </p>
-<h3><a class="anchor" id="autotoc_md22"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 制約</h3>
 <ul>
-<li>\(0 \le \mathrm{weights[i]} (0 \le i \lt \mathrm{weights.size()})\)</li>
-<li>\(0 \lt \sum_{i} \mathrm{weights[i]} \le Tの最大値\) </li>
+<li>\(0 \le \mathrm{weights[i]} \ (0 \le i \lt \mathrm{weights.size()})\)</li>
+<li>\(0 \lt \sum_{i} \mathrm{weights[i]} \lt \mathrm{DBL\_MAX}\) </li>
 </ul>
 
 </div>
@@ -157,7 +160,7 @@ class WeightedIndex&lt; T &gt;</h3>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="random_8hpp_source.html">random.hpp</a></li>
+<li><a class="el" href="weighted__index_8hpp_source.html">weighted_index.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

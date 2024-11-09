@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['kitamasa_116',['kitamasa',['../kitamasa_8hpp.html#abf8875996404c85349be44bf27478b83',1,'kitamasa.hpp']]],
-  ['kmp_5fsearch_117',['kmp_search',['../kmp_8hpp.html#a5c222a90b80cd57df62e9cc32808d603',1,'kmp.hpp']]]
+  ['identity_112',['identity',['../classMatrix.html#ad286394649070e0543d1760924a54aa4',1,'Matrix']]],
+  ['is_5fprime_113',['is_prime',['../number__theory_8hpp.html#a263397b09001fa2ed3eb7a0aa88f6244',1,'number_theory.cpp']]]
 ];

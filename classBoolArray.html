@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>aclib-cpp: BoolArray Class Reference</title>
+<title>aclib-cpp: BoolArray&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classBoolArray-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BoolArray Class Reference</div>  </div>
+<div class="title">BoolArray&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -91,9 +91,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a88a036e9551489ea074afe88848d1674"><td class="memItemLeft" align="right" valign="top"><a id="a88a036e9551489ea074afe88848d1674"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t i) const</td></tr>
 <tr class="separator:a88a036e9551489ea074afe88848d1674"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a972b602a8d563d257a74916dbd97c0c1"><td class="memItemLeft" align="right" valign="top"><a id="a972b602a8d563d257a74916dbd97c0c1"></a>
-ElemProxy&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t i)</td></tr>
-<tr class="separator:a972b602a8d563d257a74916dbd97c0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1851fc48844576ae6b27a4755b27edc"><td class="memItemLeft" align="right" valign="top"><a id="ae1851fc48844576ae6b27a4755b27edc"></a>
+Reference&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (size_t i)</td></tr>
+<tr class="separator:ae1851fc48844576ae6b27a4755b27edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a259cb5a711406a8c3e5d937eb9350cca"><td class="memItemLeft" align="right" valign="top"><a id="a259cb5a711406a8c3e5d937eb9350cca"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoolArray.html#a259cb5a711406a8c3e5d937eb9350cca">size</a> () const</td></tr>
 <tr class="memdesc:a259cb5a711406a8c3e5d937eb9350cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">この配列の長さを返します <br /></td></tr>
@@ -102,13 +102,20 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoolArray.html#ad20897c5c8bd47f5d4005989bead0e55">reset</a> ()</td></tr>
 <tr class="memdesc:ad20897c5c8bd47f5d4005989bead0e55"><td class="mdescLeft">&#160;</td><td class="mdescRight">配列の要素をすべて<code>false</code>にします <br /></td></tr>
 <tr class="separator:ad20897c5c8bd47f5d4005989bead0e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760b0ef9e9b82027d9a784e198b717ca"><td class="memItemLeft" align="right" valign="top"><a id="a760b0ef9e9b82027d9a784e198b717ca"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoolArray.html#a760b0ef9e9b82027d9a784e198b717ca">pop_count</a> () const</td></tr>
+<tr class="memdesc:a760b0ef9e9b82027d9a784e198b717ca"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>true</code>である要素の数を返します <br /></td></tr>
+<tr class="separator:a760b0ef9e9b82027d9a784e198b717ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>リセット処理が高速な固定長の真偽値配列です </p>
+<div class="textblock"><h3>template&lt;typename T = int&gt;<br />
+class BoolArray&lt; T &gt;</h3>
+
+<p>リセット処理が高速な固定長の真偽値配列です </p>
 <h3><a class="anchor" id="autotoc_md0"></a>
 制約</h3>
 <ul>
-<li><a class="el" href="classBoolArray.html#ad20897c5c8bd47f5d4005989bead0e55" title="配列の要素をすべてfalseにします">reset()</a> を<code>LLONG_MAX</code>回以上呼び出したときの動作は未定義 </li>
+<li><a class="el" href="classBoolArray.html#ad20897c5c8bd47f5d4005989bead0e55" title="配列の要素をすべてfalseにします">reset()</a> を<code>numeric_limits&lt;T&gt;::max()</code>回以上呼び出したときの動作は未定義 </li>
 </ul>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="bool__array_8hpp_source.html">bool_array.hpp</a></li>

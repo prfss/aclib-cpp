@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>aclib-cpp: DynamicSegmentTree&lt; S, op, e, X &gt; Class Template Reference</title>
+<title>aclib-cpp: DynamicSegmentTree&lt; S, op, e, I &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,42 +73,147 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classDynamicSegmentTree-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">DynamicSegmentTree&lt; S, op, e, X &gt; Class Template Reference</div>  </div>
+<div class="title">DynamicSegmentTree&lt; S, op, e, I &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>動的セグメント木を実装したクラスです  
+ <a href="classDynamicSegmentTree.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dynamic__segment__tree_8hpp_source.html">dynamic_segment_tree.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8eb360743ebcf74e0b371354bb8d6b6d"><td class="memItemLeft" align="right" valign="top"><a id="a8eb360743ebcf74e0b371354bb8d6b6d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DynamicSegmentTree</b> (X l, X r)</td></tr>
-<tr class="separator:a8eb360743ebcf74e0b371354bb8d6b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9d22b3adb3a6476be6504b1f7c7ed0f"><td class="memItemLeft" align="right" valign="top"><a id="ab9d22b3adb3a6476be6504b1f7c7ed0f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DynamicSegmentTree</b> (const <a class="el" href="classDynamicSegmentTree.html">DynamicSegmentTree</a>&lt; S, op, e &gt; &amp;&amp;other)</td></tr>
-<tr class="separator:ab9d22b3adb3a6476be6504b1f7c7ed0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd5518b6b1dc5320baa615048d6dac58"><td class="memItemLeft" align="right" valign="top"><a id="acd5518b6b1dc5320baa615048d6dac58"></a>
-<a class="el" href="classDynamicSegmentTree.html">DynamicSegmentTree</a>&lt; S, op, e &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classDynamicSegmentTree.html">DynamicSegmentTree</a>&lt; S, op, e &gt; &amp;&amp;other)</td></tr>
-<tr class="separator:acd5518b6b1dc5320baa615048d6dac58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec212a45deb79ec8dac816357d39e076"><td class="memItemLeft" align="right" valign="top"><a id="aec212a45deb79ec8dac816357d39e076"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set</b> (X i, S val)</td></tr>
-<tr class="separator:aec212a45deb79ec8dac816357d39e076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc6bc98306c5065847aec4de64d589c8"><td class="memItemLeft" align="right" valign="top"><a id="abc6bc98306c5065847aec4de64d589c8"></a>
-S&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (X i)</td></tr>
-<tr class="separator:abc6bc98306c5065847aec4de64d589c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8ec668ee6fc0260c60b7f638278e338"><td class="memItemLeft" align="right" valign="top"><a id="ab8ec668ee6fc0260c60b7f638278e338"></a>
-S&#160;</td><td class="memItemRight" valign="bottom"><b>prod</b> (X l, X r)</td></tr>
-<tr class="separator:ab8ec668ee6fc0260c60b7f638278e338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319bdc29fdbb3490753e71179d6f68aa"><td class="memItemLeft" align="right" valign="top"><a id="a319bdc29fdbb3490753e71179d6f68aa"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamicSegmentTree.html#a319bdc29fdbb3490753e71179d6f68aa">DynamicSegmentTree</a> (I begin, I end)</td></tr>
+<tr class="memdesc:a319bdc29fdbb3490753e71179d6f68aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">\([\mathrm{begin}, \mathrm{end})\)の範囲を持つ配列 \(a\)を構築します <br /></td></tr>
+<tr class="separator:a319bdc29fdbb3490753e71179d6f68aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb43fe3180f007aedee791fd930f435f"><td class="memItemLeft" align="right" valign="top"><a id="acb43fe3180f007aedee791fd930f435f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DynamicSegmentTree</b> (const <a class="el" href="classDynamicSegmentTree.html">DynamicSegmentTree</a>&lt; S, op, e, I &gt; &amp;other)</td></tr>
+<tr class="separator:acb43fe3180f007aedee791fd930f435f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69fa5f376897eade677b4a4bee3fc168"><td class="memItemLeft" align="right" valign="top"><a id="a69fa5f376897eade677b4a4bee3fc168"></a>
+<a class="el" href="classDynamicSegmentTree.html">DynamicSegmentTree</a>&lt; S, op, e, I &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classDynamicSegmentTree.html">DynamicSegmentTree</a>&lt; S, op, e, I &gt; &amp;other)</td></tr>
+<tr class="separator:a69fa5f376897eade677b4a4bee3fc168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a265a744cca8f586431f5861e9d33ab0a"><td class="memItemLeft" align="right" valign="top"><a id="a265a744cca8f586431f5861e9d33ab0a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DynamicSegmentTree</b> (<a class="el" href="classDynamicSegmentTree.html">DynamicSegmentTree</a>&lt; S, op, e, I &gt; &amp;&amp;other) noexcept</td></tr>
+<tr class="separator:a265a744cca8f586431f5861e9d33ab0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81a8f586450ffc6aada03cb48f508ca5"><td class="memItemLeft" align="right" valign="top"><a id="a81a8f586450ffc6aada03cb48f508ca5"></a>
+<a class="el" href="classDynamicSegmentTree.html">DynamicSegmentTree</a>&lt; S, op, e, I &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classDynamicSegmentTree.html">DynamicSegmentTree</a>&lt; S, op, e, I &gt; &amp;&amp;other) noexcept</td></tr>
+<tr class="separator:a81a8f586450ffc6aada03cb48f508ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad45ed1b040dc4db9534ee83061df23a2"><td class="memItemLeft" align="right" valign="top"><a id="ad45ed1b040dc4db9534ee83061df23a2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamicSegmentTree.html#ad45ed1b040dc4db9534ee83061df23a2">set</a> (I i, S val)</td></tr>
+<tr class="memdesc:ad45ed1b040dc4db9534ee83061df23a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(a_i\)に \(\mathrm{val}\)を代入します <br /></td></tr>
+<tr class="separator:ad45ed1b040dc4db9534ee83061df23a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49f2df93fc4e0472d02e3c103785fcbb"><td class="memItemLeft" align="right" valign="top"><a id="a49f2df93fc4e0472d02e3c103785fcbb"></a>
+S&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamicSegmentTree.html#a49f2df93fc4e0472d02e3c103785fcbb">get</a> (I i)</td></tr>
+<tr class="memdesc:a49f2df93fc4e0472d02e3c103785fcbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(a_i\)を返します <br /></td></tr>
+<tr class="separator:a49f2df93fc4e0472d02e3c103785fcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a1cd531b611a1e86ba61a926199ab40"><td class="memItemLeft" align="right" valign="top"><a id="a4a1cd531b611a1e86ba61a926199ab40"></a>
+S&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamicSegmentTree.html#a4a1cd531b611a1e86ba61a926199ab40">prod</a> (I l, I r)</td></tr>
+<tr class="memdesc:a4a1cd531b611a1e86ba61a926199ab40"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(\mathrm{op}(a[l],...,a[r-1])\)を返します <br /></td></tr>
+<tr class="separator:a4a1cd531b611a1e86ba61a926199ab40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad57b950f5fefb73df0f2fe60f6399ba2"><td class="memItemLeft" align="right" valign="top"><a id="ad57b950f5fefb73df0f2fe60f6399ba2"></a>
-S&#160;</td><td class="memItemRight" valign="bottom"><b>all_prod</b> ()</td></tr>
+S&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDynamicSegmentTree.html#ad57b950f5fefb73df0f2fe60f6399ba2">all_prod</a> ()</td></tr>
+<tr class="memdesc:ad57b950f5fefb73df0f2fe60f6399ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(\mathrm{op}(a[\mathrm{begin}],...,a[\mathrm{end}-1])\)を返します <br /></td></tr>
 <tr class="separator:ad57b950f5fefb73df0f2fe60f6399ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af37b9077986dd25efb899071791e2e98"><td class="memTemplParams" colspan="2"><a id="af37b9077986dd25efb899071791e2e98"></a>
-template&lt;typename F &gt; </td></tr>
-<tr class="memitem:af37b9077986dd25efb899071791e2e98"><td class="memTemplItemLeft" align="right" valign="top">X&#160;</td><td class="memTemplItemRight" valign="bottom"><b>max_right</b> (X l, F f)</td></tr>
-<tr class="separator:af37b9077986dd25efb899071791e2e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd744f1d1ba3782c63c23494b156e81c"><td class="memTemplParams" colspan="2"><a id="abd744f1d1ba3782c63c23494b156e81c"></a>
-template&lt;typename F &gt; </td></tr>
-<tr class="memitem:abd744f1d1ba3782c63c23494b156e81c"><td class="memTemplItemLeft" align="right" valign="top">X&#160;</td><td class="memTemplItemRight" valign="bottom"><b>min_left</b> (X r, F f)</td></tr>
-<tr class="separator:abd744f1d1ba3782c63c23494b156e81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf2043e5eaf7a59f8b5ed0c1a8c99364"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:acf2043e5eaf7a59f8b5ed0c1a8c99364"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynamicSegmentTree.html#acf2043e5eaf7a59f8b5ed0c1a8c99364">max_right</a> (I l, F f)</td></tr>
+<tr class="memdesc:acf2043e5eaf7a59f8b5ed0c1a8c99364"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(f\)が単調な時, \(f(\mathrm{op}(a[l],...,a[r-1])) = \mathrm{true}\)となる最大の \(r\)を返します  <a href="classDynamicSegmentTree.html#acf2043e5eaf7a59f8b5ed0c1a8c99364">More...</a><br /></td></tr>
+<tr class="separator:acf2043e5eaf7a59f8b5ed0c1a8c99364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a719dc2668195b116aa7a16439c3604d5"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
+<tr class="memitem:a719dc2668195b116aa7a16439c3604d5"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classDynamicSegmentTree.html#a719dc2668195b116aa7a16439c3604d5">min_left</a> (I r, F f)</td></tr>
+<tr class="memdesc:a719dc2668195b116aa7a16439c3604d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(f\)が単調な時, \(f(\mathrm{op}(a[l],...,a[r-1])) = \mathrm{true}\)となる最小の \(l\)を返します  <a href="classDynamicSegmentTree.html#a719dc2668195b116aa7a16439c3604d5">More...</a><br /></td></tr>
+<tr class="separator:a719dc2668195b116aa7a16439c3604d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename S, S(*)(S, S) op, S(*)() e, typename I = int&gt;<br />
+class DynamicSegmentTree&lt; S, op, e, I &gt;</h3>
+
+<p>動的セグメント木を実装したクラスです </p>
+<p><code>T</code>型の配列 \(a\)とモノイド \((\mathrm{T}, \mathrm{op}, \mathrm{e})\)に対して,</p><ul>
+<li>要素の変更( \(a_i = \mathrm{val}\))</li>
+<li>区間 \([l, r)\)の総積 \(\mathrm{op}(a[l], ..., a[r-1])\)の取得</li>
+</ul>
+<p>を行うことができるデータ構造です. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="acf2043e5eaf7a59f8b5ed0c1a8c99364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf2043e5eaf7a59f8b5ed0c1a8c99364">&#9670;&nbsp;</a></span>max_right()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">I max_right </td>
+          <td>(</td>
+          <td class="paramtype">I&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>\(f\)が単調な時, \(f(\mathrm{op}(a[l],...,a[r-1])) = \mathrm{true}\)となる最大の \(r\)を返します </p>
+<p>\(f(a[l]) = \mathrm{false}\)ならば \(l\)を返します. </p>
+
+</div>
+</div>
+<a id="a719dc2668195b116aa7a16439c3604d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a719dc2668195b116aa7a16439c3604d5">&#9670;&nbsp;</a></span>min_left()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">I min_left </td>
+          <td>(</td>
+          <td class="paramtype">I&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>\(f\)が単調な時, \(f(\mathrm{op}(a[l],...,a[r-1])) = \mathrm{true}\)となる最小の \(l\)を返します </p>
+<p>\(f(a[r-1]) = \mathrm{false}\)ならば \(r\)を返します. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="dynamic__segment__tree_8hpp_source.html">dynamic_segment_tree.hpp</a></li>
 </ul>

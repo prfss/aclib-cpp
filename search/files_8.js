@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ordering_2ehpp_102',['ordering.hpp',['../ordering_8hpp.html',1,'']]]
+  ['rerooting_2ehpp_100',['rerooting.hpp',['../rerooting_8hpp.html',1,'']]]
 ];
