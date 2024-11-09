@@ -4,35 +4,57 @@
 
 // <---
 // name: Dynamic Segment Tree
-
-template <typename S, S (*op)(S, S), S (*e)(), typename X = int>
+/// @brief 動的セグメント木を実装したクラスです
+/// @details
+/// `T`型の配列\f$a\f$とモノイド\f$(\mathrm{T}, \mathrm{op}, \mathrm{e})\f$に対して,
+/// - 要素の変更(\f$a_i = \mathrm{val}\f$)
+/// - 区間\f$[l, r)\f$の総積\f$\mathrm{op}(a[l], ..., a[r-1])\f$の取得
+///
+/// を行うことができるデータ構造です.
+template <typename S, S (*op)(S, S), S (*e)(), typename I = int>
 class DynamicSegmentTree {
-    template <typename T>
     struct Node {
-        T val;
+        S val;
         Node *l, *r;
-        Node(T v) :
+        Node(S v) :
             val(v), l(nullptr), r(nullptr) { }
     };
 
-    Node<S>* root;
-    X min_x, max_x;
+    Node* root;
+    I begin, end;
 
-    S get_val(Node<S>* n) {
+    static S get_val(Node* n) {
         return (n == nullptr) ? e() : n->val;
     }
 
-    Node<S>* allocate() {
-        return new Node<S>(e());
+    static Node* allocate() {
+        return new Node(e());
     }
 
-    S set(long long i, S val, Node<S>* cur, X l, X r) {
+    static void deallocate_tree(Node* cur) {
+        if (cur != nullptr) {
+            deallocate_tree(cur->l);
+            deallocate_tree(cur->r);
+            delete cur;
+        }
+    }
+
+    static Node* copy(const Node* src) {
+        if (src == nullptr) return nullptr;
+        Node* n = allocate();
+        n->val = src->val;
+        n->l = copy(src->l);
+        n->r = copy(src->r);
+        return n;
+    }
+
+    S set(long long i, S val, Node* cur, I l, I r) {
         if (r - l == 1) {
             cur->val = val;
             return val;
         }
 
-        X m = l + (r - l) / 2;
+        I m = l + (r - l) / 2;
         S v;
         if (i < m) {
             if (cur->l == nullptr) cur->l = allocate();
@@ -45,66 +67,83 @@ class DynamicSegmentTree {
         return cur->val = v;
     }
 
-    S prod(X a, X b, Node<S>* cur, X l, X r) {
+    S prod(I a, I b, Node* cur, I l, I r) {
         if (b <= l or r <= a) return e();
         if (a <= l and r <= b) return cur->val;
-        X m = l + (r - l) / X(2);
-        X lv = cur->l ? prod(a, b, cur->l, l, m) : e();
-        X rv = cur->r ? prod(a, b, cur->r, m, r) : e();
+        I m = l + (r - l) / I(2);
+        I lv = cur->l ? prod(a, b, cur->l, l, m) : e();
+        I rv = cur->r ? prod(a, b, cur->r, m, r) : e();
         return op(lv, rv);
     }
 
-    void del(Node<S>* cur) {
-        if (cur != nullptr) {
-            del(cur->l);
-            del(cur->r);
-            delete cur;
-        }
-    }
-
 public:
-    DynamicSegmentTree(X l, X r) :
-        min_x(l), max_x(r) {
-        root = allocate();
+    /// @brief \f$[\mathrm{begin}, \mathrm{end})\f$の範囲を持つ配列\f$a\f$を構築します
+    DynamicSegmentTree(I begin, I end) :
+        root(allocate()),
+        begin(begin),
+        end(end) {
     }
 
-    DynamicSegmentTree(const DynamicSegmentTree<S, op, e>&& other) :
-        min_x(other.min_x), max_x(other.max_x), root(other.root) {
-        other.root = nullptr;
+    DynamicSegmentTree(const DynamicSegmentTree<S, op, e, I>& other) :
+        root(copy(other.root)), begin(other.begin), end(other.end) {
     }
 
-    DynamicSegmentTree<S, op, e>* operator=(const DynamicSegmentTree<S, op, e>&& other) {
-        min_x = other.min_x;
-        max_x = other.max_x;
+    DynamicSegmentTree<S, op, e, I>& operator=(const DynamicSegmentTree<S, op, e, I>& other) {
+        if (this != &other) {
+            deallocate_tree(root);
+            root = copy(other.root);
+            begin = other.begin;
+            end = other.end;
+        }
+        return *this;
+    }
+
+    DynamicSegmentTree(DynamicSegmentTree<S, op, e, I>&& other) noexcept :
+        root(other.root), begin(other.begin), end(other.end) {
+        other.root = allocate();
+    }
+
+    DynamicSegmentTree<S, op, e, I>& operator=(DynamicSegmentTree<S, op, e, I>&& other) noexcept {
+        deallocate_tree(root);
+        begin = other.begin;
+        end = other.end;
         root = other.root;
-        other.root = nullptr;
+        other.root = allocate();
+
+        return *this;
     }
 
     ~DynamicSegmentTree() {
-        del(root);
+        deallocate_tree(root);
     }
 
-    void set(X i, S val) {
-        set(i, val, root, min_x, max_x + 1);
+    /// @brief \f$a_i\f$に\f$\mathrm{val}\f$を代入します
+    void set(I i, S val) {
+        set(i, val, root, begin, end);
     }
 
-    S get(X i) {
-        return prod(i, i + 1, root, min_x, max_x + 1);
+    /// @brief \f$a_i\f$を返します
+    S get(I i) {
+        return prod(i, i + 1, root, begin, end);
     }
 
-    S prod(X l, X r) {
-        return prod(l, r, root, min_x, max_x + 1);
+    /// @brief \f$\mathrm{op}(a[l],...,a[r-1])\f$を返します
+    S prod(I l, I r) {
+        return prod(l, r, root, begin, end);
     }
 
+    /// @brief \f$\mathrm{op}(a[\mathrm{begin}],...,a[\mathrm{end}-1])\f$を返します
     S all_prod() {
-        return prod(min_x, max_x + 1);
+        return prod(begin, end);
     }
 
+    /// @brief \f$f\f$が単調な時,\f$f(\mathrm{op}(a[l],...,a[r-1])) = \mathrm{true}\f$となる最大の\f$r\f$を返します
+    /// @details \f$f(a[l]) = \mathrm{false}\f$ならば\f$l\f$を返します.
     template <typename F>
-    X max_right(X l, F f) {
-        X x = l, y = max_x + 2;
+    I max_right(I l, F f) {
+        I x = l, y = end + 1;
         while (y - x > 1) {
-            X m = x + (y - x) / 2;
+            I m = x + (y - x) / 2;
             if (f(prod(l, m)))
                 x = m;
             else
@@ -114,11 +153,13 @@ public:
         return x;
     }
 
+    /// @brief \f$f\f$が単調な時,\f$f(\mathrm{op}(a[l],...,a[r-1])) = \mathrm{true}\f$となる最小の\f$l\f$を返します
+    /// @details \f$f(a[r-1]) = \mathrm{false}\f$ならば\f$r\f$を返します.
     template <typename F>
-    X min_left(X r, F f) {
-        X x = min_x - 1, y = r;
+    I min_left(I r, F f) {
+        I x = begin - 1, y = r;
         while (y - x > 1) {
-            X m = x + (y - x) / 2;
+            I m = y - (y - x) / 2;
             if (f(prod(m, r)))
                 y = m;
             else
