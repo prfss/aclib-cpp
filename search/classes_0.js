@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['boolarray_71',['BoolArray',['../classBoolArray.html',1,'']]]
+  ['comb_51',['Comb',['../structComb.html',1,'']]]
 ];

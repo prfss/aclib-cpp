@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['kitamasa_114',['kitamasa',['../kitamasa_8hpp.html#abf8875996404c85349be44bf27478b83',1,'kitamasa.hpp']]],
-  ['kmp_5fsearch_115',['kmp_search',['../kmp_8hpp.html#a5c222a90b80cd57df62e9cc32808d603',1,'kmp.hpp']]]
+  ['operator_28_29_87',['operator()',['../structDynamicComb.html#a4e0474cee48c8d7b42fc342437134c82',1,'DynamicComb::operator()()'],['../classLca.html#a463094b7a23699713ef57e12680ff2b8',1,'Lca::operator()()'],['../classLiChaoTree.html#a108ce566a024be8bade8b87b0deff599',1,'LiChaoTree::operator()()']]]
 ];

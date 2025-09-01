@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['comb_72',['Comb',['../structComb.html',1,'']]],
-  ['cumulativesum2d_73',['CumulativeSum2D',['../structCumulativeSum2D.html',1,'']]]
+  ['doubleendedpriorityqueue_52',['DoubleEndedPriorityQueue',['../structDoubleEndedPriorityQueue.html',1,'']]],
+  ['dynamiccomb_53',['DynamicComb',['../structDynamicComb.html',1,'']]]
 ];

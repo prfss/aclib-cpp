@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['get_111',['get',['../classDynamicSegmentTree.html#a49f2df93fc4e0472d02e3c103785fcbb',1,'DynamicSegmentTree']]]
+  ['lca_81',['Lca',['../classLca.html#a937cdafa7136bdb4071eea5cc0ec5f6d',1,'Lca']]],
+  ['lichaotree_82',['LiChaoTree',['../classLiChaoTree.html#a569562a0f03c1eaf85aef2ab1b747596',1,'LiChaoTree']]]
 ];

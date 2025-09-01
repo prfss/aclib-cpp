@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['boolarray_104',['BoolArray',['../classBoolArray.html#a4d763de506fabc24d962bbc89ec1061a',1,'BoolArray']]]
+  ['divisor_73',['divisor',['../number__theory_8hpp.html#a55dcebe085641d1177b664bb7ac221a7',1,'number_theory.cpp']]],
+  ['dynamiccomb_74',['DynamicComb',['../structDynamicComb.html#aff3d7feecfb0853a411c699de163f9b9',1,'DynamicComb']]]
 ];

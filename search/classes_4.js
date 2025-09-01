@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lca_79',['Lca',['../classLca.html',1,'']]],
-  ['lichaotree_80',['LiChaoTree',['../classLiChaoTree.html',1,'']]]
+  ['matrix_58',['Matrix',['../classMatrix.html',1,'']]],
+  ['monotonicconvexhulltrick_59',['MonotonicConvexHullTrick',['../classMonotonicConvexHullTrick.html',1,'']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['cumulativesum2d_105',['CumulativeSum2D',['../structCumulativeSum2D.html#ab29a706a0859f92012d59c2d4fd333ed',1,'CumulativeSum2D']]]
+  ['empty_75',['empty',['../structDoubleEndedPriorityQueue.html#a644718bb2fb240de962dc3c9a1fdf0dc',1,'DoubleEndedPriorityQueue']]],
+  ['extgcd_76',['extgcd',['../number__theory_8hpp.html#ae855dc441f994fd985bd28ab8d675155',1,'number_theory.hpp']]]
 ];
